@@ -1,437 +1,151 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8" />
 
     <title>Jonghae Park</title>
+    <meta name="author" content="Jonghae Park" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="author" content="Jonghae Park">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <!-- favicon (optional) -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
+
+    <!-- use the existing stylesheet from the template -->
+    <link rel="stylesheet" href="stylesheet.css" />
+
+    <style>
+      /* Minimal tweaks (safe even without stylesheet.css) */
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; }
+      .name { font-size: 36px; font-weight: 700; margin: 0 0 8px 0; }
+      .links a { text-decoration: none; }
+      .papertitle { font-weight: 700; }
+      .container { width: 100%; max-width: 800px; margin: 0 auto; }
+      .muted { color: #666; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #fff3c6; font-size: 12px; margin-left: 6px; }
+      img.round { border-radius: 50%; object-fit: cover; width: 100%; max-width: 100%; }
+      hr { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+      .pubthumb { width: 160px; }
+      table { border-collapse: separate; border-spacing: 0 10px; }
+    </style>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Jonghae Park
-                </p>
+    <table class="container"><tbody>
+      <!-- Header -->
+      <tr>
+        <td>
+          <table style="width:100%;"><tbody>
+            <tr>
+              <!-- Left: intro -->
+              <td style="padding:16px; width:63%; vertical-align:middle;">
+                <p class="name" style="text-align:center;">Jonghae Park</p>
+                <p class="muted" style="text-align:center; margin-top:-6px;">Researcher &nbsp;•&nbsp; Computer Vision / ML</p>
                 <p>
-		I'm a research scientist at <a href="https://deepmind.google/">Google DeepMind</a> in San Francisco, where I lead a small team that mostly works on <a href="https://www.matthewtancik.com/nerf">NeRF</a>.
-		At Google I've worked on <a href="https://www.google.com/glass/start/">Glass</a>,  <a href="https://ai.googleblog.com/2014/04/lens-blur-in-new-google-camera-app.html">Lens Blur</a>, <a href="https://ai.googleblog.com/2014/10/hdr-low-light-and-high-dynamic-range.html">HDR+</a>, <a href="https://blog.google/products/google-ar-vr/introducing-next-generation-jump/">VR</a>, <a href="https://ai.googleblog.com/2017/10/portrait-mode-on-pixel-2-and-pixel-2-xl.html">Portrait Mode</a>, <a href="https://ai.googleblog.com/2020/12/portrait-light-enhancing-portrait.html">Portrait Light</a>, <a href="https://blog.google/products/maps/three-maps-updates-io-2022/">Maps</a>, and <a href="https://research.google/blog/bringing-3d-shoppable-products-online-with-generative-ai/">Shopping</a>.
-		I did my PhD at <a href="http://www.eecs.berkeley.edu/">UC Berkeley</a>, where I was advised by <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>.
-		I've received the <a href="https://www.thecvf.com/?page_id=413#YRA">PAMI Young Researcher Award</a>.
+                  I am a researcher interested in computer vision and machine learning (NeRF / 3D vision, diffusion models, robust view synthesis, etc.).
+                  My current work focuses on learning-based 3D reconstruction and generative modeling.
                 </p>
-                <p style="text-align:center">
-                  <a href="mailto:jonbarron@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/JonBarron-CV.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/jonbarron/">Github</a>
+                <p class="links" style="text-align:center;">
+                  <!-- TODO: replace with your real links -->
+                  <a href="mailto:your_email@domain.com">Email</a> &nbsp;/&nbsp;
+                  <a href="data/JonghaePark-CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=XXXX">Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://github.com/jonghaepark">GitHub</a> &nbsp;/&nbsp;
+                  <a href="https://x.com/">Twitter</a>
                 </p>
               </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/JonBarron.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/JonBarron.jpg" class="hoverZoomLink"></a>
+              <!-- Right: profile image -->
+              <td style="padding:16px; width:37%; max-width:37%;">
+                <!-- Put your profile image at images/jonghae.jpg -->
+                <a href="images/jonghae.jpg"><img src="images/jonghae.jpg" alt="profile photo" class="round" /></a>
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
+
+          <hr />
+
+          <!-- Research summary -->
+          <table style="width:100%;"><tbody>
+            <tr>
+              <td style="padding:8px;">
                 <h2>Research</h2>
                 <p>
-                  I'm interested in computer vision, deep learning, generative AI, and image processing. Most of my research is about inferring the physical world (shape, motion, color, light, etc) from images, usually with radiance fields. Some papers are <span class="highlight">highlighted</span>.
+                  I study neural rendering, radiance fields, and generative models for 3D perception. I enjoy building systems that are both
+                  <em>accurate</em> and <em>fast</em>, and I care about anti-aliasing, consistency, and faithful geometry/material recovery.
                 </p>
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+          <!-- Publications (keep it simple) -->
+          <table style="width:100%;"><tbody>
 
-
-
-            <tr onmouseout="pnf_stop()" onmouseover="pnf_start()">
-            <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one">
-            <div class="two" id='pnf_image'>
-              <img src='images/pnf_before.jpg' width="160"></div>
-            <img src='images/pnf_after.jpg' width="160">
-            </div>
-            <script type="text/javascript">
-            function pnf_start() {
-              document.getElementById('pnf_image').style.opacity = "1";
-            }
-
-            function pnf_stop() {
-              document.getElementById('pnf_image').style.opacity = "0";
-            }
-            pnf_stop()
-            </script>
-            </td>
-            <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="TODO">
-            <span class="papertitle">Polynomial Neural Fields for Subband Decomposition</span>
-            </a> <br>
-            <a href="https://www.guandaoyang.com/">Guandao Yang*</a>,
-            <a href="https://sagiebenaim.github.io/">Sagie Benaim*</a>,
-            <a href="https://varunjampani.github.io/">Varun Jampani</a>,
-            <a href="https://www.kylegenova.com/">Kyle Genova</a>,
-            <strong>Jonathan T. Barron</strong>,
-            <a href="https://www.cs.princeton.edu/~funk/">Thomas Funkhouser</a>,
-            <a href="http://home.bharathh.info/">Bharath Hariharan</a>,
-            <a href="https://sergebelongie.github.io/">Serge Belongie</a>
-            <br>
-            <em>NeurIPS</em>, 2022
-            <p>
-            Representing neural fields as a composition of manipulable and interpretable components lets you do things like reason about frequencies and scale.
-            </p>
-            </td>
-            </tr> 
-
-
-            <tr onmouseout="malle_stop()" onmouseover="malle_start()">
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='malle_image'>
-                    <img src='images/MalleConv_after.jpg' width="160"></div>
-                  <img src='images/MalleConv_before.jpg' width="160">
-                </div>
-                <script type="text/javascript">
-                  function malle_start() {
-                    document.getElementById('malle_image').style.opacity = "1";
-                  }
-
-                  function malle_stop() {
-                    document.getElementById('malle_image').style.opacity = "0";
-                  }
-                  malle_stop()
-                </script>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://yifanjiang.net/MalleConv.html">
-                  <span class="papertitle">Fast and High-Quality Image Denoising via Malleable Convolutions</span>
-                </a>
-                <br>
-                <a href="https://yifanjiang.net/">Yifan Jiang</a>,
-                <a href="https://bartwronski.com/">Bartlomiej Wronski</a>, 
-                <a href="https://bmild.github.io/">Ben Mildenhall</a>, <br>
-                <strong>Jonathan T. Barron</strong>,
-                <a href="https://spark.adobe.com/page/CAdrFMJ9QeI2y/">Zhangyang Wang</a>,
-                <a href="https://tianfan.info/">Tianfan Xue</a>
-                <br>
-                <em>ECCV</em>, 2022
-                <br>
-                <a href="https://yifanjiang.net/MalleConv.html">project page</a>
-                /
-                <a href="https://arxiv.org/abs/2201.00392">arXiv</a>
-                <p></p>
-                <p>
-                We denoise images efficiently by predicting spatially-varying kernels at low resolution and using a fast fused op to jointly upsample and apply these kernels at full resolution.
-                </p>
-              </td>
-            </tr>
-            
-
-
-    <tr onmouseout="eccv12_stop()" onmouseover="eccv12_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='eccv12_image'>
-			  <a href="https://drive.google.com/file/d/1brxb58CfRPe7KEER4Q_fYS9B_J-hiS0t/view?usp=sharing">
-			  <video  width=100% muted autoplay loop>
-          <source src="images/ECCV2012_small.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video>
-	  </a></div>
-          <img src='images/ECCV2012_still.jpg' width=100%>
-        </div>
-        <script type="text/javascript">
-          function eccv12_start() {
-            document.getElementById('eccv12_image').style.opacity = "1";
-          }
-
-          function eccv12_stop() {
-            document.getElementById('eccv12_image').style.opacity = "0";
-          }
-          eccv12_stop()
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://drive.google.com/file/d/1NczR4pJ-s0YBjCe0rCevMt8IM5JPuUrc/view?usp=sharing">
-          <span class="papertitle">Color Constancy, Intrinsic Images, and Shape Estimation</span>
-        </a>
-        <br>
-        <strong>Jonathan T. Barron</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>
-        <br>
-        <em>ECCV</em>, 2012
-        <br>
-        <a href="https://drive.google.com/file/d/1zuxhWZ3i6THvuRRBeE7dM_BJfDxO72Fq/view?usp=sharing">supplement</a> /
-        <a href="data/BarronMalikECCV2012.bib">bibtex</a> /
-        <a href="https://drive.google.com/file/d/12x8mhqpFsA6p0u6ZQW-ieRKF8hlQBKKe/view?usp=sharing">poster</a> /
-        <a href="http://www.youtube.com/watch?v=NnePYprvFvA">video</a>
-        <p>This paper is subsumed by <a href="#SIRFS">SIRFS</a>.</p>
-      </td>
-    </tr>
-
-
-            <tr onmouseout="cvpr12_stop()" onmouseover="cvpr12_start()">
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <div class="one" style="height: 120px">
-                  <div class="two" id='cvpr12_image' style="height: 120px">
-                    <img src='images/BarronCVPR2012_after.jpg' style="border-style: none">
-                  </div>
-                  <img src='images/BarronCVPR2012_before.jpg' style="border-style: none">
-                </div>
-                <script type="text/javascript">
-                  function cvpr12_start() {
-                    document.getElementById('cvpr12_image').style.opacity = "1";
-                  }
-
-                  function cvpr12_stop() {
-                    document.getElementById('cvpr12_image').style.opacity = "0";
-                  }
-                  cvpr12_stop()
-                </script>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/17RfINbE2dr2EjXp9MtGO0MHJLQmQVhvT/view?usp=sharing">
-                  <span class="papertitle">Shape, Albedo, and Illumination from a Single Image of an Unknown Object</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>
-                <br>
-                <em>CVPR</em>, 2012
-                <br>
-                <a href="https://drive.google.com/file/d/1Im_bUI42AP9VPoNtsjLajvtLRiwv39k3/view?usp=sharing">supplement</a> /
-                <a href="data/BarronMalikCVPR2012.bib">bibtex</a> /
-                <a href="https://drive.google.com/file/d/1IAlSF4k3_CEL9dfbaMiNTFPBoEkLhsRl/view?usp=sharing">poster</a>
-                <p>This paper is subsumed by <a href="#SIRFS">SIRFS</a>.</p>
-              </td>
-            </tr>
-
+            <!-- ======= PAPER ITEM TEMPLATE (duplicate this block per paper) ======= -->
             <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/B3DO.jpg" alt="b3do" width="160" style="border-style: none">
+              <td style="padding:16px; width:20%; vertical-align:middle;">
+                <!-- optional thumbnail (160px wide). Put file at images/paper1.jpg -->
+                <img src="images/paper1.jpg" class="pubthumb" alt="paper thumbnail" />
               </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1_S8EQyngbHQrB415o0XkQ4V9SMzdEgWT/view?usp=sharing">
-                  <span class="papertitle">A Category-Level 3-D Object Dataset: Putting the Kinect to Work</span>
-                </a>
-                <br>
-                <a href="http://www.eecs.berkeley.edu/%7Eallie/">Allison Janoch</a>,
-                <a href="http://sergeykarayev.com/">Sergey Karayev</a>,
-                <a href="http://www.eecs.berkeley.edu/%7Ejiayq/">Yangqing Jia</a>,
-                <strong>Jonathan T. Barron</strong>,
-                <a href="http://www.cs.berkeley.edu/%7Emfritz/">Mario Fritz</a>,
-                <a href="http://www.icsi.berkeley.edu/%7Esaenko/">Kate Saenko</a>,
-                <a href="http://www.eecs.berkeley.edu/%7Etrevor/">Trevor Darrell</a>
-                <br>
-                <em>ICCV 3DRR Workshop</em>, 2011
-                <br>
-                <a href="data/B3DO_ICCV_2011.bib">bibtex</a> /
-                <a href="https://drive.google.com/file/d/1qf4-U5RhSw12O7gzQwW66SMQhs2FWYDW/view?usp=sharing">"smoothing" code</a>
-                <p>We present a large RGB-D dataset of indoor scenes and investigate ways to improve object detection using depth information.</p>
+              <td style="padding:8px; width:80%; vertical-align:middle;">
+                <a href="#"><span class="papertitle">Your Paper Title</span></a>
+                <span class="pill">highlight</span>
+                <br />
+                <strong>Jonghae Park</strong>, Coauthor A, Coauthor B
+                <br />
+                <em>Conference</em>, 2025
+                <br />
+                <a href="#">project page</a> /
+                <a href="#">arXiv</a> /
+                <a href="#">code</a>
+                <p>One-sentence summary of the method and key result.</p>
               </td>
             </tr>
+            <!-- ======= end item template ======= -->
 
+            <!-- Example (non-highlight) -->
             <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/safs.jpg" alt="safs_small" width="160" height="160" style="border-style: none">
+              <td style="padding:16px; width:20%; vertical-align:middle;">
+                <img src="images/paper2.jpg" class="pubthumb" alt="paper thumbnail" />
               </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1EZTOO5xezLYcyIFgAzs4KuZFLbTcwTDH/view?usp=sharing">
-                  <span class="papertitle">High-Frequency Shape and Albedo from Shading using Natural Image Statistics</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>
-                <br>
-                <em>CVPR</em>, 2011
-                <br>
-                <a href="data/BarronMalikCVPR2011.bib">bibtex</a>
-                <p>This paper is subsumed by <a href="#SIRFS">SIRFS</a>.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/fast_texture.jpg" alt="fast-texture" width="160" height="160">
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1rc05NatkQVmUDlGCAYcHSrvAzTpU9knT/view?usp=sharing">
-                  <span class="papertitle">Discovering Efficiency in Coarse-To-Fine Texture Classification</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://www.cs.berkeley.edu/~malik/">Jitendra Malik</a>
-                <br>
-                <em>Technical Report</em>, 2010
-                <br>
-                <a href="data/BarronTR2010.bib">bibtex</a>
-                <p>A model and feature representation that allows for sub-linear coarse-to-fine semantic segmentation.
-                </p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/prl.jpg" alt="prl" width="160" height="160">
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/13rVuJpcytRdLYCnKpq46g7B7IzSrPQ2P/view?usp=sharing">
-                  <span class="papertitle">Parallelizing Reinforcement Learning</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://www.eecs.berkeley.edu/~dsg/">Dave Golland</a>, <a href="http://www.cs.berkeley.edu/~nickjhay/">Nicholas J. Hay</a>
-                <br>
-                <em>Technical Report</em>, 2009
-                <br>
-                <a href="data/BarronPRL2009.bib">bibtex</a>
-                <p>Markov Decision Problems which lie in a low-dimensional latent space can be decomposed, allowing modified RL algorithms to run orders of magnitude faster in parallel.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/bd_promo.jpg" alt="blind-date" width="160" height="160">
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1PQjzKgFcrAesMIDJr-WDlCwuGUxZJZwO/view?usp=sharing">
-                  <span class="papertitle">Blind Date: Using Proper Motions to Determine the Ages of Historical Images</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://cosmo.nyu.edu/hogg/">David W. Hogg</a>, <a href="http://www.astro.princeton.edu/~dstn/">Dustin Lang</a>, <a href="http://cs.nyu.edu/~roweis/">Sam Roweis</a>
-                <br>
-                <em>The Astronomical Journal</em>, 136, 2008
-                <p>Using the relative motions of stars we can accurately estimate the date of origin of historical astronomical images.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/clean_promo.jpg" alt="clean-usnob" width="160" height="160">
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1YvRx-4hrZoCk-nl6OgVJZlHAqOiN5hWq/view?usp=sharing">
-                  <span class="papertitle">Cleaning the USNO-B Catalog Through Automatic Detection of Optical Artifacts</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://stumm.ca/">Christopher Stumm</a>, <a href="http://cosmo.nyu.edu/hogg/">David W. Hogg</a>, <a href="http://www.astro.princeton.edu/~dstn/">Dustin Lang</a>, <a href="http://cs.nyu.edu/~roweis/">Sam Roweis</a>
-                <br>
-                <em>The Astronomical Journal</em>, 135, 2008
-                <p>We use computer vision techniques to identify and remove diffraction spikes and reflection halos in the USNO-B Catalog.</p>
-                <p>In use at <a href="http://www.astrometry.net">Astrometry.net</a></p>
+              <td style="padding:8px; width:80%; vertical-align:middle;">
+                <a href="#"><span class="papertitle">Another Paper Title</span></a>
+                <br />
+                <strong>Jonghae Park</strong>, Coauthor C, Coauthor D
+                <br />
+                <em>Journal</em>, 2024
+                <br />
+                <a href="#">arXiv</a> /
+                <a href="#">code</a>
+                <p>Brief description of what this work accomplishes.</p>
               </td>
             </tr>
 
           </tbody></table>
 
-          
-					<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+          <hr />
+
+          <!-- Optional: Talks / Service / Teaching (delete if not needed) -->
+          <table style="width:100%;"><tbody>
             <tr>
-              <td>
-                <h2>Miscellanea</h2>
+              <td style="padding:8px;">
+                <h2>Talks</h2>
+                <ul>
+                  <li><a href="#">Title of invited talk</a>, 2025</li>
+                </ul>
               </td>
             </tr>
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            
-           
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #fcb97d;">
-								 <h2>Micropapers</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
-                <br>
-                <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
-                <br>
-                <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
-                <br>
-                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars & Big Models: How Can Academics Adapt?</a>
-              </td>
-            </tr>
 
-
+          <table style="width:100%;"><tbody>
             <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #aaba9e;">
-								 <h2>Recorded Talks</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="https://www.youtube.com/watch?v=hFlF33JZbA0">Radiance Fields and the Future of Generative Media, 2025</a><br>				  
-                <a href="https://www.youtube.com/watch?v=h9vq_65eDas">View Dependent Podcast, 2024</a><br>
-                <a href="https://www.youtube.com/watch?v=4tDhYsFuEqo">Bay Area Robotics Symposium, 2023
-</a><br>
-                <a href="https://youtu.be/TvWkwDYtBP4?t=7604">EGSR Keynote, 2021</a><br>
-				<a href="https://www.youtube.com/watch?v=nRyOzHpcr4Q">TUM AI Lecture Series, 2020</a><br>
-				<a href="https://www.youtube.com/watch?v=HfJpQCBTqZs">Vision & Graphics Seminar at MIT, 2020</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #c6b89e;">
-								 <h2>Academic Service</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="https://iccv.thecvf.com/">Lead Area Chair, ICCV 2025</a>
-                <br>
-                <a href="https://cvpr.thecvf.com/Conferences/2025/Organizers">Lead Area Chair, CVPR 2025</a>
-                <br>
-                <a href="https://cvpr.thecvf.com/Conferences/2024/Organizers">Area Chair, CVPR 2024</a>
-                <br>
-                <a href="https://cvpr2023.thecvf.com/Conferences/2023/Organizers">Demo Chair, CVPR 2023</a>
-                <br>
-                <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-                <br>
-                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
-                <br>
-                <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
-                <br>
-                <a href="http://cvpr2018.thecvf.com/organizers/area_chairs">Area Chair, CVPR 2018</a>
-              </td>
-            </tr>
-						
-						
-           
-            <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-						     <div class="colored-box" style="background-color: #edd892;">
-								 <h2>Teaching</h2>
-								 </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:center">
-                <a href="http://inst.eecs.berkeley.edu/~cs188/sp11/announcements.html">Graduate Student Instructor, CS188 Spring 2011</a>
-                <br>
-                <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">Graduate Student Instructor, CS188 Fall 2010</a>
-                <br>
-                <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
-              </td>
-            </tr>
-            
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+              <td style="padding:8px;">
+                <p class="muted" style="text-align:right; font-size:12px;">
+                  Template adapted from Jon Barron. Please do not scrape this page; use the GitHub source instead.
                 </p>
               </td>
             </tr>
           </tbody></table>
         </td>
       </tr>
-    </table>
+    </tbody></table>
   </body>
 </html>
