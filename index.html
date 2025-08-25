@@ -41,6 +41,53 @@
     </section>
 
     <h2>Publications</h2>
+    
+    <tr onmouseout="paper1_stop()" onmouseover="paper1_start()" bgcolor="#ffffd0">
+      <td style="padding:16px;width:20%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='paper1_image'>
+            <video width=100% height=100% muted autoplay loop>
+              <source src="images/paper1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <img src='images/paper1.jpg' width="160">
+        </div>
+        <script type="text/javascript">
+          function paper1_start() {
+            document.getElementById('paper1_image').style.opacity = "1";
+          }
+          function paper1_stop() {
+            document.getElementById('paper1_image').style.opacity = "0";
+          }
+          paper1_stop()
+        </script>
+      </td>
+      <td style="padding:8px;width:80%;vertical-align:middle">
+        <a href="LINK_TO_PROJECT_PAGE">
+          <span class="papertitle">[논문 제목을 여기에]</span>
+        </a>
+        <br>
+        <!-- 저자들 이름과 링크 -->
+        <a href="#">First Author</a>, 
+        <a href="#">Second Author</a>, 
+        <strong>Jonghae Park</strong>, 
+        <a href="#">Last Author</a>
+        <br>
+        <em>Conference/Journal Name</em>, Year
+        <br>
+        <a href="LINK_TO_PROJECT_PAGE">project page</a> /
+        <a href="LINK_TO_ARXIV">arXiv</a> /
+        <a href="LINK_TO_CODE">code</a>
+        <p></p>
+        <p>
+          [간단한 설명 문구를 여기에 작성하세요. 예: 
+          "We propose a novel unsupervised framework for periodic skill discovery in reinforcement learning."]
+        </p>
+      </td>
+    </tr>
+
+
     <ul class="pub">
       <!-- ===== Add your papers below. One <li> per paper. Keep it short. ===== -->
       <li>
