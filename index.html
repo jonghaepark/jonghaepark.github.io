@@ -91,8 +91,12 @@
             <strong>Jonghae Park</strong>,
             <a href="#">Second Author</a>,
             <a href="#">Last Author</a>
+            <a href="#">Last Author</a>
+            <a href="#">Last Author</a>
+            <a href="#">Last Author</a>
+            <a href="#">Last Author</a>
             <br>
-            <em>Conference/Journal Name</em>, Year
+            <em>NeurIPS</em>, 2025
             <br>
             <a href="https://jonghaepark.github.io/psd">project page</a> /
             <a href="LINK_TO_ARXIV">arXiv</a> /
@@ -102,32 +106,257 @@
           </td>
         </tr>
       </tbody>
+
+
+      <tbody>
+        <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0"> -->
+        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+                <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
+                <video id="PROJECTID_video" width="100%" height="100%"
+                      muted playsinline loop preload="auto">
+                  <source src="psd/psd_video.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              // hover 시작: 재생
+              function PROJECTID_start() {
+                const v = document.getElementById('PROJECTID_video');
+                v.play().catch(()=>{});
+              }
+              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+              function PROJECTID_stop() {
+                const v = document.getElementById('PROJECTID_video');
+                v.pause();
+                v.currentTime = 0;
+              }
+              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
+              (function(){
+                const v = document.getElementById('PROJECTID_video');
+                v.addEventListener('loadeddata', () => {
+                  v.pause();
+                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                }, { once:true });
+              })();
+            </script>
+          </td>
+
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="LINK_TO_PROJECT_PAGE">
+              <span class="papertitle">EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering</span>
+            </a>
+            <br>
+            <a href="#">Inkyu Jang</a>,
+            <strong>Jonghae Park</strong>,
+            <a href="#">Chams E. Mballo</a>
+            <a href="#">Sihyun Cho</a>
+            <a href="#">Claire J. Tomlin</a>
+            <a href="#">H. Jin Kim</a>
+            <br>
+            <em>CoRL Workshop</em>, 2025
+            <br>
+            <a href="#">project page</a> /
+            <a href="#">arXiv</a> /
+            <a href="#">code</a>
+            <p></p>
+            <p>I love Mujoco Env</p>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0"> -->
+        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+                <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
+                <video id="PROJECTID_video" width="100%" height="100%"
+                      muted playsinline loop preload="auto">
+                  <source src="psd/psd_video.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              // hover 시작: 재생
+              function PROJECTID_start() {
+                const v = document.getElementById('PROJECTID_video');
+                v.play().catch(()=>{});
+              }
+              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+              function PROJECTID_stop() {
+                const v = document.getElementById('PROJECTID_video');
+                v.pause();
+                v.currentTime = 0;
+              }
+              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
+              (function(){
+                const v = document.getElementById('PROJECTID_video');
+                v.addEventListener('loadeddata', () => {
+                  v.pause();
+                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                }, { once:true });
+              })();
+            </script>
+          </td>
+
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="LINK_TO_PROJECT_PAGE">
+              <span class="papertitle">EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering</span>
+            </a>
+            <br>
+            <a href="#">Inkyu Jang</a>,
+            <strong>Jonghae Park</strong>,
+            <a href="#">Chams E. Mballo</a>
+            <a href="#">Sihyun Cho</a>
+            <a href="#">Claire J. Tomlin</a>
+            <a href="#">H. Jin Kim</a>
+            <br>
+            <em>CoRL Workshop</em>, 2025
+            <br>
+            <a href="#">project page</a> /
+            <a href="#">arXiv</a> /
+            <a href="#">code</a>
+            <p></p>
+            <p>I love Mujoco Env</p>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0"> -->
+        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+                <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
+                <video id="PROJECTID_video" width="100%" height="100%"
+                      muted playsinline loop preload="auto">
+                  <source src="psd/psd_video.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              // hover 시작: 재생
+              function PROJECTID_start() {
+                const v = document.getElementById('PROJECTID_video');
+                v.play().catch(()=>{});
+              }
+              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+              function PROJECTID_stop() {
+                const v = document.getElementById('PROJECTID_video');
+                v.pause();
+                v.currentTime = 0;
+              }
+              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
+              (function(){
+                const v = document.getElementById('PROJECTID_video');
+                v.addEventListener('loadeddata', () => {
+                  v.pause();
+                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                }, { once:true });
+              })();
+            </script>
+          </td>
+
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="LINK_TO_PROJECT_PAGE">
+              <span class="papertitle">EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering</span>
+            </a>
+            <br>
+            <a href="#">Inkyu Jang</a>,
+            <strong>Jonghae Park</strong>,
+            <a href="#">Chams E. Mballo</a>
+            <a href="#">Sihyun Cho</a>
+            <a href="#">Claire J. Tomlin</a>
+            <a href="#">H. Jin Kim</a>
+            <br>
+            <em>CoRL Workshop</em>, 2025
+            <br>
+            <a href="#">project page</a> /
+            <a href="#">arXiv</a> /
+            <a href="#">code</a>
+            <p></p>
+            <p>I love Mujoco Env</p>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0"> -->
+        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+                <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
+                <video id="PROJECTID_video" width="100%" height="100%"
+                      muted playsinline loop preload="auto">
+                  <source src="psd/psd_video.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <script type="text/javascript">
+              // hover 시작: 재생
+              function PROJECTID_start() {
+                const v = document.getElementById('PROJECTID_video');
+                v.play().catch(()=>{});
+              }
+              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+              function PROJECTID_stop() {
+                const v = document.getElementById('PROJECTID_video');
+                v.pause();
+                v.currentTime = 0;
+              }
+              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
+              (function(){
+                const v = document.getElementById('PROJECTID_video');
+                v.addEventListener('loadeddata', () => {
+                  v.pause();
+                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                }, { once:true });
+              })();
+            </script>
+          </td>
+
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="LINK_TO_PROJECT_PAGE">
+              <span class="papertitle">EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering</span>
+            </a>
+            <br>
+            <a href="#">Inkyu Jang</a>,
+            <strong>Jonghae Park</strong>,
+            <a href="#">Chams E. Mballo</a>
+            <a href="#">Sihyun Cho</a>
+            <a href="#">Claire J. Tomlin</a>
+            <a href="#">H. Jin Kim</a>
+            <br>
+            <em>CoRL Workshop</em>, 2025
+            <br>
+            <a href="#">project page</a> /
+            <a href="#">arXiv</a> /
+            <a href="#">code</a>
+            <p></p>
+            <p>I love Mujoco Env</p>
+          </td>
+        </tr>
+      </tbody>
+
     </table>
 
     
 
-    <ul class="pub">
-      <!-- ===== Add your papers below. One <li> per paper. Keep it short. ===== -->
-      <li>
-        <strong></strong><br/>
-        <em>Conference</em> — with A. Coauthor, B. Coauthor
-        <br/>
-        <small><a href="#">arXiv</a> · <a href="#">code</a> · <a href="#">project</a></small>
-      </li>
-      <li>
-        <!-- <strong>EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering</strong><br/> -->
-        <em>CoRL 2025 Workshop</em> — with A. Coauthor
-        <br/>
-        <small><a href="#">arXiv</a></small>
-      </li>
-      <li>
-        <!-- <strong>Unifying What and How: Distilling a Pre-trained Unified Skill Representation for Efficient Adaptation</strong><br/> -->
-        <em>CoRL 2025 Workshop</em> — with A. Coauthor
-        <br/>
-        <small><a href="#">arXiv</a></small>
-      </li>
-      <!-- ================================================================ -->
-    </ul>
+
 
 
     <h2>Education</h2>
