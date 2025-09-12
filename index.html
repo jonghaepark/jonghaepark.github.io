@@ -50,9 +50,9 @@
         <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">   -->
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
-              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+              <div class="two" id="psd_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
                 <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
-                <video id="PROJECTID_video" width="100%" height="100%"
+                <video id="psd_video" width="100%" height="100%"
                       muted playsinline loop preload="auto">
                   <source src="psd/psd_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
@@ -63,18 +63,18 @@
             <script type="text/javascript">
               // hover 시작: 재생
               function PROJECTID_start() {
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('psd_video');
                 v.play().catch(()=>{});
               }
               // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
               function PROJECTID_stop() {
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('psd_video');
                 v.pause();
                 v.currentTime = 0;
               }
               // 초기 로드 시 첫 프레임 정지 상태로 보이도록
               (function(){
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('psd_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
                   v.currentTime = 0; // 첫 프레임을 썸네일처럼
@@ -112,9 +112,9 @@
         <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
-              <div class="two" id="PROJECTID_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
+              <div class="two" id="eigensafe_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
                 <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
-                <video id="PROJECTID_video" width="100%" height="100%"
+                <video id="eigensafe_video" width="100%" height="100%"
                       muted playsinline loop preload="auto">
                   <source src="eigensafe/eigensafe_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
@@ -125,18 +125,18 @@
             <script type="text/javascript">
               // hover 시작: 재생
               function PROJECTID_start() {
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('eigensafe_video');
                 v.play().catch(()=>{});
               }
               // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
               function PROJECTID_stop() {
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('eigensafe_video');
                 v.pause();
                 v.currentTime = 0;
               }
               // 초기 로드 시 첫 프레임 정지 상태로 보이도록
               (function(){
-                const v = document.getElementById('PROJECTID_video');
+                const v = document.getElementById('eigensafe_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
                   v.currentTime = 0; // 첫 프레임을 썸네일처럼
