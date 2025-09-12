@@ -128,18 +128,18 @@
                 const v = document.getElementById('eigensafe_video');
                 v.play().catch(()=>{});
               }
-              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+              // hover 끝: 일시정지 + 마지막 프레임으로 되감기 (썸네일처럼 유지)
               function eigensafe_stop() {
                 const v = document.getElementById('eigensafe_video');
                 v.pause();
-                v.currentTime = 0;
+                v.currentTime = Math.max(0, v.duration - 0.05);;
               }
               // 초기 로드 시 첫 프레임 정지 상태로 보이도록
               (function(){
                 const v = document.getElementById('eigensafe_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
-                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                  v.currentTime = Math.max(0, v.duration - 0.05);; // 마지막 프레임을 썸네일처럼
                 }, { once:true });
               })();
             </script>
