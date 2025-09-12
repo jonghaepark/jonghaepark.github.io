@@ -46,7 +46,7 @@
     <h2>Publications</h2>
     <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;">
       <tbody>
-        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0">
+        <tr onmouseout="psd_stop()" onmouseover="psd_start()" bgcolor="#ffffd0">
         <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">   -->
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
@@ -62,12 +62,12 @@
 
             <script type="text/javascript">
               // hover 시작: 재생
-              function PROJECTID_start() {
+              function psd_start() {
                 const v = document.getElementById('psd_video');
                 v.play().catch(()=>{});
               }
               // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
-              function PROJECTID_stop() {
+              function psd_stop() {
                 const v = document.getElementById('psd_video');
                 v.pause();
                 v.currentTime = 0;
@@ -109,7 +109,7 @@
 
       <tbody>
         <!-- <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()" bgcolor="#ffffd0"> -->
-        <tr onmouseout="PROJECTID_stop()" onmouseover="PROJECTID_start()">  
+        <tr onmouseout="eigensafe_stop()" onmouseover="eigensafe_start()">  
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
               <div class="two" id="eigensafe_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
@@ -124,12 +124,12 @@
 
             <script type="text/javascript">
               // hover 시작: 재생
-              function PROJECTID_start() {
+              function eigensafe_start() {
                 const v = document.getElementById('eigensafe_video');
                 v.play().catch(()=>{});
               }
               // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
-              function PROJECTID_stop() {
+              function eigensafe_stop() {
                 const v = document.getElementById('eigensafe_video');
                 v.pause();
                 v.currentTime = 0;
@@ -167,9 +167,6 @@
           </td>
         </tr>
       </tbody>
-
-
-
     </table>
 
     
