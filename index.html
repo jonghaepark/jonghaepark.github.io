@@ -203,7 +203,7 @@
                 const v = document.getElementById('CQM_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
-                  v.currentTime = Math.max(0, v.duration - 0.05);
+                  v.currentTime = 0
                 }, { once:true });
               })();
             </script>
