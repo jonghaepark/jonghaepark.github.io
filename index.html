@@ -129,12 +129,12 @@
 
             <script type="text/javascript">
               // hover 시작: 재생
-              function eigensafe_start() {
+              function eigensafe_stop() {
                 const v = document.getElementById('eigensafe_video');
                 v.play().catch(()=>{});
               }
               // hover 끝: 일시정지 + 마지막 프레임으로 되감기 (썸네일처럼 유지)
-              function eigensafe_stop() {
+              function eigensafe_start() {
                 const v = document.getElementById('eigensafe_video');
                 v.pause();
                 v.currentTime = Math.max(0, v.duration - 0.05);;
@@ -190,12 +190,12 @@
             </div>
 
             <script type="text/javascript">
-              function CQM_start() {
+              function CQM_stop() {
                 const v = document.getElementById('CQM_video');
                 v.playbackRate = 1.75;   // 배속 설정
                 v.play().catch(()=>{});
               }
-              function CQM_stop() {
+              function CQM_start() {
                 const v = document.getElementById('CQM_video');
                 v.pause();
                 v.currentTime = Math.max(0, v.duration - 0.05);
