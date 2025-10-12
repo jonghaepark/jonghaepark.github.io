@@ -124,13 +124,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We propose <b>Periodic Skill Discovery (PSD)</b>, an unsupervised objective for discovering
-            periodic behaviors in reinforcement learning. PSD trains a family of encoders
-            \(\{\phi_L\}\) that embed states onto a circle so that temporal progression corresponds to angular
-            motion, enabling multi-timescale periodicity. The objective encourages state displacement
-            at period \(L\) while regularizing antipodal collapse, together with Lipschitz-style constraints
-            for local steps. PSD yields interpretable circular latents and discovers robust periodic skills
-            across diverse continuous-control tasks.
+            Unsupervised skill discovery in reinforcement learning (RL) aims to learn diverse behaviors without relying on external rewards. However, current methods often overlook the periodic nature of learned skills, focusing instead on increasing the mutual dependency between states and skills or maximizing the distance traveled in latent space. Considering that many robotic tasks—particularly those involving locomotion—require periodic behaviors across varying timescales, the ability to discover diverse periodic skills is essential. Motivated by this, we propose <b>Periodic Skill Discovery (PSD)</b>, a framework that discovers periodic behaviors in an unsupervised manner. The key idea of PSD is to train an encoder that maps states to a circular latent space, thereby naturally encoding periodicity in the latent representation. By capturing temporal distance, PSD can effectively learn skills with diverse periods in complex robotic tasks, even with pixel-based observations. We further show that these learned skills achieve high performance on downstream tasks such as hurdling. Moreover, integrating PSD with an existing skill discovery method offers more diverse behaviors, thus broadening the agent’s repertoire.
+            Our demos are available at https://jonghaepark.github.io/psd/
           </p>
         </div>
       </div>
