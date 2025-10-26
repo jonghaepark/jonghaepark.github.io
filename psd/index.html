@@ -73,6 +73,26 @@
     @media (max-width: 768px) {
       .btn-pill { font-size: 15px; padding: 9px 16px; }
     }
+    
+    /* 비디오 위 반투명 배경 제거 */
+    video {
+      background: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Bulma나 tiny-slider가 덧씌운 반투명 오버레이 제거 */
+    .tns-slide video::before,
+    .media-card::before {
+      content: none !important;
+    }
+
+    /* 혹시 hover 시 밝아지는 효과가 있다면 무효화 */
+    video:hover {
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
   </style>
 
 
