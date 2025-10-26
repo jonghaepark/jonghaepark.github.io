@@ -29,98 +29,98 @@
   <!-- Author Added -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
-<style>
-  /* ===== 비디오 카드 ===== */
-  .media-card {
-    margin: 0;
-    position: relative;
-  }
-  .media-card video {
-    width: 100%;
-    display: block;
-    border-radius: 16px;
-    box-shadow: 0 12px 28px rgba(0,0,0,.18);
-    background: #000;
-    position: relative;
-    z-index: 1;
-  }
-  .caption {
-    margin-top: 8px;
-    text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.2;
-    color: #5a5a5a;
-  }
+  <style>
+    /* ===== 비디오 카드 ===== */
+    .media-card {
+      margin: 0;
+      position: relative;
+    }
+    .media-card video {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      background: #000;
+      position: relative;
+      z-index: 1;
+    }
+    .caption {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: #5a5a5a;
+    }
 
-  /* ===== 캐러셀 ===== */
-  .results-carousel {
-    position: relative;
-    overflow: visible !important;
-  }
-  .results-carousel .tns-outer {
-    position: relative;
-    overflow: visible;
-  }
+    /* ===== 캐러셀 ===== */
+    .results-carousel {
+      position: relative;
+      overflow: visible !important;
+    }
+    .results-carousel .tns-outer {
+      position: relative;
+      overflow: visible;
+    }
 
-  /* ===== 컨트롤 버튼 (화살표) ===== */
-  .tns-outer .tns-controls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%; /* ← 비디오 높이 기준으로 맞추기 */
-    display: flex;
-    align-items: center; /* ← 정확히 세로 중앙 맞춤 */
-    justify-content: space-between;
-    pointer-events: none;
-    z-index: 50;
-  }
+    /* ===== 컨트롤 버튼 (화살표) ===== */
+    .tns-outer .tns-controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%; /* ← 비디오 높이 기준으로 맞추기 */
+      display: flex;
+      align-items: center; /* ← 정확히 세로 중앙 맞춤 */
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 50;
+    }
 
-  .tns-outer .tns-controls button {
-    pointer-events: auto;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 28px;
-    line-height: 1;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    transition: background 0.2s ease;
-    position: relative;
-  }
-  .tns-outer .tns-controls button:hover {
-    background: rgba(0,0,0,0.8);
-  }
+    .tns-outer .tns-controls button {
+      pointer-events: auto;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: background 0.2s ease;
+      position: relative;
+    }
+    .tns-outer .tns-controls button:hover {
+      background: rgba(0,0,0,0.8);
+    }
 
-  /* ===== 좌우 위치를 “비디오 바깥쪽”으로 ===== */
-  .tns-outer .tns-controls [data-controls="prev"] {
-    transform: translateX(-80px); /* 왼쪽 바깥 */
-  }
-  .tns-outer .tns-controls [data-controls="next"] {
-    transform: translateX(80px); /* 오른쪽 바깥 */
-  }
-
-  /* ===== 반응형 조정 ===== */
-  @media (max-width: 768px) {
+    /* ===== 좌우 위치를 “비디오 바깥쪽”으로 ===== */
     .tns-outer .tns-controls [data-controls="prev"] {
-      transform: translateX(-45px);
+      transform: translateX(-80px); /* 왼쪽 바깥 */
     }
     .tns-outer .tns-controls [data-controls="next"] {
-      transform: translateX(45px);
+      transform: translateX(80px); /* 오른쪽 바깥 */
     }
-    .tns-outer .tns-controls button {
-      width: 44px;
-      height: 44px;
-      font-size: 22px;
+
+    /* ===== 반응형 조정 ===== */
+    @media (max-width: 768px) {
+      .tns-outer .tns-controls [data-controls="prev"] {
+        transform: translateX(-45px);
+      }
+      .tns-outer .tns-controls [data-controls="next"] {
+        transform: translateX(45px);
+      }
+      .tns-outer .tns-controls button {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+      }
     }
-  }
-</style>
+  </style>
 
 
 
