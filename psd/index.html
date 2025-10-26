@@ -22,27 +22,19 @@
 
   <!-- JS -->
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
   <!-- Author Added -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
   <style>
-    /* ===== 비디오 카드 ===== */
-    .media-card {
-      margin: 0;
-      position: relative;
-    }
+    .media-card { margin: 0; position: relative; }
     .media-card video {
       width: 100%;
       display: block;
       border-radius: 16px;
       box-shadow: 0 12px 28px rgba(0,0,0,.18);
       background: #000;
-      position: relative;
-      z-index: 1;
     }
     .caption {
       margin-top: 8px;
@@ -52,78 +44,18 @@
       color: #5a5a5a;
     }
 
-    /* ===== 캐러셀 ===== */
-    .results-carousel {
-      position: relative;
-      overflow: visible !important;
-    }
-    .results-carousel .tns-outer {
-      position: relative;
-      overflow: visible;
-    }
-
-    /* ===== 컨트롤 버튼 (화살표) ===== */
-    .tns-outer .tns-controls {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%; /* ← 비디오 높이 기준으로 맞추기 */
+    /* 버튼 바 */
+    .video-switcher {
+      margin-top: 14px;
       display: flex;
-      align-items: center; /* ← 정확히 세로 중앙 맞춤 */
-      justify-content: space-between;
-      pointer-events: none;
-      z-index: 50;
-    }
-
-    .tns-outer .tns-controls button {
-      pointer-events: auto;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
       justify-content: center;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      font-size: 28px;
-      line-height: 1;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      transition: background 0.2s ease;
-      position: relative;
     }
-    .tns-outer .tns-controls button:hover {
-      background: rgba(0,0,0,0.8);
-    }
-
-    /* ===== 좌우 위치를 “비디오 바깥쪽”으로 ===== */
-    .tns-outer .tns-controls [data-controls="prev"] {
-      transform: translateX(-80px); /* 왼쪽 바깥 */
-    }
-    .tns-outer .tns-controls [data-controls="next"] {
-      transform: translateX(80px); /* 오른쪽 바깥 */
-    }
-
-    /* ===== 반응형 조정 ===== */
-    @media (max-width: 768px) {
-      .tns-outer .tns-controls [data-controls="prev"] {
-        transform: translateX(-45px);
-      }
-      .tns-outer .tns-controls [data-controls="next"] {
-        transform: translateX(45px);
-      }
-      .tns-outer .tns-controls button {
-        width: 44px;
-        height: 44px;
-        font-size: 22px;
-      }
+    .video-switcher .button.is-active {
+      box-shadow: 0 0 0 2px rgba(124,93,194,0.35) inset; /* ourpurple 느낌 */
     }
   </style>
-
-
-
 </head>
 <body>
 
@@ -253,45 +185,44 @@
 <section class="section" id="results">
   <div class="container is-max-desktop">
 
-    <!-- Carousel (results) -->
+    <!-- Results -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
 
-        <!-- 캐러셀 컨테이너 -->
-        <div id="results-carousel" class="results-carousel">
-          <!-- 슬라이드 1 -->
-          <div class="slide">
-            <figure class="media-card">
-              <video autoplay muted loop playsinline controls>
-                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-              </video>
-              <figcaption class="caption">Humanoid — Periodic Gait (L=24)</figcaption>
-            </figure>
-          </div>
+        <!-- 단일 비디오 + 캡션 -->
+        <figure class="media-card">
+          <video id="result-video" controls muted playsinline loop>
+            <source id="result-source" src="./static/videos/psd_sample.mp4" type="video/mp4">
+          </video>
+          <figcaption id="result-caption" class="caption">Humanoid — Periodic Gait (L=24)</figcaption>
+        </figure>
 
-          <!-- 슬라이드 2 -->
-          <div class="slide">
-            <figure class="media-card">
-              <video autoplay muted loop playsinline controls>
-                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-              </video>
-              <figcaption class="caption">Walker2D — Long-Period Stride</figcaption>
-            </figure>
-          </div>
+        <!-- 전환 버튼 5개 -->
+        <div class="video-switcher">
+          <button class="button is-small is-dark is-rounded is-active"
+                  data-src="./static/videos/psd_sample.mp4"
+                  data-caption="Humanoid — Periodic Gait (L=24)">Humanoid</button>
 
-          <!-- 슬라이드 3 -->
-          <div class="slide">
-            <figure class="media-card">
-              <video autoplay muted loop playsinline controls>
-                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-              </video>
-              <figcaption class="caption">HalfCheetah — Short-Period Sprint</figcaption>
-            </figure>
-          </div>
+          <button class="button is-small is-dark is-rounded"
+                  data-src="./static/videos/psd_sample.mp4"
+                  data-caption="Walker2D — Long-Period Stride">Walker2D</button>
+
+          <button class="button is-small is-dark is-rounded"
+                  data-src="./static/videos/psd_sample.mp4"
+                  data-caption="HalfCheetah — Short-Period Sprint">HalfCheetah</button>
+
+          <button class="button is-small is-dark is-rounded"
+                  data-src="./static/videos/psd_sample.mp4"
+                  data-caption="Ant — Turning Gait (L=16)">Ant</button>
+
+          <button class="button is-small is-dark is-rounded"
+                  data-src="./static/videos/psd_sample.mp4"
+                  data-caption="Quadruped — Style Walk (L=20)">Quadruped</button>
         </div>
       </div>
     </div>
+
 
     <!-- Interpolation demo -->
     <div class="columns is-centered">
@@ -377,18 +308,41 @@
 </footer>
 
 <script>
-  const slider = tns({
-    container: '#results-carousel',
-    items: 1,
-    slideBy: 1,
-    controls: true,
-    controlsText: ['‹','›'],
-    nav: false,
-    loop: true,
-    autoplay: false,
-    mouseDrag: true,
-    swipeAngle: false
-  });
+  // 버튼 클릭으로 비디오 전환
+  (function () {
+    const video = document.getElementById('result-video');
+    const source = document.getElementById('result-source');
+    const caption = document.getElementById('result-caption');
+    const buttons = Array.from(document.querySelectorAll('.video-switcher .button'));
+
+    function setActive(btn) {
+      buttons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const src = btn.getAttribute('data-src');
+        const cap = btn.getAttribute('data-caption') || '';
+        if (!src) return;
+
+        // 소스 교체 후 재생
+        source.setAttribute('src', src);
+        caption.textContent = cap;
+        // 브라우저에 소스 교체 반영
+        video.pause();
+        video.load();
+        video.currentTime = 0;
+        // 자동재생 (사용자 제스처 이후라 대부분 허용)
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {/* 자동재생 제한 시 무시 */});
+        }
+
+        setActive(btn);
+      });
+    });
+  })();
 </script>
 
 </body>
