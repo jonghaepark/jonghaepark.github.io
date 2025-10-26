@@ -191,20 +191,65 @@
 </section>
 
 <!-- METHOD -->
-<section class="section" id="abstract">
+<section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 has-text-centered">Method</h2>
         <div class="content has-text-justified">
           <p>
-            Unsupervised skill discovery in reinforcement learning (RL) aims to learn diverse behaviors without relying on external rewards. However, current methods often overlook the periodic nature of learned skills, focusing instead on increasing the mutual dependency between states and skills or maximizing the distance traveled in latent space. Considering that many robotic tasks—particularly those involving locomotion—require periodic behaviors across varying timescales, the ability to discover diverse periodic skills is essential. Motivated by this, we propose <b>Periodic Skill Discovery (PSD)</b>, a framework that discovers periodic behaviors in an unsupervised manner. The key idea of PSD is to train an encoder that maps states to a circular latent space, thereby naturally encoding periodicity in the latent representation. By capturing temporal distance, PSD can effectively learn skills with diverse periods in complex robotic tasks, even with pixel-based observations. We further show that these learned skills achieve high performance on downstream tasks such as hurdling. Moreover, integrating PSD with an existing skill discovery method offers more diverse behaviors, thus broadening the agent’s repertoire.
+            <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery that explicitly models the <b>periodic structure</b> of behaviors. 
+            Instead of treating skills as discrete or unstructured latent variables, PSD maps each state to a point on a <b>circular latent space</b>, where the 
+            angular distance naturally represents temporal progression.
+          </p>
+
+          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
+          <p>
+            PSD parameterizes the state encoder \( \phi(s) \in \mathbb{R}^2 \) as points on the unit circle. 
+            The agent’s skill variable is defined by a <b>period length \( L \)</b> that determines how many timesteps it takes 
+            to complete one full rotation in latent space. 
+            By constraining \( \| \phi(s) \|_2 = 1 \), the model ensures that transitions correspond to angular motion along the circle.
+          </p>
+
+          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">2. Temporal Distance Objective</h4>
+          <p>
+            To learn meaningful periodicity, PSD optimizes a <b>temporal distance loss</b> that enforces 
+            the angular difference between latent embeddings to match the elapsed time:
+          </p>
+          <p style="text-align:center; font-family: 'Courier New', monospace; color:#444;">
+            &nbsp;&nbsp;ℒ<sub>period</sub> = 𝔼<sub>t</sub> [‖ Δθ<sub>t,t+L</sub> − 2π ‖²]
+          </p>
+          <p>
+            This encourages each skill to evolve smoothly with a fixed temporal frequency, leading to naturally repeating behaviors such as walking, hopping, or swinging.
+          </p>
+
+          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">3. Adaptive Period Sampling</h4>
+          <p>
+            Rather than fixing the period \( L \) in advance, PSD adaptively samples it from a learnable range 
+            \([L_{\min}, L_{\max}]\). During training, the agent explores multiple frequencies, 
+            discovering both short- and long-period behaviors. This simple yet powerful mechanism allows PSD to capture multi-timescale dynamics without explicit supervision.
+          </p>
+
+          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">4. Integration with Skill Discovery</h4>
+          <p>
+            PSD is compatible with existing mutual-information-based methods such as DIAYN or METRA. 
+            When combined (e.g., <b>PSD + METRA</b>), the latent circular variable governs the <i>period</i> of skills, 
+            while the MI-based variable controls the <i>direction</i> or <i>style</i> of motion. 
+            Together, they yield a richer set of periodic and diverse behaviors across environments.
+          </p>
+
+          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">5. Learned Behavior Visualization</h4>
+          <p>
+            The resulting policies produce smooth, repeatable motion cycles. When visualized via PCA or phase unwrapping, 
+            latent trajectories form clear circular manifolds corresponding to distinct rhythmic skills — 
+            enabling interpretability and structured control of learned behaviors.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- RESULTS / CAROUSEL + INTERPOLATION -->
 <section class="section" id="results">
