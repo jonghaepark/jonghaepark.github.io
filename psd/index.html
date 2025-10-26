@@ -25,6 +25,41 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- Author Added -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+  <style>
+    .media-card { margin: 0; }
+    .media-card video {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+      background: #000;
+    }
+    .caption {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: #5a5a5a;
+    }
+
+    .tns-outer { position: relative; }
+    .tns-outer .tns-controls {
+      position: absolute; top: 50%; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      transform: translateY(-50%); padding: 0 8px; pointer-events: none;
+    }
+    .tns-outer .tns-controls button {
+      pointer-events: auto;
+      width: 44px; height: 44px; border-radius: 9999px;
+      border: none; background: rgba(0,0,0,.55); color: #fff;
+      font-size: 22px; line-height: 44px; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,.25);
+    }
+  </style>
 </head>
 <body>
 
@@ -158,22 +193,37 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-          <!-- Replace mp4s with your demos -->
-          <div class="item">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-            </video>
+
+        <!-- 캐러셀 컨테이너 -->
+        <div id="results-carousel" class="results-carousel tns-slider">
+          <!-- 슬라이드 1 -->
+          <div class="slide">
+            <figure class="media-card">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
+              </video>
+              <figcaption class="caption">Humanoid — Periodic Gait (L=24)</figcaption>
+            </figure>
           </div>
-          <div class="item">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-            </video>
+
+          <!-- 슬라이드 2 -->
+          <div class="slide">
+            <figure class="media-card">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
+              </video>
+              <figcaption class="caption">Walker2D — Long-Period Stride</figcaption>
+            </figure>
           </div>
-          <div class="item">
-            <video autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-            </video>
+
+          <!-- 슬라이드 3 -->
+          <div class="slide">
+            <figure class="media-card">
+              <video autoplay muted loop playsinline controls>
+                <source src="./static/videos/psd_sample.mp4" type="video/mp4">
+              </video>
+              <figcaption class="caption">HalfCheetah — Short-Period Sprint</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -261,6 +311,21 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const slider = tns({
+    container: '#results-carousel',
+    items: 1,
+    slideBy: 1,
+    controls: true,
+    controlsText: ['‹','›'],
+    nav: false,
+    loop: true,
+    autoplay: false,
+    mouseDrag: true,
+    swipeAngle: false
+  });
+</script>
 
 </body>
 </html>
