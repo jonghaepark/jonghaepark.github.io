@@ -28,7 +28,10 @@
 
   <!-- Author Added -->
   <style>
-    .media-card { margin: 0; position: relative; }
+    .media-card { 
+      margin: 0; 
+      position: relative; 
+    }
     .media-card video {
       width: 100%;
       display: block;
@@ -38,7 +41,7 @@
     }
 
     .video-switcher {
-      margin: 8px 0 14px 0;
+      margin: 8px 0 24px 0; /* 영상과 버튼 간격 ↑ */
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -46,7 +49,7 @@
     }
 
     .btn-pill {
-      border: 1px solid rgba(0,0,0,0.12);
+      border: none;
       background: #f5f5f5;
       color: #222;
       border-radius: 12px;
@@ -54,17 +57,24 @@
       font-size: 16px;
       line-height: 1;
       box-shadow: 0 1px 0 rgba(0,0,0,0.04);
-      transition: transform .02s ease, background .15s ease, box-shadow .15s ease;
+      transition: all .15s ease;
+      cursor: pointer;
     }
     .btn-pill:hover { background: #efefef; }
     .btn-pill:active { transform: translateY(1px); }
+
+    /* PSD 저자 이름색(#FA5543)으로 내부 채우기 */
     .is-active {
-      box-shadow: 0 0 0 2px rgba(124, 93, 194, 0.35) inset;
+      background: #FA5543 !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.15) inset;
     }
+
     @media (max-width: 768px) {
       .btn-pill { font-size: 15px; padding: 9px 16px; }
     }
   </style>
+
 
 </head>
 <body>
@@ -177,17 +187,6 @@
         </div>
       </div>
     </div>
-
-    <!-- (Optional) Paper video -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX?rel=0&amp;showinfo=0"
-                  title="PSD video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -203,19 +202,19 @@
         <!-- 버튼 5개: 동영상 위 -->
         <div class="video-switcher" id="video-switcher">
           <button class="btn-pill is-active"
-                  data-src="./static/videos/ant.mp4">Ant</button>
+                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
 
           <button class="btn-pill"
-                  data-src="./static/videos/halfcheetah.mp4">HalfCheetah</button>
+                  data-src="./static/videos/psd_teaser.mp4">HalfCheetah</button>
 
           <button class="btn-pill"
-                  data-src="./static/videos/humanoid.mp4">Humanoid</button>
+                  data-src="./static/videos/psd_teaser.mp4">Humanoid</button>
 
           <button class="btn-pill"
-                  data-src="./static/videos/hopper.mp4">Hopper</button>
+                  data-src="./static/videos/psd_teaser.mp4">Hopper</button>
 
           <button class="btn-pill"
-                  data-src="./static/videos/walker2d.mp4">Walker2D</button>
+                  data-src="./static/videos/psd_teaser.mp4">Walker2D</button>
         </div>
 
         <!-- 단일 비디오 -->
