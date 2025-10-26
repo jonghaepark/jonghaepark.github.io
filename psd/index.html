@@ -36,26 +36,36 @@
       box-shadow: 0 12px 28px rgba(0,0,0,.18);
       background: #000;
     }
-    .caption {
-      margin-top: 8px;
-      text-align: center;
-      font-size: 0.95rem;
-      line-height: 1.2;
-      color: #5a5a5a;
-    }
 
-    /* 버튼 바 */
     .video-switcher {
-      margin-top: 14px;
+      margin: 8px 0 14px 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 12px;
       justify-content: center;
     }
-    .video-switcher .button.is-active {
-      box-shadow: 0 0 0 2px rgba(124,93,194,0.35) inset; /* ourpurple 느낌 */
+
+    .btn-pill {
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #f5f5f5;
+      color: #222;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 16px;
+      line-height: 1;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+      transition: transform .02s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .btn-pill:hover { background: #efefef; }
+    .btn-pill:active { transform: translateY(1px); }
+    .is-active {
+      box-shadow: 0 0 0 2px rgba(124, 93, 194, 0.35) inset;
+    }
+    @media (max-width: 768px) {
+      .btn-pill { font-size: 15px; padding: 9px 16px; }
     }
   </style>
+
 </head>
 <body>
 
@@ -190,38 +200,34 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
 
-        <!-- 단일 비디오 + 캡션 -->
+        <!-- 버튼 5개: 동영상 위 -->
+        <div class="video-switcher" id="video-switcher">
+          <button class="btn-pill is-active"
+                  data-src="./static/videos/ant.mp4">Ant</button>
+
+          <button class="btn-pill"
+                  data-src="./static/videos/halfcheetah.mp4">HalfCheetah</button>
+
+          <button class="btn-pill"
+                  data-src="./static/videos/humanoid.mp4">Humanoid</button>
+
+          <button class="btn-pill"
+                  data-src="./static/videos/hopper.mp4">Hopper</button>
+
+          <button class="btn-pill"
+                  data-src="./static/videos/walker2d.mp4">Walker2D</button>
+        </div>
+
+        <!-- 단일 비디오 -->
         <figure class="media-card">
           <video id="result-video" controls muted playsinline loop>
-            <source id="result-source" src="./static/videos/psd_sample.mp4" type="video/mp4">
+            <!-- 초기 소스: Ant -->
+            <source id="result-source" src="./static/videos/ant.mp4" type="video/mp4">
           </video>
-          <figcaption id="result-caption" class="caption">Humanoid — Periodic Gait (L=24)</figcaption>
         </figure>
-
-        <!-- 전환 버튼 5개 -->
-        <div class="video-switcher">
-          <button class="button is-small is-dark is-rounded is-active"
-                  data-src="./static/videos/psd_sample.mp4"
-                  data-caption="Humanoid — Periodic Gait (L=24)">Humanoid</button>
-
-          <button class="button is-small is-dark is-rounded"
-                  data-src="./static/videos/psd_sample.mp4"
-                  data-caption="Walker2D — Long-Period Stride">Walker2D</button>
-
-          <button class="button is-small is-dark is-rounded"
-                  data-src="./static/videos/psd_sample.mp4"
-                  data-caption="HalfCheetah — Short-Period Sprint">HalfCheetah</button>
-
-          <button class="button is-small is-dark is-rounded"
-                  data-src="./static/videos/psd_sample.mp4"
-                  data-caption="Ant — Turning Gait (L=16)">Ant</button>
-
-          <button class="button is-small is-dark is-rounded"
-                  data-src="./static/videos/psd_sample.mp4"
-                  data-caption="Quadruped — Style Walk (L=20)">Quadruped</button>
-        </div>
       </div>
     </div>
+
 
 
     <!-- Interpolation demo -->
@@ -308,42 +314,38 @@
 </footer>
 
 <script>
-  // 버튼 클릭으로 비디오 전환
   (function () {
-    const video = document.getElementById('result-video');
-    const source = document.getElementById('result-source');
-    const caption = document.getElementById('result-caption');
-    const buttons = Array.from(document.querySelectorAll('.video-switcher .button'));
+    const video   = document.getElementById('result-video');
+    const source  = document.getElementById('result-source');
+    const buttons = Array.from(document.querySelectorAll('#video-switcher .btn-pill'));
 
     function setActive(btn) {
       buttons.forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
     }
 
+    // 가능한 경우 페이지 로드 시 자동재생
+    window.addEventListener('load', () => {
+      const playPromise = video.play();
+      if (playPromise) playPromise.catch(() => {/* 모바일 정책 무시 */});
+    });
+
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const src = btn.getAttribute('data-src');
-        const cap = btn.getAttribute('data-caption') || '';
         if (!src) return;
 
-        // 소스 교체 후 재생
         source.setAttribute('src', src);
-        caption.textContent = cap;
-        // 브라우저에 소스 교체 반영
         video.pause();
         video.load();
         video.currentTime = 0;
-        // 자동재생 (사용자 제스처 이후라 대부분 허용)
         const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {/* 자동재생 제한 시 무시 */});
-        }
+        if (playPromise) playPromise.catch(() => {});
 
         setActive(btn);
       });
     });
   })();
 </script>
-
 </body>
 </html>
