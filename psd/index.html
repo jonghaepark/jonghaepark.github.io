@@ -114,9 +114,26 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
+      <video id="teaser" preload="auto" muted playsinline autoplay loop 
+            poster="./static/images/placeholder.jpg"
+            style="max-width:100%; height:auto;">
         <source src="./static/videos/psd_teaser.mp4" type="video/mp4">
       </video>
+
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const teaser = document.getElementById('teaser');
+        if (!teaser) return;
+        teaser.muted = true;
+        teaser.setAttribute('muted', '');
+        teaser.setAttribute('playsinline', '');
+        teaser.setAttribute('autoplay', '');
+        teaser.setAttribute('loop', '');
+        teaser.load();
+        const p = teaser.play();
+        if (p && typeof p.catch === 'function') p.catch(()=>{});
+      });
+      </script>
       <h2 class="subtitle has-text-centered">
         PSD learns periodic behaviors by mapping states onto a circular latent space.
       </h2>
@@ -182,20 +199,16 @@
         <h2 class="title is-3 has-text-centered">Results</h2>
 
         <!-- 버튼 5개: 동영상 위 -->
-        <div class="video-switcher" id="video-switcher">
-          <button class="btn-pill is-active"
+        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector">
+          <button class="btn-pill is-active" aria-pressed="true"
                   data-src="./static/videos/psd_teaser.mp4">Ant</button>
-
-          <button class="btn-pill"
-                  data-src="./static/videos/psd_teaser.mp4">HalfCheetah</button>
-
-          <button class="btn-pill"
+          <button class="btn-pill" aria-pressed="false"
+                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
+          <button class="btn-pill" aria-pressed="false"
                   data-src="./static/videos/psd_teaser.mp4">Humanoid</button>
-
-          <button class="btn-pill"
+          <button class="btn-pill" aria-pressed="false"
                   data-src="./static/videos/psd_teaser.mp4">Hopper</button>
-
-          <button class="btn-pill"
+          <button class="btn-pill" aria-pressed="false"
                   data-src="./static/videos/psd_teaser.mp4">Walker2D</button>
         </div>
 
