@@ -22,7 +22,7 @@
 
   <!-- JS -->
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
@@ -51,6 +51,23 @@
       position: absolute; top: 50%; left: 0; right: 0;
       display: flex; justify-content: space-between; align-items: center;
       transform: translateY(-50%); padding: 0 8px; pointer-events: none;
+    }
+    .tns-outer .tns-controls button {
+      pointer-events: auto;
+      width: 44px; height: 44px; border-radius: 9999px;
+      border: none; background: rgba(0,0,0,.55); color: #fff;
+      font-size: 22px; line-height: 44px; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,.25);
+    }
+    .tns-outer { position: relative; overflow: visible; }
+    .tns-outer .tns-controls { 
+      position: absolute; 
+      top: 50%; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      transform: translateY(-50%);
+      padding: 0 8px;
+      pointer-events: none;
+      z-index: 10;             /* ← 핵심: 비디오보다 앞 */
     }
     .tns-outer .tns-controls button {
       pointer-events: auto;
