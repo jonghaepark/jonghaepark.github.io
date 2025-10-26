@@ -213,36 +213,7 @@
 
           <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">2. Temporal Distance Objective</h4>
           <p>
-            To learn meaningful periodicity, PSD optimizes a <b>temporal distance loss</b> that enforces 
-            the angular difference between latent embeddings to match the elapsed time:
-          </p>
-          <p style="text-align:center; font-family: 'Courier New', monospace; color:#444;">
-            &nbsp;&nbsp;ℒ<sub>period</sub> = 𝔼<sub>t</sub> [‖ Δθ<sub>t,t+L</sub> − 2π ‖²]
-          </p>
-          <p>
-            This encourages each skill to evolve smoothly with a fixed temporal frequency, leading to naturally repeating behaviors such as walking, hopping, or swinging.
-          </p>
-
-          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">3. Adaptive Period Sampling</h4>
-          <p>
-            Rather than fixing the period \( L \) in advance, PSD adaptively samples it from a learnable range 
-            \([L_{\min}, L_{\max}]\). During training, the agent explores multiple frequencies, 
-            discovering both short- and long-period behaviors. This simple yet powerful mechanism allows PSD to capture multi-timescale dynamics without explicit supervision.
-          </p>
-
-          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">4. Integration with Skill Discovery</h4>
-          <p>
-            PSD is compatible with existing mutual-information-based methods such as DIAYN or METRA. 
-            When combined (e.g., <b>PSD + METRA</b>), the latent circular variable governs the <i>period</i> of skills, 
-            while the MI-based variable controls the <i>direction</i> or <i>style</i> of motion. 
-            Together, they yield a richer set of periodic and diverse behaviors across environments.
-          </p>
-
-          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">5. Learned Behavior Visualization</h4>
-          <p>
-            The resulting policies produce smooth, repeatable motion cycles. When visualized via PCA or phase unwrapping, 
-            latent trajectories form clear circular manifolds corresponding to distinct rhythmic skills — 
-            enabling interpretability and structured control of learned behaviors.
+            To learn meaningful periodicity, PSD optimizes a <b>temporal distance loss</b> TODO
           </p>
         </div>
       </div>
@@ -258,7 +229,7 @@
     <!-- Results -->
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
-        <h2 class="title is-3 has-text-centered"></h2>">Results</h2>
+        <h2 class="title is-3 has-text-centered">Results</h2>
 
         <!-- 버튼 5개: 동영상 위 -->
         <div class="video-switcher" id="video-switcher">
@@ -288,18 +259,17 @@
       </div>
     </div>
 
-
-
     <!-- Interpolation demo -->
     <div class="columns is-centered">
-      <div class="column is-full-width has-text-centered"></div>">
-        <h3 class="title is-4 has-text-centered"></h3>">Interpolating in Circular Latent Space</h3>
+      <div class="column is-full-width has-text-centered">
+        <h3 class="title is-4 has-text-centered">Interpolating in Circular Latent Space</h3>
         <div class="content has-text-justified">
           <p>
             We linearly interpolate angles on the circle to visualize periodic progression between two
             phases. Move the slider to scrub intermediate frames.
           </p>
         </div>
+
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
             <img src="./static/images/interpolate_start.jpg" class="interpolation-image" alt="Start frame"/>
@@ -321,6 +291,7 @@
 
   </div>
 </section>
+
 
 <!-- BIBTEX -->
 <section class="section" id="bibtex">
