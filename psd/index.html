@@ -190,6 +190,22 @@
   </div>
 </section>
 
+<!-- METHOD -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Unsupervised skill discovery in reinforcement learning (RL) aims to learn diverse behaviors without relying on external rewards. However, current methods often overlook the periodic nature of learned skills, focusing instead on increasing the mutual dependency between states and skills or maximizing the distance traveled in latent space. Considering that many robotic tasks—particularly those involving locomotion—require periodic behaviors across varying timescales, the ability to discover diverse periodic skills is essential. Motivated by this, we propose <b>Periodic Skill Discovery (PSD)</b>, a framework that discovers periodic behaviors in an unsupervised manner. The key idea of PSD is to train an encoder that maps states to a circular latent space, thereby naturally encoding periodicity in the latent representation. By capturing temporal distance, PSD can effectively learn skills with diverse periods in complex robotic tasks, even with pixel-based observations. We further show that these learned skills achieve high performance on downstream tasks such as hurdling. Moreover, integrating PSD with an existing skill discovery method offers more diverse behaviors, thus broadening the agent’s repertoire.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RESULTS / CAROUSEL + INTERPOLATION -->
 <section class="section" id="results">
   <div class="container is-max-desktop">
@@ -255,11 +271,6 @@
           </div>
         </div>
         <br/>
-        <div class="content has-text-centered">
-          <video id="replay-video" controls muted preload playsinline width="75%">
-            <source src="./static/videos/psd_sample.mp4" type="video/mp4">
-          </video>
-        </div>
       </div>
     </div>
 
