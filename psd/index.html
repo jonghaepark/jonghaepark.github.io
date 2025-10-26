@@ -29,63 +29,79 @@
   <!-- Author Added -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
-  <style>
-    .media-card { margin: 0; }
-    .media-card video {
-      width: 100%;
-      display: block;
-      border-radius: 16px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.18);
-      background: #000;
-    }
-    .caption {
-      margin-top: 8px;
-      text-align: center;
-      font-size: 0.95rem;
-      line-height: 1.2;
-      color: #5a5a5a;
-    }
+<style>
+  /* 카드/비디오 기본 */
+  .media-card { margin: 0; position: relative; }
+  .media-card video {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    background: #000;
+    position: relative;
+    z-index: 1;
+  }
+  .caption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    color: #5a5a5a;
+  }
 
-    .results-carousel { position: relative; overflow: visible !important; }
+  /* 캐러셀 컨테이너가 화살표를 가리지 않도록 */
+  .results-carousel { position: relative; overflow: visible !important; }
+  .results-carousel .tns-outer { position: relative; overflow: visible; }
 
-    .tns-outer { position: relative; overflow: visible; }
-    .tns-outer .tns-controls {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 50;
-      padding: 0 12px;
-      pointer-events: none;
-    }
+  /* 화살표 컨테이너: 세로 정중앙 기준점만 잡고, 높이는 0으로(버튼을 절대배치) */
+  .tns-outer .tns-controls {
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    transform: translateY(-50%);
+    height: 0;                 /* 버튼을 따로 절대배치할 거라 높이 0 */
+    pointer-events: none;      /* 컨테이너는 이벤트 막고 버튼만 활성화 */
+    z-index: 60;
+  }
+
+  /* 화살표 버튼: 완전 중앙 정렬(원 안에서) + 동영상 ‘밖’으로 */
+  .tns-outer .tns-controls button {
+    position: absolute;
+    top: 0;                    /* 컨테이너의 수직 중앙에 놓고 */
+    transform: translateY(-50%); /* 정확히 중앙 정렬 */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;                /* 아이콘 중앙 정렬 보장 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 28px;           /* 아이콘 크기 */
+    line-height: 1;            /* 중앙 맞춤을 위해 line-height = 1 */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: background 0.2s ease;
+    pointer-events: auto;
+  }
+  .tns-outer .tns-controls button:hover { background: rgba(0,0,0,0.8); }
+
+  /* 왼쪽/오른쪽 버튼을 '비디오 바깥'으로 빼기 */
+  .tns-outer .tns-controls [data-controls="prev"] { left: -68px; }
+  .tns-outer .tns-controls [data-controls="next"] { right: -68px; }
+
+  /* 작은 화면에선 살짝 안쪽으로 당기고 크기 축소 */
+  @media (max-width: 768px) {
+    .tns-outer .tns-controls [data-controls="prev"] { left: -40px; }
+    .tns-outer .tns-controls [data-controls="next"] { right: -40px; }
     .tns-outer .tns-controls button {
-      pointer-events: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      font-size: 26px;
-      line-height: 48px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      transition: background 0.2s ease;
+      width: 44px; height: 44px; font-size: 22px;
     }
-    .tns-outer .tns-controls button:hover {
-      background: rgba(0,0,0,0.8);
-    }
+  }
+</style>
 
-    .media-card { position: relative; }
-    .media-card video { position: relative; z-index: 1; }
-  </style>
 
 </head>
 <body>
