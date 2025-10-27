@@ -111,56 +111,51 @@
 </section>
 
 <!-- TEASER -->
-<!-- TEASER -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body has-text-centered">
-      <video id="teaser" preload="auto" muted playsinline autoplay loop 
-            poster="./static/images/placeholder.jpg"
-            style="
-              width: 80%;             /* 👈 전체 폭의 80%로 축소 */
-              max-width: 900px;       /* 👈 최대 폭 제한 */
-              height: auto;
-              border-radius: 12px;    /* 모서리 살짝 둥글게 (선택) */
-              box-shadow: 0 0 20px rgba(0,0,0,0.15); /* 살짝 그림자 (선택) */
-            ">
-        <source src="./static/videos/psd_teaser.mp4" type="video/mp4">
-      </video>
-
-      <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const teaser = document.getElementById('teaser');
-        if (!teaser) return;
-        teaser.muted = true;
-        teaser.setAttribute('muted', '');
-        teaser.setAttribute('playsinline', '');
-        teaser.setAttribute('autoplay', '');
-        teaser.setAttribute('loop', '');
-        teaser.load();
-        const p = teaser.play();
-        if (p && typeof p.catch === 'function') p.catch(()=>{});
-      });
-      </script>
-
-      <h2 class="subtitle"
+<section class="section" id="teaser-section" style="padding-top: 3rem; padding-bottom: 2rem;">
+  <div class="container" style="text-align: center; max-width: 1100px;">
+    <video id="teaser" preload="auto" muted playsinline autoplay loop
+          poster="./static/images/placeholder.jpg"
           style="
-            font-family: 'Castoro', 'Times New Roman', serif;
-            font-style: italic;
-            font-size: 1.8rem;
-            color: #333;
-            white-space: nowrap;
-            overflow: visible;
-            margin-top: 1.2rem;
-            letter-spacing: 0.02em;
+            display: block;
+            margin: 0 auto;
+            width: 70%;          /* 👈 실제 크기 조절 (50~80% 사이 조정 가능) */
+            max-width: 850px;    /* 👈 최대 폭 제한 */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
           ">
-        “Fundamental observation in nature is that nearly all forms of locomotion are inherently periodic.”
-      </h2>
-    </div>
+      <source src="./static/videos/psd_teaser.mp4" type="video/mp4">
+    </video>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const teaser = document.getElementById('teaser');
+      if (!teaser) return;
+      teaser.muted = true;
+      teaser.setAttribute('muted', '');
+      teaser.setAttribute('playsinline', '');
+      teaser.setAttribute('autoplay', '');
+      teaser.setAttribute('loop', '');
+      teaser.load();
+      const p = teaser.play();
+      if (p && typeof p.catch === 'function') p.catch(()=>{});
+    });
+    </script>
+
+    <h2 class="subtitle"
+        style="
+          font-family: 'Castoro', 'Times New Roman', serif;
+          font-style: italic;
+          font-size: 1.9rem;
+          color: #333;
+          white-space: nowrap;
+          margin-top: 1.4rem;
+          letter-spacing: 0.02em;
+        ">
+      “Fundamental observation in nature is that nearly all forms of locomotion are inherently periodic.”
+    </h2>
   </div>
 </section>
-
-
-
 
 <!-- ABSTRACT -->
 <section class="section" id="abstract">
