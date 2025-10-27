@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
-  <link rel="preload" as="video" href="./static/videos/psd_teaser.mp4" type="video/mp4">
 
   <!-- JS -->
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -385,7 +384,7 @@
         <!-- 1. STATE-BASED -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. State-based Environment</h4>
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-state" muted playsinline autoplay loop controls preload="auto"
+          <video id="video-state" muted playsinline loop preload="metadata"
                 style="max-width:100%; height:auto;"></video>
           
         </div>
@@ -401,7 +400,7 @@
         <!-- 2. PIXEL-BASED -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Pixel-based Environment</h4>
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-pixel" muted playsinline autoplay loop controls preload="auto"
+          <video id="video-pixel" muted playsinline loop preload="metadata"
                 style="max-width:100%; height:auto;"></video>
         </div>
         <div class="video-switcher" id="switcher-pixel" role="group" aria-label="Pixel environment selector"
@@ -413,7 +412,7 @@
         <!-- 3. METRA COMBINATION -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">3. Combination with METRA</h4>
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-metra" muted playsinline autoplay loop controls preload="auto"
+          <video id="video-metra" muted playsinline loop preload="metadata"
                 style="max-width:100%; height:auto;"></video>
         </div>
         <div class="video-switcher" id="switcher-metra" role="group" aria-label="METRA environment selector"
@@ -493,188 +492,200 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 그룹 초기화 함수
-  function initGroup(video, switcher) {
+  function initGroup(video, switcher, allVideos) {
     const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
     if (!buttons.length) return;
 
-    // iOS/모바일 자동재생 호환
-    video.muted = true;
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    video.setAttribute('autoplay', '');
-    video.setAttribute('loop', '');
-    video.setAttribute('preload', 'auto'); // 초기 버퍼 충분히
+    // 현재 그룹 외 나머지 모두 정지하는 헬퍼
+    function pauseOthers() {
+      allVideos.forEach(v => { if (v !== video) v.pause(); });
+    }
 
     function setActive(btn) {
-      buttons.forEach(b => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-pressed', 'true');
+      buttons.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
     }
 
-    // 기존 switchVideo 함수를 아래로 교체
-    function switchVideo(src) {
+    // 전환 로직
+    async function switchVideo(src) {
       if (!src) return;
+      pauseOthers();
 
-      // 이벤트 중복 방지
-      video.oncanplaythrough = null;
-      video.onloadeddata = null;
-
-      const abs = new URL(src, window.location.href).href;
-
-      // 소스 교체
-      if (video.src !== abs) {
-        video.pause();
-        video.src = src;
-        video.load();
-      } else {
-        // 같은 소스면 처음부터 재생
-        try { video.currentTime = 0; } catch(e) {}
+      const abs = new URL(src, location.href).href;
+      // 같은 소스면 재버퍼 금지: 처음부터만 재생
+      if (video.currentSrc === abs || video.src === abs) {
+        try { video.pause(); video.currentTime = 0.001; } catch(e){}
+        const p = video.play(); if (p && p.catch) p.catch(()=>{});
+        return;
       }
 
-      // 충분히 로드된 뒤에 재생 (끊김 방지)
-      const resume = () => {
-        try {
-          // iOS 사파리 첫 프레임 멈춤 버그 회피
-          if (video.currentTime === 0) video.currentTime = 0.001;
-        } catch (e) {}
-        const p = video.play();
-        if (p && typeof p.catch === 'function') p.catch(()=>{});
-      };
+      // 안전 교체
+      video.pause();
+      video.removeAttribute('src');
+      while (video.firstChild) video.removeChild(video.firstChild);
+      const srcMp4 = document.createElement('source');
+      srcMp4.src = src;
+      srcMp4.type = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+      video.appendChild(srcMp4);
+      try { video.load(); } catch(e){}
 
       let fired = false;
-      video.oncanplaythrough = () => { if (!fired) { fired = true; resume(); } };
-      video.onloadeddata     = () => { if (!fired) { fired = true; resume(); } };
+      const resume = () => {
+        if (fired) return; fired = true;
+        try { if (video.currentTime === 0) video.currentTime = 0.001; } catch(e){}
+        const p = video.play(); if (p && p.catch) p.catch(()=>{});
+      };
+      const onCPT = () => { video.removeEventListener('canplaythrough', onCPT); resume(); };
+      const onLD  = () => { video.removeEventListener('loadeddata', onLD); resume(); };
+
+      video.addEventListener('canplaythrough', onCPT, { once:true });
+      video.addEventListener('loadeddata', onLD, { once:true });
     }
 
-    // 초기 버튼(있으면 is-active, 없으면 첫 번째)로 세팅
-    const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
-    if (initial) {
-      setActive(initial);
-      switchVideo(initial.getAttribute('data-src'));
-    }
+    const initial = buttons.find(b=>b.classList.contains('is-active')) || buttons[0];
+    if (initial) { setActive(initial); switchVideo(initial.dataset.src); }
 
-    // 클릭 핸들러
     buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setActive(btn);
-        switchVideo(btn.getAttribute('data-src'));
-      });
+      btn.addEventListener('click', () => { setActive(btn); switchVideo(btn.dataset.src); });
     });
   }
 
-  // 모든 그룹 적용
-  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
-});
+  // 기존 그룹 초기화 시 allVideos 넘겨줘서 교차 정지
+  const multiVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
+  const groups = multiVideos.map(vid => {
+    const suffix = vid.id.replace(/^video-/, '');
+    const switcher = document.getElementById(`switcher-${suffix}`);
+    return switcher ? { videoEl: vid, switcherEl: switcher } : null;
+  }).filter(Boolean);
+  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl, multiVideos));
+
 </script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ✅ 여기에 에피소드 이미지 경로를 순서대로 넣어주세요 (에피소드 진행 순)
-  //    10장 내외 권장, 2장만 넣어도 중간값들을 블렌딩해서 보여줍니다.
-  const IMAGE_URLS = [
-    './static/images/episode_000.jpg',
-    './static/images/episode_050.jpg',
-    './static/images/episode_100.jpg',
-    './static/images/episode_150.jpg',
-    './static/images/episode_200.jpg',
-    './static/images/episode_250.jpg',
-    './static/images/episode_300.jpg',
-    './static/images/episode_350.jpg',
-    './static/images/episode_400.jpg',
-    './static/images/episode_450.jpg'
-  ];
+  // === 모든 결과 비디오 수집 ===
+  const allVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
+  const visibleMap = new WeakMap(); // 각 비디오의 가시 상태 저장
 
-  const wrapper = document.getElementById('interpolation-image-wrapper');
-  const slider  = document.getElementById('interpolation-slider');
-  if (!wrapper || !slider || !IMAGE_URLS.length) return;
+  // 기본 세팅
+  allVideos.forEach(v => {
+    v.preload = 'metadata';
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+  });
 
-  // 캔버스 생성
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d', { alpha: true });
-  wrapper.innerHTML = ''; // "Loading..." 제거
-  wrapper.appendChild(canvas);
-
-  // 이미지 사전 로드
-  const imgs = [];
-  let loaded = 0;
-
-  function preload() {
-    return Promise.all(IMAGE_URLS.map(src => new Promise((resolve, reject) => {
-      const im = new Image();
-      im.onload = () => { imgs.push(im); resolve(); };
-      im.onerror = reject;
-      im.src = src;
-    })));
+  // === 가시성 기반 재생 제어 ===
+  function playIfVisible(v) {
+    if (visibleMap.get(v)) {
+      const p = v.play();
+      if (p && p.catch) p.catch(()=>{});
+    } else {
+      v.pause();
+    }
   }
 
-  function resizeTo(img) {
-    // 기준: 첫 이미지 크기
-    canvas.width  = img.width;
-    canvas.height = img.height;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const visible = e.isIntersecting && e.intersectionRatio > 0.6;
+      visibleMap.set(e.target, visible);
+      playIfVisible(e.target);
+    });
+  }, { threshold: [0, 0.6, 1] });
+
+  allVideos.forEach(v => io.observe(v));
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      allVideos.forEach(v => v.pause());
+    } else {
+      allVideos.forEach(v => playIfVisible(v));
+    }
+  });
+
+  // === 그룹(버튼 ↔ 비디오) 매칭 ===
+  const groups = [];
+  allVideos.forEach(vid => {
+    const suffix = vid.id.replace(/^video-/, '');   // ex) 'state'
+    const switcher = document.getElementById(`switcher-${suffix}`);
+    if (switcher) groups.push({ videoEl: vid, switcherEl: switcher });
+  });
+
+  // 레거시(단일 쌍) 백업
+  const legacyVideo = document.getElementById('result-video');
+  const legacySwitcher = document.querySelector('#video-switcher');
+  if (!groups.length && legacyVideo && legacySwitcher) {
+    groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
   }
 
-  // t in [0, K-1]에서 두 프레임 선형보간 (floor/ceil)
-  function drawInterpolated(t) {
-    const K = imgs.length;
-    if (K === 0) return;
-    if (K === 1) { // 한 장만 있으면 그대로 그림
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.globalAlpha = 1.0;
-      ctx.drawImage(imgs[0], 0, 0, canvas.width, canvas.height);
+  // 다른 비디오는 즉시 정지
+  function pauseOthers(target) {
+    allVideos.forEach(v => { if (v !== target) v.pause(); });
+  }
+
+  // 안전한 소스 전환
+  function switchVideo(video, src) {
+    if (!src) return;
+
+    pauseOthers(video);
+
+    const abs = new URL(src, window.location.href).href;
+    const same = (video.currentSrc === abs || video.src === abs);
+
+    if (same) {
+      try { video.pause(); video.currentTime = 0.001; } catch(e){}
+      playIfVisible(video);   // 가시 상태에서만 재생
       return;
     }
 
-    // t를 [0, K-1] 범위로
-    t = Math.max(0, Math.min(K - 1, t));
-    const i = Math.floor(t);
-    const j = Math.min(K - 1, i + 1);
-    const a = t - i; // 0~1
+    video.pause();
+    video.removeAttribute('src');
+    while (video.firstChild) video.removeChild(video.firstChild);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // 아래 프레임
-    ctx.globalAlpha = 1.0;
-    ctx.drawImage(imgs[i], 0, 0, canvas.width, canvas.height);
-    // 위 프레임(알파 a로 블렌딩)
-    ctx.globalAlpha = a;
-    ctx.drawImage(imgs[j], 0, 0, canvas.width, canvas.height);
-    ctx.globalAlpha = 1.0;
+    const s = document.createElement('source');
+    s.src  = src;
+    s.type = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+    video.appendChild(s);
+
+    try { video.load(); } catch(e){}
+
+    let fired = false;
+    const resume = () => {
+      if (fired) return; fired = true;
+      try { if (video.currentTime === 0) video.currentTime = 0.001; } catch(e){}
+      playIfVisible(video);
+    };
+    const onCPT = () => { video.removeEventListener('canplaythrough', onCPT); resume(); };
+    const onLD  = ()  => { video.removeEventListener('loadeddata', onLD);     resume(); };
+
+    video.addEventListener('canplaythrough', onCPT, { once:true });
+    video.addEventListener('loadeddata', onLD, { once:true });
   }
 
-  // 슬라이더 값(0~9)을 전체 구간 [0, K-1]로 매핑
-  function sliderToT(value) {
-    const K = imgs.length;
-    if (K <= 1) return 0;
-    const steps = 9; // 0..9 총 10단계
-    const u = Number(value) / steps;   // 0..1
-    return u * (K - 1);                // 0..K-1
-  }
+  // 그룹 초기화
+  function initGroup(video, switcher) {
+    const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
+    if (!buttons.length) return;
 
-  // 초기화
-  preload().then(() => {
-    // 기준 크기 세팅 (첫 장)
-    resizeTo(imgs[0]);
+    function setActive(btn) {
+      buttons.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
+    }
 
-    // 초기 그리기
-    drawInterpolated(sliderToT(slider.value));
+    const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
+    if (initial) {
+      setActive(initial);
+      switchVideo(video, initial.getAttribute('data-src'));
+    }
 
-    // 리스너
-    let rafId = null;
-    slider.addEventListener('input', () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        drawInterpolated(sliderToT(slider.value));
-        rafId = null;
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setActive(btn);
+        switchVideo(video, btn.getAttribute('data-src'));
       });
     });
+  }
 
-    // 반응형(옵션): 창 크기 바뀌어도 픽셀 비율 유지하고 싶으면 여기에 로직 추가 가능
-  }).catch(err => {
-    wrapper.textContent = 'Failed to load images.';
-    console.error(err);
-  });
+  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
 });
 </script>
 
