@@ -310,9 +310,8 @@
             <p>Start</p>
           </div>
           <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">Loading...</div>
             <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider" step="1" min="0" max="100" value="0" type="range" aria-label="Interpolation slider">
+                  id="interpolation-slider" step="1" min="0" max="9" value="0" type="range" aria-label="Interpolation slider">
           </div>
           <div class="column is-3 has-text-centered">
             <img src="./static/images/interpolate_end.jpg" class="interpolation-image" alt="End frame"/>
@@ -447,6 +446,115 @@ document.addEventListener('DOMContentLoaded', () => {
   groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ✅ 여기에 에피소드 이미지 경로를 순서대로 넣어주세요 (에피소드 진행 순)
+  //    10장 내외 권장, 2장만 넣어도 중간값들을 블렌딩해서 보여줍니다.
+  const IMAGE_URLS = [
+    './static/images/episode_000.jpg',
+    './static/images/episode_050.jpg',
+    './static/images/episode_100.jpg',
+    './static/images/episode_150.jpg',
+    './static/images/episode_200.jpg',
+    './static/images/episode_250.jpg',
+    './static/images/episode_300.jpg',
+    './static/images/episode_350.jpg',
+    './static/images/episode_400.jpg',
+    './static/images/episode_450.jpg'
+  ];
+
+  const wrapper = document.getElementById('interpolation-image-wrapper');
+  const slider  = document.getElementById('interpolation-slider');
+  if (!wrapper || !slider || !IMAGE_URLS.length) return;
+
+  // 캔버스 생성
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d', { alpha: true });
+  wrapper.innerHTML = ''; // "Loading..." 제거
+  wrapper.appendChild(canvas);
+
+  // 이미지 사전 로드
+  const imgs = [];
+  let loaded = 0;
+
+  function preload() {
+    return Promise.all(IMAGE_URLS.map(src => new Promise((resolve, reject) => {
+      const im = new Image();
+      im.onload = () => { imgs.push(im); resolve(); };
+      im.onerror = reject;
+      im.src = src;
+    })));
+  }
+
+  function resizeTo(img) {
+    // 기준: 첫 이미지 크기
+    canvas.width  = img.width;
+    canvas.height = img.height;
+  }
+
+  // t in [0, K-1]에서 두 프레임 선형보간 (floor/ceil)
+  function drawInterpolated(t) {
+    const K = imgs.length;
+    if (K === 0) return;
+    if (K === 1) { // 한 장만 있으면 그대로 그림
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = 1.0;
+      ctx.drawImage(imgs[0], 0, 0, canvas.width, canvas.height);
+      return;
+    }
+
+    // t를 [0, K-1] 범위로
+    t = Math.max(0, Math.min(K - 1, t));
+    const i = Math.floor(t);
+    const j = Math.min(K - 1, i + 1);
+    const a = t - i; // 0~1
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // 아래 프레임
+    ctx.globalAlpha = 1.0;
+    ctx.drawImage(imgs[i], 0, 0, canvas.width, canvas.height);
+    // 위 프레임(알파 a로 블렌딩)
+    ctx.globalAlpha = a;
+    ctx.drawImage(imgs[j], 0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = 1.0;
+  }
+
+  // 슬라이더 값(0~9)을 전체 구간 [0, K-1]로 매핑
+  function sliderToT(value) {
+    const K = imgs.length;
+    if (K <= 1) return 0;
+    const steps = 9; // 0..9 총 10단계
+    const u = Number(value) / steps;   // 0..1
+    return u * (K - 1);                // 0..K-1
+  }
+
+  // 초기화
+  preload().then(() => {
+    // 기준 크기 세팅 (첫 장)
+    resizeTo(imgs[0]);
+
+    // 초기 그리기
+    drawInterpolated(sliderToT(slider.value));
+
+    // 리스너
+    let rafId = null;
+    slider.addEventListener('input', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        drawInterpolated(sliderToT(slider.value));
+        rafId = null;
+      });
+    });
+
+    // 반응형(옵션): 창 크기 바뀌어도 픽셀 비율 유지하고 싶으면 여기에 로직 추가 가능
+  }).catch(err => {
+    wrapper.textContent = 'Failed to load images.';
+    console.error(err);
+  });
+});
+</script>
+
 
 </body>
 </html>
