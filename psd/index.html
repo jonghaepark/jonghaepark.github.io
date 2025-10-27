@@ -190,7 +190,7 @@
             angular distance naturally represents temporal progression.
           </p>
 
-          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. Circular Latent Representation</h4>
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. Mutual Information-based Skill Discovery</h4>
           <p>
             PSD parameterizes the state encoder \( \phi(s) \in \mathbb{R}^2 \) as points on the unit circle. 
             The agent’s skill variable is defined by a <b>period length \( L \)</b> that determines how many timesteps it takes 
@@ -198,7 +198,7 @@
             By constraining \( \| \phi(s) \|_2 = 1 \), the model ensures that transitions correspond to angular motion along the circle.
           </p>
 
-          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Temporal Distance Objective</h4>
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Distance-Maxmizing Skill Discovery</h4>
           <p>
             To learn meaningful periodicity, PSD optimizes a <b>temporal distance loss</b> TODO
           </p>
