@@ -246,13 +246,19 @@
 <section class="section" id="results">
   <div class="container" style="max-width: 1100px; margin: 0 auto;">
 
-    <!-- Results -->
+    <!-- Results (state) -->
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3" style="text-align: left;">Results</h2>
-        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. Circular Latent Representation</h4>
-        <!-- 버튼 5개: 동영상 위 -->
-        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector">
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. State-based Environment</h4>
+
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+                style="max-width:100%; height:auto;"></video>
+        </div>
+
+        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+            style="margin-top: 1rem;">
           <button class="btn-pill is-active" aria-pressed="true"
                   data-src="./static/videos/psd_teaser.mp4">Ant</button>
           <button class="btn-pill" aria-pressed="false"
@@ -264,11 +270,52 @@
           <button class="btn-pill" aria-pressed="false"
                   data-src="./static/videos/psd_teaser.mp4">Walker2D</button>
         </div>
+      </div>
+    </div>
 
+    <!-- Results (pixel) -->
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3" style="text-align: left;">Results</h2>
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Pixel-based Environment</h4>
+        
+        <!-- 동영상 위에 있던 버튼을 아래로 이동 -->
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="result-video" preload="auto" muted playsinline autoplay loop style="max-width:100%; height:auto;"></video>
+          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+                style="max-width:100%; height:auto;"></video>
         </div>
 
+        <!-- 버튼 5개: 동영상 아래 -->
+        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+            style="margin-top: 1rem;">
+          <button class="btn-pill is-active" aria-pressed="true"
+                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
+          <button class="btn-pill" aria-pressed="false"
+                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Results (metra) -->
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3" style="text-align: left;">Results</h2>
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">3. Combination with METRA</h4>
+        
+        <!-- 동영상 위에 있던 버튼을 아래로 이동 -->
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+                style="max-width:100%; height:auto;"></video>
+        </div>
+
+        <!-- 버튼 5개: 동영상 아래 -->
+        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+            style="margin-top: 1rem;">
+          <button class="btn-pill is-active" aria-pressed="true"
+                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
+          <button class="btn-pill" aria-pressed="false"
+                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
+        </div>
       </div>
     </div>
 
