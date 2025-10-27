@@ -112,8 +112,8 @@
 
 <!-- TEASER -->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
+  <div class="container is-fluid">  <!-- 폭 제한 해제 -->
+    <div class="hero-body has-text-centered">
       <video id="teaser" preload="auto" muted playsinline autoplay loop 
             poster="./static/images/placeholder.jpg"
             style="max-width:100%; height:auto;">
@@ -135,13 +135,23 @@
       });
       </script>
 
-      <h2 class="subtitle has-text-centered" 
-          style="font-family: 'Castoro', 'Times New Roman', serif; font-style: italic; font-size: 1.4rem; color: #444; margin-top: 1rem;">
+      <h2 class="subtitle"
+          style="
+            font-family: 'Castoro', 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: #333;
+            white-space: nowrap;          /* 줄바꿈 방지 */
+            overflow: visible;
+            margin-top: 1.2rem;
+            letter-spacing: 0.02em;
+          ">
         “Fundamental observation in nature is that nearly all forms of locomotion are inherently periodic.”
       </h2>
     </div>
   </div>
 </section>
+
 
 
 <!-- ABSTRACT -->
