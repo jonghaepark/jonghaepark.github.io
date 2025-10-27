@@ -512,6 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
     video.setAttribute('playsinline', '');
     video.setAttribute('autoplay', '');
     video.setAttribute('loop', '');
+    video.setAttribute('preload', 'auto'); // 초기 버퍼 충분히
 
     function setActive(btn) {
       buttons.forEach(b => {
@@ -522,18 +523,39 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-pressed', 'true');
     }
 
+    // 기존 switchVideo 함수를 아래로 교체
     function switchVideo(src) {
       if (!src) return;
+
+      // 이벤트 중복 방지
+      video.oncanplaythrough = null;
+      video.onloadeddata = null;
+
       const abs = new URL(src, window.location.href).href;
+
+      // 소스 교체
       if (video.src !== abs) {
         video.pause();
         video.src = src;
         video.load();
       } else {
-        video.currentTime = 0;
+        // 같은 소스면 처음부터 재생
+        try { video.currentTime = 0; } catch(e) {}
       }
-      const p = video.play();
-      if (p && typeof p.catch === 'function') p.catch(()=>{});
+
+      // 충분히 로드된 뒤에 재생 (끊김 방지)
+      const resume = () => {
+        try {
+          // iOS 사파리 첫 프레임 멈춤 버그 회피
+          if (video.currentTime === 0) video.currentTime = 0.001;
+        } catch (e) {}
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(()=>{});
+      };
+
+      let fired = false;
+      video.oncanplaythrough = () => { if (!fired) { fired = true; resume(); } };
+      video.onloadeddata     = () => { if (!fired) { fired = true; resume(); } };
     }
 
     // 초기 버튼(있으면 is-active, 없으면 첫 번째)로 세팅
