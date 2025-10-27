@@ -246,59 +246,52 @@
 <section class="section" id="results">
   <div class="container" style="max-width: 1100px; margin: 0 auto;">
 
-    <!-- Results -->
+    <!-- RESULTS -->
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3" style="text-align: left;">Results</h2>
+
+        <!-- 1. STATE-BASED -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. State-based Environment</h4>
-        <!-- state -->
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+          <video id="video-state" preload="auto" muted playsinline autoplay loop 
                 style="max-width:100%; height:auto;"></video>
         </div>
-        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+        <div class="video-switcher" id="switcher-state" role="group" aria-label="State environment selector"
             style="margin-top: 1rem;">
-          <button class="btn-pill is-active" aria-pressed="true"
-                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Humanoid</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Hopper</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Walker2D</button>
+          <button class="btn-pill is-active" data-src="./static/videos/state_ant.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/state_cheetah.mp4">Cheetah</button>
+          <button class="btn-pill" data-src="./static/videos/state_humanoid.mp4">Humanoid</button>
+          <button class="btn-pill" data-src="./static/videos/state_hopper.mp4">Hopper</button>
+          <button class="btn-pill" data-src="./static/videos/state_walker2d.mp4">Walker2D</button>
         </div>
+
+        <!-- 2. PIXEL-BASED -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Pixel-based Environment</h4>
-        
-        <!-- pixel -->
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+          <video id="video-pixel" preload="auto" muted playsinline autoplay loop 
                 style="max-width:100%; height:auto;"></video>
         </div>
-        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+        <div class="video-switcher" id="switcher-pixel" role="group" aria-label="Pixel environment selector"
             style="margin-top: 1rem;">
-          <button class="btn-pill is-active" aria-pressed="true"
-                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
+          <button class="btn-pill is-active" data-src="./static/videos/pixel_ant.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/pixel_cheetah.mp4">Cheetah</button>
         </div>
+
+        <!-- 3. METRA COMBINATION -->
         <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">3. Combination with METRA</h4>
-        
-        <!-- metra -->
         <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="result-video" preload="auto" muted playsinline autoplay loop 
+          <video id="video-metra" preload="auto" muted playsinline autoplay loop 
                 style="max-width:100%; height:auto;"></video>
         </div>
-        <div class="video-switcher" id="video-switcher" role="group" aria-label="Environment selector" 
+        <div class="video-switcher" id="switcher-metra" role="group" aria-label="METRA environment selector"
             style="margin-top: 1rem;">
-          <button class="btn-pill is-active" aria-pressed="true"
-                  data-src="./static/videos/psd_teaser.mp4">Ant</button>
-          <button class="btn-pill" aria-pressed="false"
-                  data-src="./static/videos/psd_teaser.mp4">Cheetah</button>
+          <button class="btn-pill is-active" data-src="./static/videos/metra_ant.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/metra_cheetah.mp4">Cheetah</button>
         </div>
       </div>
     </div>
+
 
     <!-- Interpolation demo -->
     <div class="columns is-centered">
@@ -382,54 +375,76 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const video   = document.getElementById('result-video');
-  const buttons = Array.from(document.querySelectorAll('#video-switcher .btn-pill'));
-  if (!video || !buttons.length) return;
+  // ① 여러 쌍 자동 처리: id가 'video-*' 형태인 모든 비디오 탐색
+  const multiVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
+  const groups = [];
 
-  // iOS/모바일 자동재생 호환
-  video.muted = true;
-  video.setAttribute('muted', '');
-  video.setAttribute('playsinline', '');
-  video.setAttribute('autoplay', '');
-  video.setAttribute('loop', '');
-
-  function setActive(btn) {
-    buttons.forEach(b => {
-      b.classList.remove('is-active');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    btn.classList.add('is-active');
-    btn.setAttribute('aria-pressed', 'true');
-  }
-
-  function switchVideo(src) {
-    if (!src) return;
-    // 같은 src를 다시 누르면 타임리셋만
-    if (video.src !== new URL(src, window.location.href).href) {
-      video.pause();
-      video.src = src;
-      video.load();
-    } else {
-      video.currentTime = 0;
-    }
-    const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
-  }
-
-  // 초기화: is-active 버튼(없으면 첫 번째 버튼)으로 바로 세팅 & 재생
-  const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
-  if (initial) {
-    setActive(initial);
-    switchVideo(initial.getAttribute('data-src'));
-  }
-
-  // 클릭 시 교체
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setActive(btn);
-      switchVideo(btn.getAttribute('data-src'));
-    });
+  multiVideos.forEach(vid => {
+    const suffix = vid.id.replace(/^video-/, '');              // ex) 'state'
+    const switcher = document.getElementById(`switcher-${suffix}`);
+    if (switcher) groups.push({ videoEl: vid, switcherEl: switcher });
   });
+
+  // ② 레거시(단일 쌍) 지원: 기존 코드 그대로도 동작하도록 백업 경로
+  const legacyVideo = document.getElementById('result-video');
+  const legacySwitcher = document.querySelector('#video-switcher');
+  if (!groups.length && legacyVideo && legacySwitcher) {
+    groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
+  }
+
+  // 그룹 초기화 함수
+  function initGroup(video, switcher) {
+    const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
+    if (!buttons.length) return;
+
+    // iOS/모바일 자동재생 호환
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('loop', '');
+
+    function setActive(btn) {
+      buttons.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+
+    function switchVideo(src) {
+      if (!src) return;
+      const abs = new URL(src, window.location.href).href;
+      if (video.src !== abs) {
+        video.pause();
+        video.src = src;
+        video.load();
+      } else {
+        video.currentTime = 0;
+      }
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(()=>{});
+    }
+
+    // 초기 버튼(있으면 is-active, 없으면 첫 번째)로 세팅
+    const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
+    if (initial) {
+      setActive(initial);
+      switchVideo(initial.getAttribute('data-src'));
+    }
+
+    // 클릭 핸들러
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setActive(btn);
+        switchVideo(btn.getAttribute('data-src'));
+      });
+    });
+  }
+
+  // 모든 그룹 적용
+  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
 });
 </script>
 
