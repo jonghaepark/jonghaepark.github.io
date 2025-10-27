@@ -111,12 +111,19 @@
 </section>
 
 <!-- TEASER -->
+<!-- TEASER -->
 <section class="hero teaser">
-  <div class="container is-fluid">  <!-- 폭 제한 해제 -->
+  <div class="container is-max-desktop">
     <div class="hero-body has-text-centered">
       <video id="teaser" preload="auto" muted playsinline autoplay loop 
             poster="./static/images/placeholder.jpg"
-            style="max-width:100%; height:auto;">
+            style="
+              width: 80%;             /* 👈 전체 폭의 80%로 축소 */
+              max-width: 900px;       /* 👈 최대 폭 제한 */
+              height: auto;
+              border-radius: 12px;    /* 모서리 살짝 둥글게 (선택) */
+              box-shadow: 0 0 20px rgba(0,0,0,0.15); /* 살짝 그림자 (선택) */
+            ">
         <source src="./static/videos/psd_teaser.mp4" type="video/mp4">
       </video>
 
@@ -141,7 +148,7 @@
             font-style: italic;
             font-size: 1.8rem;
             color: #333;
-            white-space: nowrap;          /* 줄바꿈 방지 */
+            white-space: nowrap;
             overflow: visible;
             margin-top: 1.2rem;
             letter-spacing: 0.02em;
@@ -151,6 +158,7 @@
     </div>
   </div>
 </section>
+
 
 
 
@@ -176,7 +184,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: left;">Method</h2>
+        <h2 class="title is-3" style="text-align: left;">Why might previous unsupervised skill discovery methods fail to learn multi-timecale behaviors?</h2>
         <div class="content" style="text-align: left;">
           <p>
             <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery that explicitly models the <b>periodic structure</b> of behaviors. 
@@ -208,7 +216,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: left;">Method</h2>
+        <h2 class="title is-3" style="text-align: left;">Periodic Skill Discovery</h2>
         <div class="content" style="text-align: left;">
           <p>
             <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery that explicitly models the <b>periodic structure</b> of behaviors. 
