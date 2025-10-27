@@ -118,8 +118,8 @@
           style="
             display: block;
             margin: 0 auto;
-            width: 70%;          /* 👈 실제 크기 조절 (50~80% 사이 조정 가능) */
-            max-width: 850px;    /* 👈 최대 폭 제한 */
+            width: 70%;
+            max-width: 850px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
@@ -146,16 +146,19 @@
         style="
           font-family: 'Castoro', 'Times New Roman', serif;
           font-style: italic;
-          font-size: 1.9rem;
+          font-size: 1.6rem;        /* 👈 기존보다 약간 작게 */
           color: #333;
-          white-space: nowrap;
-          margin-top: 1.2rem;
-          letter-spacing: 0.02em;
+          margin-top: 1.1rem;
+          line-height: 1.4;
+          letter-spacing: 0.015em;
+          text-align: center;       /* 👈 텍스트 중앙 정렬 보장 */
+          white-space: normal;      /* 👈 줄바꿈 허용 (너무 길면 자동 줄바꿈) */
         ">
       “Fundamental observation in nature is that nearly all forms of locomotion are inherently periodic.”
     </h2>
   </div>
 </section>
+
 
 <!-- ABSTRACT -->
 <section class="section" id="abstract">
