@@ -160,17 +160,17 @@
 <!-- METHOD -->
 <section class="section" id="method">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3 has-text-centered">Method</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3" style="text-align: left;">Method</h2>
+        <div class="content" style="text-align: left;">
           <p>
             <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery that explicitly models the <b>periodic structure</b> of behaviors. 
             Instead of treating skills as discrete or unstructured latent variables, PSD maps each state to a point on a <b>circular latent space</b>, where the 
             angular distance naturally represents temporal progression.
           </p>
 
-          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. Circular Latent Representation</h4>
           <p>
             PSD parameterizes the state encoder \( \phi(s) \in \mathbb{R}^2 \) as points on the unit circle. 
             The agent’s skill variable is defined by a <b>period length \( L \)</b> that determines how many timesteps it takes 
@@ -178,7 +178,7 @@
             By constraining \( \| \phi(s) \|_2 = 1 \), the model ensures that transitions correspond to angular motion along the circle.
           </p>
 
-          <h4 class="title is-4 has-text-centered" style="margin-top: 1.5em;">2. Temporal Distance Objective</h4>
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Temporal Distance Objective</h4>
           <p>
             To learn meaningful periodicity, PSD optimizes a <b>temporal distance loss</b> TODO
           </p>
@@ -187,6 +187,7 @@
     </div>
   </div>
 </section>
+
 
 
 <!-- RESULTS / CAROUSEL + INTERPOLATION -->
