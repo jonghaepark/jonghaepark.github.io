@@ -483,6 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     v.preload = 'metadata';
     v.setAttribute('muted', '');
     v.setAttribute('playsinline', '');
+    v.setAttribute('autoplay', '');   // 크롬 자동재생 정책 대응(음소거+autoplay)
   });
 
   // === 가시성 기반 재생 제어 ===
@@ -499,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => {
       const visible = e.isIntersecting && e.intersectionRatio > 0.6;
       visibleMap.set(e.target, visible);
-      playIfVisible(e.target);
+      playIfVisible(e.target);   // 👈 각 비디오를 독립적으로 제어
     });
   }, { threshold: [0, 0.6, 1] });
 
@@ -528,16 +529,12 @@ document.addEventListener('DOMContentLoaded', () => {
     groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
   }
 
-  // 다른 비디오는 즉시 정지
-  function pauseOthers(target) {
-    allVideos.forEach(v => { if (v !== target) v.pause(); });
-  }
+  // ✅ 다른 비디오를 강제로 멈추던 로직을 제거했습니다.
+  // function pauseOthers(target) { ... }  // 삭제
 
-  // 안전한 소스 전환
+  // 안전한 소스 전환 (해당 비디오만 다룸)
   function switchVideo(video, src) {
     if (!src) return;
-
-    pauseOthers(video);
 
     const abs = new URL(src, window.location.href).href;
     const same = (video.currentSrc === abs || video.src === abs);
@@ -599,12 +596,6 @@ document.addEventListener('DOMContentLoaded', () => {
   groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
 });
 </script>
-
-<!-- MathJax for equations (keep once per page) -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 
 </body>
 </html>
