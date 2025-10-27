@@ -476,42 +476,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   // === 모든 결과 비디오 수집 ===
   const allVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
-  const visibleMap = new WeakMap(); // 각 비디오의 가시 상태 저장
 
-  // 기본 세팅
+  // 비디오 공통 초기화: 동시재생을 위한 세팅
   allVideos.forEach(v => {
-    v.preload = 'metadata';
     v.setAttribute('muted', '');
     v.setAttribute('playsinline', '');
-    v.setAttribute('autoplay', '');   // 크롬 자동재생 정책 대응(음소거+autoplay)
-  });
-
-  // === 가시성 기반 재생 제어 ===
-  function playIfVisible(v) {
-    if (visibleMap.get(v)) {
-      const p = v.play();
-      if (p && p.catch) p.catch(()=>{});
-    } else {
-      v.pause();
-    }
-  }
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      const visible = e.isIntersecting && e.intersectionRatio > 0.6;
-      visibleMap.set(e.target, visible);
-      playIfVisible(e.target);   // 👈 각 비디오를 독립적으로 제어
-    });
-  }, { threshold: [0, 0.6, 1] });
-
-  allVideos.forEach(v => io.observe(v));
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      allVideos.forEach(v => v.pause());
-    } else {
-      allVideos.forEach(v => playIfVisible(v));
-    }
+    v.setAttribute('autoplay', '');
+    v.setAttribute('preload', 'auto');     // 버퍼 충분히
+    v.setAttribute('loop', '');            // 끊김 없이 반복
+    v.disablePictureInPicture = true;
   });
 
   // === 그룹(버튼 ↔ 비디오) 매칭 ===
@@ -529,10 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
   }
 
-  // ✅ 다른 비디오를 강제로 멈추던 로직을 제거했습니다.
-  // function pauseOthers(target) { ... }  // 삭제
-
-  // 안전한 소스 전환 (해당 비디오만 다룸)
+  // === 소스 전환: 해당 비디오만 바꾸고, 다른 애들 건드리지 않음
   function switchVideo(video, src) {
     if (!src) return;
 
@@ -540,36 +510,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const same = (video.currentSrc === abs || video.src === abs);
 
     if (same) {
-      try { video.pause(); video.currentTime = 0.001; } catch(e){}
-      playIfVisible(video);   // 가시 상태에서만 재생
+      // 같은 소스면 살짝 되감고 재생
+      try { video.currentTime = Math.max(0, video.currentTime - 0.001); } catch(e){}
+      play(video);
       return;
     }
 
-    video.pause();
+    // 소스 교체
+    try { video.pause(); } catch(e){}
     video.removeAttribute('src');
     while (video.firstChild) video.removeChild(video.firstChild);
 
     const s = document.createElement('source');
     s.src  = src;
-    s.type = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+    s.type = 'video/mp4';
     video.appendChild(s);
 
     try { video.load(); } catch(e){}
 
-    let fired = false;
-    const resume = () => {
-      if (fired) return; fired = true;
-      try { if (video.currentTime === 0) video.currentTime = 0.001; } catch(e){}
-      playIfVisible(video);
+    let started = false;
+    const tryStart = () => {
+      if (started) return; started = true;
+      play(video);
     };
-    const onCPT = () => { video.removeEventListener('canplaythrough', onCPT); resume(); };
-    const onLD  = ()  => { video.removeEventListener('loadeddata', onLD);     resume(); };
+    video.addEventListener('canplaythrough', tryStart, { once: true });
+    video.addEventListener('loadeddata',     tryStart, { once: true });
 
-    video.addEventListener('canplaythrough', onCPT, { once:true });
-    video.addEventListener('loadeddata', onLD, { once:true });
+    // 네트워크 느릴 때 대비해서 타임아웃으로도 재생 트리거
+    setTimeout(tryStart, 800);
   }
 
-  // 그룹 초기화
+  function play(v) {
+    const p = v.play();
+    if (p && p.catch) p.catch(() => { /* 자동재생 정책 실패 시 이후 제스처 훅으로 커버 */ });
+  }
+
+  // === 그룹 초기화: 각 그룹 비디오에 '활성 버튼' 소스로 세팅
   function initGroup(video, switcher) {
     const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
     if (!buttons.length) return;
@@ -585,6 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
       switchVideo(video, initial.getAttribute('data-src'));
     }
 
+    // 버튼 클릭 시 해당 비디오만 소스 전환 (다른 비디오는 계속 재생)
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         setActive(btn);
@@ -594,8 +571,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
+
+  // === 동시 재생 보장: 모든 비디오를 바로 재생 시도
+  allVideos.forEach(v => play(v));
+
+  // === 브라우저 자동재생 정책 대비: 첫 사용자 제스처 시 전부 재생 재시도
+  const kickstart = () => {
+    allVideos.forEach(v => play(v));
+    document.removeEventListener('pointerdown', kickstart);
+    document.removeEventListener('keydown', kickstart);
+  };
+  document.addEventListener('pointerdown', kickstart, { once: true });
+  document.addEventListener('keydown',     kickstart, { once: true });
+
+  // === 탭 숨김/표시와 무관하게 계속 재생 (visibilitychange 훅 제거)
+  // (아무 것도 하지 않음)
 });
 </script>
+
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
 </body>
 </html>
