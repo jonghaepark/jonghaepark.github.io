@@ -324,9 +324,9 @@
           <!-- 2. Single-Step Intrinsic Reward -->
           <h4 class="title is-4" style="margin-top: 1.5em;">2. Single-step Intrinsic Reward</h4>
           <p>
-            While a circular representation is being learned, the RL agent is jointly trained with an single-step intrinsic reward
+            While a circular representation is being learned, the RL agent is jointly trained with an <b>single-step intrinsic reward</b>
             that encourages periodic behavior. Since the circular latent space is designed to capture periodicity,
-            rewarding the policy for moving along this circular space naturally promotes the learning of periodic
+            rewarding the policy for <b>moving along this circular space</b> naturally promotes the learning of periodic
             behaviors.<br><br>
             Formally, the deviation from the 
             ideal single-step length \( L \sin(\pi/2L) \) defines the reward:
@@ -351,11 +351,11 @@
           <!-- 3. Adaptive Sampling -->
           <h4 class="title is-4" style="margin-top: 1.5em;">3. Adaptive Sampling Method</h4>
           <p>
-            To enable the agent to discover a maximally diverse range of periods without any prior knowledge of
+            To enable the agent to discover a <b>maximally</b> diverse range of periods without <b>any prior knowledge</b> of
             its inherent period ranges, we introduce an adaptive sampling method that dynamically adjusts the
             sampling range during training.<br><br>
             The idea is to evaluate the performance of the policy
-            conditioned on the boundary of the current sampling range. 
+            conditioned on the <b>boundary of the current sampling range</b>. 
             When the policy successfully maintains periodicity for the current bounds, the range is 
             expanded. Conversely, if the policy fails to maintain periodicity, the current bound is rejected and the previous value is restored.
             This mechanism enables the agent to discover dynamically feasible period bounds,
