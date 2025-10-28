@@ -304,7 +304,7 @@
           \[
           \begin{aligned}
           \mathcal{J}_{\text{PSD}}
-          = \! \mathbb{E}\!\bigl[
+          = \! \mathbb{E}\!\!\!\bigl[
             &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
             - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
           \bigr] \\[4pt]
@@ -355,7 +355,7 @@
             its inherent period ranges, we introduce an adaptive sampling method that dynamically adjusts the
             sampling range during training.<br><br>
             The idea is to evaluate the performance of the policy
-            conditioned on the <b>boundary of the current sampling range</b>. 
+            conditioned on <b>the boundary of the current sampling range</b>. 
             When the policy successfully maintains periodicity for the current bounds, the range is 
             expanded. Conversely, if the policy fails to maintain periodicity, the current bound is rejected and the previous value is restored.
             This mechanism enables the agent to discover dynamically feasible period bounds,
