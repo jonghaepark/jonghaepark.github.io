@@ -1,3 +1,6 @@
+html { font-size: 18px; }
+
+
 body {
   font-family: 'Noto Sans', sans-serif;
 }
@@ -174,7 +177,7 @@ body {
   padding: 10px 16px;
   border-radius: 9999px;           /* 완전 둥근 pill */
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
   transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, color .15s ease;
@@ -202,6 +205,6 @@ body {
 
 /* 모바일에서 살짝 작게 */
 @media (max-width: 480px) {
-  .btn-pill { padding: 9px 14px; font-size: 16px; }
+  .btn-pill { padding: 9px 14px; font-size: 15px; }
   .video-switcher { gap: 10px; }
 }
