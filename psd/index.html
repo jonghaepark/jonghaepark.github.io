@@ -343,10 +343,13 @@
           <!-- 3. Adaptive Sampling -->
           <h4 class="title is-4" style="margin-top: 1.5em;">3. Adaptive Sampling Method</h4>
           <p>
-            To autonomously explore diverse periods, PSD adaptively adjusts the sampling 
-            range \( [L_{\min}, L_{\max}] \) based on the agent’s performance. When the 
-            policy successfully maintains periodicity for the current bounds, the range is 
-            expanded, allowing discovery of longer or shorter cycles over training.
+            To enable the agent to discover a maximally diverse range of periods without any prior knowledge of
+            its inherent period ranges, we introduce an adaptive sampling method that dynamically adjusts the
+            sampling range \( [L_{\min}, L_{\max}] \) during training. The idea is to evaluate the performance of the policy
+            conditioned on the boundary of the current sampling range. 
+            When the policy successfully maintains periodicity for the current bounds, the range is 
+            expanded, allowing discovery of longer or shorter cycles over training. This mechanism enables the agent to discover dynamically feasible period bounds,
+            thereby broadening the range of achievable periods.
           </p>
 
         </div>
