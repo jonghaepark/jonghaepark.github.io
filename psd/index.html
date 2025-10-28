@@ -271,7 +271,7 @@
             Rhythmic gaits of quadrupeds, the oscillatory motions of fish, and even human walking patterns
             share a distinct periodic structure. However, existing unsupervised skill discovery methods have rarely addressed the role of
             periodicity. To address this gap, we propose a novel unsupervised skill discovery objective for learning periodic
-            behaviors, which we call <b>Periodic Skill Discovery (PSD)</b>. 
+            behaviors, which we call <b>Periodic Skill Discovery (PSD)</b>. <br><br>
             Periodic Skill Discovery (PSD) is a framework for unsupervised skill discovery 
             that captures the <b>periodic structure</b> of behaviors by mapping states into a 
             <b>circular latent space</b>. By optimizing a constrained objective that encodes 
@@ -356,12 +356,12 @@
           <p>
             To enable the agent to discover a maximally diverse range of periods without any prior knowledge of
             its inherent period ranges, we introduce an adaptive sampling method that dynamically adjusts the
-            sampling range during training.<br><br>
+            sampling range during training.
             The idea is to evaluate the performance of the policy
             conditioned on the boundary of the current sampling range. 
             When the policy successfully maintains periodicity for the current bounds, the range is 
-            expanded, allowing discovery of longer or shorter cycles over training.
-            <br><br>This mechanism enables the agent to discover dynamically feasible period bounds,
+            expanded. Conversely, if the policy fails to maintain periodicity, the current bound is rejected and the previous value is restored.<br><br>
+            This mechanism enables the agent to discover dynamically feasible period bounds,
             thereby broadening the range of achievable periods.
           </p>
 
