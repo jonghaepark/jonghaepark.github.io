@@ -301,18 +301,21 @@
           </p>
 
           <p style="margin: 0.8em 0;">
-            \[
-              \mathcal{J}_{\text{PSD}}
-              = \mathbb{E}\!\left[
-                \|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
-                - k \|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
-              \right]
-            \]
-            \[
-              \text{s.t. } 
-              \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L,\quad
-              \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le L \sin\!\left(\tfrac{\pi}{2L}\right).
-            \]
+          \[
+          \begin{aligned}
+          \mathcal{J}_{\text{PSD}}
+          &= \mathbb{E}\!\left[
+            \|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
+            - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
+          \right] \\[4pt]
+          \text{s.t.}\quad
+          &
+          \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L, \\[3pt]
+          &
+          \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le
+          L\,\sin\!\left(\tfrac{\pi}{2L}\right).
+          \end{aligned}
+          \]
           </p>
 
           <p>
