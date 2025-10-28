@@ -30,8 +30,8 @@
 /* 페이드 인 → 유지 → 페이드 아웃 */
 @keyframes fadeInOut {
   0% { opacity: 0; filter: blur(6px); }
-  20% { opacity: 1; filter: blur(0px); }
   60% { opacity: 1; filter: blur(0px); }
+  90% { opacity: 1; filter: blur(0px); }
   100% { opacity: 0; filter: blur(6px); }
 }
 
