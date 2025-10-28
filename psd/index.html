@@ -267,7 +267,7 @@
 
         <div class="content" style="text-align: left;">
           <p>
-            A fundamental observation in nature is that nearly <b>all</b> forms of locomotion are inherently periodic.
+            A <b>fundamental observation</b> in nature is that nearly all forms of locomotion are inherently periodic.
             Rhythmic gaits of quadrupeds, the oscillatory motions of fish, and even human walking patterns
             share a distinct periodic structure. However, existing unsupervised skill discovery methods have rarely addressed the role of
             periodicity. To address this gap, we propose a novel unsupervised skill discovery objective for learning periodic
@@ -304,10 +304,10 @@
           \[
           \begin{aligned}
           \mathcal{J}_{\text{PSD}}
-          = \! \mathbb{E}\!\left[\vphantom{\Big|}
+          = \! \mathbb{E}\!\bigl[
             &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
             - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
-          \right] \\[4pt]
+          \bigr] \\[4pt]
           \text{s.t.}\quad &
           \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L, \\[3pt]
           & \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le
