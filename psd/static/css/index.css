@@ -205,6 +205,6 @@ body {
 
 /* 모바일에서 살짝 작게 */
 @media (max-width: 480px) {
-  .btn-pill { padding: 9px 14px; font-size: 15px; }
+  .btn-pill { padding: 9px 14px; font-size: 16px; }
   .video-switcher { gap: 10px; }
 }
