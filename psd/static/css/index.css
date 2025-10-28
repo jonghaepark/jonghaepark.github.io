@@ -7,7 +7,7 @@ h2 {
   position: relative;
   display: inline-block;
   max-width: 84%;
-  border-radius: 30px;
+  border-radius: 15px;
   overflow: hidden;
   background: #000;
 }
