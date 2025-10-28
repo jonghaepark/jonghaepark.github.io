@@ -267,8 +267,13 @@
 
         <div class="content" style="text-align: left;">
           <p>
-            <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery 
-            that captures the <b>periodic nature</b> of behaviors by embedding states into a 
+            A fundamental observation in nature is that nearly <b>all</b> forms of locomotion are inherently periodic.
+            Rhythmic gaits of quadrupeds, the oscillatory motions of fish, and even human walking patterns
+            share a distinct periodic structure. However, existing unsupervised skill discovery methods have rarely addressed the role of
+            periodicity. To address this gap, we propose a novel unsupervised skill discovery objective for learning periodic
+            behaviors, which we call <b>Periodic Skill Discovery (PSD)</b>. 
+            Periodic Skill Discovery (PSD) is a framework for unsupervised skill discovery 
+            that captures the <b>periodic structure</b> of behaviors by mapping states into a 
             <b>circular latent space</b>. By optimizing a constrained objective that encodes 
             temporal distance, PSD enables agents to learn periodic behaviors with 
             <b>controllable periods</b> across multiple timescales.
@@ -288,8 +293,8 @@
           <!-- 1. Circular Latent Representation -->
           <h4 class="title is-4" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
           <p>
-            PSD trains an encoder \( \phi_L(s) \) that maps each state \( s \) to a point 
-            on a circle of diameter \( L \), where \( L \) denotes the skill’s period variable.
+            PSD trains an encoder \( \phi \) that maps each state \( s \) to a point 
+            on a circle of diameter \( L \), where \( L \) denotes the period variable.
             The objective encourages states \( s_t \) and \( s_{t+L} \) to lie at opposite 
             points on the circle while maintaining uniform angular spacing between 
             consecutive states:
@@ -319,9 +324,11 @@
           <!-- 2. Single-Step Intrinsic Reward -->
           <h4 class="title is-4" style="margin-top: 1.5em;">2. Single-step Intrinsic Reward</h4>
           <p>
-            The agent is jointly trained with a single-step intrinsic reward that encourages
-            consistent motion along the circular latent path. The deviation from the 
-            ideal step length \( L \sin(\pi/2L) \) defines the reward:
+            While a circular representation is being learned, the RL agent is jointly trained with an single-step intrinsic reward
+            that encourages periodic behavior. Since the circular latent space is designed to capture periodicity,
+            rewarding the policy for moving along this circular space naturally promotes the learning of periodic
+            behaviors. Formally, the deviation from the 
+            ideal single-step length \( L \sin(\pi/2L) \) defines the reward:
           </p>
 
           <p style="margin: 0.8em 0;">
