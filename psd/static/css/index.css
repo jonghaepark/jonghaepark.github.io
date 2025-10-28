@@ -1,3 +1,9 @@
+pre {
+  background: rgba(240, 240, 240, 0.8); /* ← 0.9 진함 / 0.6 연함 */
+  border-radius: 8px;
+  padding: 1em;
+}
+
 html {
   font-size: 18px;
   background: #FAFAF8;
