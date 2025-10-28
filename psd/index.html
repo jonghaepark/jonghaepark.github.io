@@ -276,7 +276,7 @@
             that captures the <b>periodic structure</b> of behaviors by mapping states into a 
             <b>circular latent space</b>. By optimizing a constrained objective that encodes 
             temporal distance, PSD enables agents to learn periodic behaviors with 
-            <b>controllable periods</b> across multiple timescales.
+            <b>controllable</b> periods across multiple timescales.
           </p>
 
           <!-- PDF→SVG 이미지 -->
@@ -294,7 +294,7 @@
           <h4 class="title is-4" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
           <p>
             PSD trains an encoder \( \phi \) that maps each state \( s \) to a point 
-            on a circle of diameter \( L \), where \( L \) denotes the period variable.
+            on a <b>circle of diameter \( L \)</b>, where \( L \) denotes the period variable.
             The objective encourages states \( s_t \) and \( s_{t+L} \) to lie at opposite 
             points on the circle while maintaining uniform angular spacing between 
             consecutive states:
@@ -318,8 +318,7 @@
 
           <p>
             These constraints ensure that the latent representation forms a regular 
-            \( 2L \)-gon on the circle, making each skill’s trajectory periodic with a 
-            full rotation every \( 2L \) steps.
+            \( 2L \)-gon on the circle, making each skill’s trajectory periodic with a period of \( 2L \) steps.
           </p>
 
           <!-- 2. Single-Step Intrinsic Reward -->
