@@ -330,7 +330,8 @@
             While a circular representation is being learned, the RL agent is jointly trained with an single-step intrinsic reward
             that encourages periodic behavior. Since the circular latent space is designed to capture periodicity,
             rewarding the policy for moving along this circular space naturally promotes the learning of periodic
-            behaviors. Formally, the deviation from the 
+            behaviors.<br><br>
+            Formally, the deviation from the 
             ideal single-step length \( L \sin(\pi/2L) \) defines the reward:
           </p>
 
@@ -355,10 +356,12 @@
           <p>
             To enable the agent to discover a maximally diverse range of periods without any prior knowledge of
             its inherent period ranges, we introduce an adaptive sampling method that dynamically adjusts the
-            sampling range during training. The idea is to evaluate the performance of the policy
+            sampling range during training.<br><br>
+            The idea is to evaluate the performance of the policy
             conditioned on the boundary of the current sampling range. 
             When the policy successfully maintains periodicity for the current bounds, the range is 
-            expanded, allowing discovery of longer or shorter cycles over training. This mechanism enables the agent to discover dynamically feasible period bounds,
+            expanded, allowing discovery of longer or shorter cycles over training.
+            <br><br>This mechanism enables the agent to discover dynamically feasible period bounds,
             thereby broadening the range of achievable periods.
           </p>
 
