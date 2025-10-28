@@ -1,602 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Periodic Skill Discovery">
-  <meta name="keywords" content="Reinforcement Learning, Unsupervised Skill Discovery, Periodicity">
+  <!-- Basic meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Periodic Skill Discovery">
+  <meta name="keywords" content="Reinforcement Learning, Unsupervised Skill Discovery, Periodicity">
 
-  <title>Periodic Skill Discovery</title>
+  <title>Periodic Skill Discovery</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
 
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <!-- JS -->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow:1; justify-content:center;">
-      <a class="navbar-item" href="https://jonghaepark.github.io/" aria-label="Top">
-        <span class="icon"><i class="fas fa-home"></i></span>
-      </a>
-      <a class="navbar-item" href="#abstract">Abstract</a>
-      <a class="navbar-item" href="#results">Results</a>
-      <a class="navbar-item" href="#bibtex">BibTeX</a>
-    </div>
-  </div>
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow:1; justify-content:center;">
+      <a class="navbar-item" href="https://jonghaepark.github.io/" aria-label="Top">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
 </nav>
 
+<!-- HERO / TITLE -->
 <section class="hero" id="top">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Periodic Skill Discovery</h1>
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Periodic Skill Discovery</h1>
 
-      <div class="is-size-5 publication-authors">
-        <span class="author-block" style="margin-right: 0.6em;"><a href="https://jonghaepark.github.io/" rel="noopener">Jonghae Park<sup>1</sup></a></span>
-        <span class="author-block" style="margin-right: 0.6em;">Daesol Cho<sup>2</sup></span>
-        <span class="author-block" style="margin-right: 0.6em;">Jusuk Lee<sup>1</sup></span>
-        <span class="author-block" style="margin-right: 0.6em;">Dongseok Shim<sup>1</sup></span>
-        <span class="author-block" style="margin-right: 0.6em;">Inkyu Jang<sup>1</sup></span>
-        <span class="author-block">H. Jin Kim<sup>1</sup></span>
-      </div>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block" style="margin-right: 0.6em;"><a href="https://jonghaepark.github.io/" rel="noopener">Jonghae Park<sup>1</sup></a></span>
+        <span class="author-block" style="margin-right: 0.6em;">Daesol Cho<sup>2</sup></span>
+        <span class="author-block" style="margin-right: 0.6em;">Jusuk Lee<sup>1</sup></span>
+        <span class="author-block" style="margin-right: 0.6em;">Dongseok Shim<sup>1</sup></span>
+        <span class="author-block" style="margin-right: 0.6em;">Inkyu Jang<sup>1</sup></span>
+        <span class="author-block">H. Jin Kim<sup>1</sup></span>
+      </div>
 
-      <div class="is-size-6 publication-authors" style="margin-top: 4px;">
-        <span class="author-block" style="margin-right: 0.6em;"><sup>1</sup>Seoul National University</span>
-        <span class="author-block"><sup>2</sup>Georgia Institute of Technology</span>
-      </div>
+      <div class="is-size-6 publication-authors" style="margin-top: 4px;">
+        <span class="author-block" style="margin-right: 0.6em;"><sup>1</sup>Seoul National University</span>
+        <span class="author-block"><sup>2</sup>Georgia Institute of Technology</span>
+      </div>
 
-      <div class="is-size-6 has-text-weight-semibold" style="color: #FA5543; margin-top: 6px;">
-        Accepted at NeurIPS 2025
-      </div>
-          <p class="has-text-danger" style="margin-top: 4px;">
-            I’m currently working on this project page — please check back soon!
-          </p>
-          <div class="column has-text-centered">
-            <div class="publication-links">
-                            <span class="link-block">
-                <a href="./static/psd_paper.pdf" class="button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper (PDF)</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="far fa-image"></i></span><span>Poster</span>
-                </a>
-              </span>
-            </div>
-          </div>
+      <div class="is-size-6 has-text-weight-semibold" style="color: #FA5543; margin-top: 6px;">
+        Accepted at NeurIPS 2025
+      </div>
+          <p class="has-text-danger" style="margin-top: 4px;">
+            I’m currently working on this project page — please check back soon!
+          </p>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Update hrefs to your files/links -->
+              <span class="link-block">
+                <a href="./static/psd_paper.pdf" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper (PDF)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-image"></i></span><span>Poster</span>
+                </a>
+              </span>
+            </div>
+          </div>
 
-        </div>       </div>     </div>   </div> </section>
+        </div> <!-- column -->
+      </div> <!-- columns -->
+    </div> <!-- container -->
+  </div> <!-- hero-body -->
+</section>
 
+<!-- TEASER -->
 <section class="section" id="teaser-section" style="padding-top: 3rem; padding-bottom: 2rem;">
-  <div class="container" style="text-align: center; max-width: 1100px;">
+  <div class="container" style="text-align: center; max-width: 1100px;">
 
-        <video id="teaser-video" autoplay muted playsinline loop preload="metadata"
-                    style="
-            max-width: 68.5%;
-            height: auto;
-            margin-bottom: 1.2rem;
-            border-radius: 10px;
-            background: #000;
-          ">
-      <source src="./static/videos/psd_humanoid_teaser.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <!-- Teaser Video -->
+    <video id="teaser-video" autoplay muted playsinline loop preload="metadata"
+          style="
+            max-width: 68.5%;
+            height: auto;
+            margin-bottom: 1.2rem;
+            border-radius: 10px;
+            background: #000;
+          ">
+      <source src="./static/videos/psd_humanoid_teaser.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-    <h2 class="subtitle"
-        style="
-          all: unset;                 
-          display: block;
-          font-style: italic;
-          font-size: 1.4rem;
-          color: #333;
-          line-height: 1.3;
-          letter-spacing: 0.015em;
-          text-align: center;
-          margin: 0;                  
-          padding: 0;                
-        ">
-          </h2>
-  </div>
+    <h2 class="subtitle"
+        style="
+          all: unset;                 
+          display: block;
+          font-style: italic;
+          font-size: 1.4rem;
+          color: #333;
+          line-height: 1.3;
+          letter-spacing: 0.015em;
+          text-align: center;
+          margin: 0;                  
+          padding: 0;                
+        ">
+      <!-- Fundamental observation in nature is that nearly all forms of locomotion are inherently periodic! -->
+    </h2>
+  </div>
 </section>
 
 
+<!-- ABSTRACT -->
 <section class="section" id="abstract">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Unsupervised skill discovery in reinforcement learning (RL) aims to learn diverse behaviors without relying on external rewards. However, current methods often overlook the periodic nature of learned skills, focusing instead on increasing the mutual dependency between states and skills or maximizing the distance traveled in latent space. Considering that many robotic tasks—particularly those involving locomotion—require periodic behaviors across varying timescales, the ability to discover diverse periodic skills is essential. Motivated by this, we propose <b>Periodic Skill Discovery (PSD)</b>, a framework that discovers periodic behaviors in an unsupervised manner. The key idea of PSD is to train an encoder that maps states to a circular latent space, thereby naturally encoding periodicity in the latent representation. By capturing temporal distance, PSD can effectively learn skills with diverse periods in complex robotic tasks, even with pixel-based observations. We further show that these learned skills achieve high performance on downstream tasks such as hurdling. Moreover, integrating PSD with an existing skill discovery method offers more diverse behaviors, thus broadening the agent’s repertoire.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Unsupervised skill discovery in reinforcement learning (RL) aims to learn diverse behaviors without relying on external rewards. However, current methods often overlook the periodic nature of learned skills, focusing instead on increasing the mutual dependency between states and skills or maximizing the distance traveled in latent space. Considering that many robotic tasks—particularly those involving locomotion—require periodic behaviors across varying timescales, the ability to discover diverse periodic skills is essential. Motivated by this, we propose <b>Periodic Skill Discovery (PSD)</b>, a framework that discovers periodic behaviors in an unsupervised manner. The key idea of PSD is to train an encoder that maps states to a circular latent space, thereby naturally encoding periodicity in the latent representation. By capturing temporal distance, PSD can effectively learn skills with diverse periods in complex robotic tasks, even with pixel-based observations. We further show that these learned skills achieve high performance on downstream tasks such as hurdling. Moreover, integrating PSD with an existing skill discovery method offers more diverse behaviors, thus broadening the agent’s repertoire.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
+<!-- REL WORK -->
 <section class="section" id="method">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: left;">
-          Why might previous methods fail to learn multi-timescale behaviors?
-        </h2>
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">
+          Why might previous methods fail to learn multi-timescale behaviors?
+        </h2>
 
-        <div class="content" style="text-align: left;">
+        <div class="content" style="text-align: left;">
 
-          <p>
-            Existing unsupervised skill discovery methods typically maximize either the
-            <i>mutual information</i> between states and skills or the <i>distance</i>
-            between latent representations. However, both approaches struggle to explicitly
-            regulate <b>multi-timescale periodic behaviors</b>.
-          </p>
+          <p>
+            Existing unsupervised skill discovery methods typically maximize either the
+            <i>mutual information</i> between states and skills or the <i>distance</i>
+            between latent representations. However, both approaches struggle to explicitly
+            regulate <b>multi-timescale periodic behaviors</b>.
+          </p>
 
-                    <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">
-            1. Mutual Information-based Skill Discovery
-          </h4>
-          <p>
-            MI-based approaches maximize the dependency between states \(S\) and skills \(Z\),
-            so that each skill corresponds to distinguishable states:
-          </p>
+          <!-- 1) MI-based -->
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">
+            1. Mutual Information-based Skill Discovery
+          </h4>
+          <p>
+            MI-based approaches maximize the dependency between states \(S\) and skills \(Z\),
+            so that each skill corresponds to distinguishable states:
+          </p>
 
-          <p style="margin: 0.8em 0;">
-            \[
-              I(S;Z)
-              = \mathbb{E}_{z,\tau}[\log p(z\!\mid\!s)]
-              - \mathbb{E}_{z}[\log p(z)]
-              \;\;\approx\;\;
-              \mathbb{E}_{z,\tau}[\log q_\theta(z\!\mid\!s)] + \text{const}.
-            \]
-          </p>
+          <p style="margin: 0.8em 0;">
+            \[
+              I(S;Z)
+              = \mathbb{E}_{z,\tau}[\log p(z\!\mid\!s)]
+              - \mathbb{E}_{z}[\log p(z)]
+              \;\;\approx\;\;
+              \mathbb{E}_{z,\tau}[\log q_\theta(z\!\mid\!s)] + \text{const}.
+            \]
+          </p>
 
-          <p>
-            Here, \(q_\theta(z\!\mid\!s)\) is a skill discriminator that infers the skill
-            from the current state. The agent is rewarded when the discriminator can predict
-            the skill with high confidence. Consequently, these methods tend to produce
-            <b>easy-to-distinguish but static</b> skills, offering little incentive for
-            temporally rich or periodic behaviors.
-          </p>
+          <p>
+            Here, \(q_\theta(z\!\mid\!s)\) is a skill discriminator that infers the skill
+            from the current state. The agent is rewarded when the discriminator can predict
+            the skill with high confidence. Consequently, these methods tend to produce
+            <b>easy-to-distinguish but static</b> skills, offering little incentive for
+            temporally rich or periodic behaviors.
+          </p>
 
-                    <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">
-            2. Distance-Maximizing Skill Discovery
-          </h4>
-          <p>
-            Distance-based methods instead learn latent embeddings that maximize the
-            displacement between consecutive states along skill directions:
-          </p>
+          <!-- 2) Distance-maximizing -->
+          <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">
+            2. Distance-Maximizing Skill Discovery
+          </h4>
+          <p>
+            Distance-based methods instead learn latent embeddings that maximize the
+            displacement between consecutive states along skill directions:
+          </p>
 
-          <p style="margin: 0.8em 0;">
-            \[
-              \mathcal{J}_{\text{DSD}}
-              := \mathbb{E}_{(z,\tau)\sim\mathcal{D}}
-              \big[(\phi(s_{t+1})-\phi(s_t))^\top z\big]
-              \quad \text{s.t.}\quad
-              \|\phi(x)-\phi(y)\| \le d(x,y),\;\forall x,y\in\mathcal{D}.
-            \]
-          </p>
+          <p style="margin: 0.8em 0;">
+            \[
+              \mathcal{J}_{\text{DSD}}
+              := \mathbb{E}_{(z,\tau)\sim\mathcal{D}}
+              \big[(\phi(s_{t+1})-\phi(s_t))^\top z\big]
+              \quad \text{s.t.}\quad
+              \|\phi(x)-\phi(y)\| \le d(x,y),\;\forall x,y\in\mathcal{D}.
+            \]
+          </p>
 
-          <p>
-            Depending on the metric \(d\) (e.g., Euclidean, controllability-aware,
-            temporal, or language-based), the agent discovers behaviors that move far in
-            the latent space. However, this objective encourages only
-            <b>maximally deviating or fast-moving behaviors</b>, without providing an
-            incentive to modulate their <b>temporal scale or periodicity</b>.
-          </p>
+          <p>
+            Depending on the metric \(d\) (e.g., Euclidean, controllability-aware,
+            temporal, or language-based), the agent discovers behaviors that move far in
+            the latent space. However, this objective encourages only
+            <b>maximally deviating or fast-moving behaviors</b>, without providing an
+            incentive to modulate their <b>temporal scale or periodicity</b>.
+          </p>
 
-                    <div style="
-            margin-top: 2em;
-            padding: 1em 1.2em;
-            background: rgba(240, 240, 240, 0.8);
-            border-radius: 10px;
-            text-align: center;
-            font-style: italic;
-            color: #444;
-          ">
-            In short, MI-based methods favor discriminability, and distance-based methods
-            favor magnitude of deviation — neither captures the <b>temporal structure</b>
-            essential for <b>multi-timescale periodic behaviors</b>.
-          </div>
+          <!-- Clean takeaway with translucent gray box -->
+          <div style="
+            margin-top: 2em;
+            padding: 1em 1.2em;
+            background: rgba(240, 240, 240, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            color: #444;
+          ">
+            In short, MI-based methods favor discriminability, and distance-based methods
+            favor magnitude of deviation — neither captures the <b>temporal structure</b>
+            essential for <b>multi-timescale periodic behaviors</b>.
+          </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
 
+<!-- METHOD -->
 <section class="section" id="Periodic Skill Discovery">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: left;">Periodic Skill Discovery</h2>
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Periodic Skill Discovery</h2>
 
-        <div class="content" style="text-align: left;">
-          <p>
-            <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery 
-            that captures the <b>periodic nature</b> of behaviors by embedding states into a 
-            <b>circular latent space</b>. By optimizing a constrained objective that encodes 
-            temporal distance, PSD enables agents to learn periodic behaviors with 
-            <b>controllable periods</b> across multiple timescales.
-          </p>
+        <div class="content" style="text-align: left;">
+          <p>
+            <b>Periodic Skill Discovery (PSD)</b> is a framework for unsupervised skill discovery 
+            that captures the <b>periodic nature</b> of behaviors by embedding states into a 
+            <b>circular latent space</b>. By optimizing a constrained objective that encodes 
+            temporal distance, PSD enables agents to learn periodic behaviors with 
+            <b>controllable periods</b> across multiple timescales.
+          </p>
 
-                    <div class="has-text-centered">
-            <img src="./static/images/psd_teaser.svg"
-                alt="Periodic Skill Discovery Teaser"
-                style="
-                  max-width: 100%;
-                  height: auto;
-                  border-radius: 10px;
-                ">
-          </div>
+          <!-- PDF→SVG 이미지 -->
+          <div class="has-text-centered">
+            <img src="./static/images/psd_teaser.svg"
+                alt="Periodic Skill Discovery Teaser"
+                style="
+                  max-width: 100%;
+                  height: auto;
+                  border-radius: 10px;
+                ">
+          </div>
 
-                    <h4 class="title is-4" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
-          <p>
-            PSD trains an encoder \( \phi_L(s) \) that maps each state \( s \) to a point 
-            on a circle of diameter \( L \), where \( L \) denotes the skill’s period variable.
-            The objective encourages states \( s_t \) and \( s_{t+L} \) to lie at opposite 
-            points on the circle while maintaining uniform angular spacing between 
-            consecutive states:
-          </p>
+          <!-- 1. Circular Latent Representation -->
+          <h4 class="title is-4" style="margin-top: 1.5em;">1. Circular Latent Representation</h4>
+          <p>
+            PSD trains an encoder \( \phi_L(s) \) that maps each state \( s \) to a point 
+            on a circle of diameter \( L \), where \( L \) denotes the skill’s period variable.
+            The objective encourages states \( s_t \) and \( s_{t+L} \) to lie at opposite 
+            points on the circle while maintaining uniform angular spacing between 
+            consecutive states:
+          </p>
 
-          <p style="margin: 0.8em 0;">
-            \[
-              \mathcal{J}_{\text{PSD}}
-              = \mathbb{E}\!\left[
-                \|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
-                - k \|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
-              \right]
-            \]
-            \[
-              \text{s.t. } 
-              \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L,\quad
-              \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le L \sin\!\left(\tfrac{\pi}{2L}\right).
-            \]
-          </p>
+          <p style="margin: 0.8em 0;">
+            \[
+              \mathcal{J}_{\text{PSD}}
+              = \mathbb{E}\!\left[
+                \|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
+                - k \|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
+              \right]
+            \]
+            \[
+              \text{s.t. } 
+              \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L,\quad
+              \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le L \sin\!\left(\tfrac{\pi}{2L}\right).
+            \]
+          </p>
 
-          <p>
-            These constraints ensure that the latent representation forms a regular 
-            \( 2L \)-gon on the circle, making each skill’s trajectory periodic with a 
-            full rotation every \( 2L \) steps.
-          </p>
+          <p>
+            These constraints ensure that the latent representation forms a regular 
+            \( 2L \)-gon on the circle, making each skill’s trajectory periodic with a 
+            full rotation every \( 2L \) steps.
+          </p>
 
-                    <h4 class="title is-4" style="margin-top: 1.5em;">2. Single-step Intrinsic Reward</h4>
-          <p>
-            The agent is jointly trained with a single-step intrinsic reward that encourages
-            consistent motion along the circular latent path. The deviation from the 
-            ideal step length \( L \sin(\pi/2L) \) defines the reward:
-          </p>
+          <!-- 2. Single-Step Intrinsic Reward -->
+          <h4 class="title is-4" style="margin-top: 1.5em;">2. Single-step Intrinsic Reward</h4>
+          <p>
+            The agent is jointly trained with a single-step intrinsic reward that encourages
+            consistent motion along the circular latent path. The deviation from the 
+            ideal step length \( L \sin(\pi/2L) \) defines the reward:
+          </p>
 
-          <p style="margin: 0.8em 0;">
-            \[
-              r_{\text{PSD}}(s_t, s_{t+1}, L)
-              = \exp\!\Big(-\kappa \big(
-                \|\phi_L(s_{t+1}) - \phi_L(s_t)\|
-                - L \sin\!\tfrac{\pi}{2L}
-              \big)^2\Big),
-            \]
-          </p>
+          <p style="margin: 0.8em 0;">
+            \[
+              r_{\text{PSD}}(s_t, s_{t+1}, L)
+              = \exp\!\Big(-\kappa \big(
+                \|\phi_L(s_{t+1}) - \phi_L(s_t)\|
+                - L \sin\!\tfrac{\pi}{2L}
+              \big)^2\Big),
+            \]
+          </p>
 
-          <p>
-            Maximizing \( r_{\text{PSD}} \) makes the policy follow a smooth circular 
-            trajectory in latent space, yielding behaviors that naturally repeat every 
-            \( 2L \) steps.
-          </p>
+          <p>
+            Maximizing \( r_{\text{PSD}} \) makes the policy follow a smooth circular 
+            trajectory in latent space, yielding behaviors that naturally repeat every 
+            \( 2L \) steps.
+          </p>
 
-                    <h4 class="title is-4" style="margin-top: 1.5em;">3. Adaptive Sampling Method</h4>
-          <p>
-            To autonomously explore diverse periods, PSD adaptively adjusts the sampling 
-            range \( [L_{\min}, L_{\max}] \) based on the agent’s performance. When the 
-            policy successfully maintains periodicity for the current bounds, the range is 
-            expanded, allowing discovery of longer or shorter cycles over training.
-          </p>
+          <!-- 3. Adaptive Sampling -->
+          <h4 class="title is-4" style="margin-top: 1.5em;">3. Adaptive Sampling Method</h4>
+          <p>
+            To autonomously explore diverse periods, PSD adaptively adjusts the sampling 
+            range \( [L_{\min}, L_{\max}] \) based on the agent’s performance. When the 
+            policy successfully maintains periodicity for the current bounds, the range is 
+            expanded, allowing discovery of longer or shorter cycles over training.
+          </p>
 
-                    <div style="
-            margin-top: 2em;
-            padding: 1em 1.2em;
-            background: rgba(240,240,240,0.8);
-            border-radius: 10px;
-            text-align: center;
-            font-style: italic;
-            color: #444;
-          ">
-            By mapping states to a circular latent space and optimizing for temporal 
-            distance, PSD learns <b>multi-timescale periodic skills</b> that are 
-            geometrically interpretable and effective even from pixel-based inputs.
-          </div>
+          <!-- takeaway -->
+          <div style="
+            margin-top: 2em;
+            padding: 1em 1.2em;
+            background: rgba(240,240,240,0.8);
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            color: #444;
+          ">
+            By mapping states to a circular latent space and optimizing for temporal 
+            distance, PSD learns <b>multi-timescale periodic skills</b> that are 
+            geometrically interpretable and effective even from pixel-based inputs.
+          </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- METHOD -->
 <section class="section" id="Periodic Skill Discovery">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3" style="text-align: left;">Can PSD discover diverse periodic skills across multiple timescales?</h2>
-        <div class="content" style="text-align: left;">
-        Add figure 3
-        Add Adaptive sampling 
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="text-align: left;">Can PSD discover diverse periodic skills across multiple timescales?</h2>
+        <div class="content" style="text-align: left;">
+        Add figure 3
+        Add Adaptive sampling 
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- RESULTS / CAROUSEL + INTERPOLATION -->
 <section class="section" id="results">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
 
-        <div class="columns is-centered">
-      <div class="column is-full-width has-text-centered">
-        <h2 class="title is-3" style="text-align: left;">Results</h2>
+    <!-- RESULTS -->
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3" style="text-align: left;">Results</h2>
 
-                <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. State-based Environment</h4>
-        <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-state" muted playsinline loop preload="metadata"
-                                style="max-width:100%; height:auto; border-radius:12px; object-fit: contain; contain: paint;"></video>
-          
-        </div>
-        <div class="video-switcher" id="switcher-state" role="group" aria-label="State environment selector"
-            style="margin-top: 1rem;">
-          <button class="btn-pill is-active" data-src="./static/videos/psd_ant.mp4">Ant</button>
-          <button class="btn-pill" data-src="./static/videos/psd_cheetah.mp4">HalfCheetah</button>
-          <button class="btn-pill" data-src="./static/videos/psd_humanoid.mp4">Humanoid</button>
-          <button class="btn-pill" data-src="./static/videos/psd_hopper.mp4">Hopper</button>
-          <button class="btn-pill" data-src="./static/videos/psd_walker.mp4">Walker2D</button>
-        </div>
+        <!-- 1. STATE-BASED -->
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">1. State-based Environment</h4>
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <video id="video-state" muted playsinline loop preload="metadata"
+                style="max-width:100%; height:auto; border-radius:12px; object-fit: contain; contain: paint;"></video>
+          
+        </div>
+        <div class="video-switcher" id="switcher-state" role="group" aria-label="State environment selector"
+            style="margin-top: 1rem;">
+          <button class="btn-pill is-active" data-src="./static/videos/psd_ant.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/psd_cheetah.mp4">HalfCheetah</button>
+          <button class="btn-pill" data-src="./static/videos/psd_humanoid.mp4">Humanoid</button>
+          <button class="btn-pill" data-src="./static/videos/psd_hopper.mp4">Hopper</button>
+          <button class="btn-pill" data-src="./static/videos/psd_walker.mp4">Walker2D</button>
+        </div>
 
-                <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Pixel-based Environment</h4>
-        <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-pixel"
-                muted playsinline loop preload="metadata"
-                                style="width:70%; height:auto; max-width:800px; border-radius:12px; object-fit: contain; contain: paint;">
-          </video>
-        </div>
-        <div class="video-switcher" id="switcher-pixel" role="group" aria-label="Pixel environment selector"
-            style="margin-top: 1rem;">
-          <button class="btn-pill is-active" data-src="./static/videos/psd_ant_img.mp4">Ant</button>
-          <button class="btn-pill" data-src="./static/videos/psd_cheetah_img.mp4">HalfCheetah</button>
-        </div>
+        <!-- 2. PIXEL-BASED -->
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">2. Pixel-based Environment</h4>
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <video id="video-pixel"
+                muted playsinline loop preload="metadata"
+                style="width:70%; height:auto; max-width:800px; border-radius:12px; object-fit: contain; contain: paint;">
+          </video>
+        </div>
+        <div class="video-switcher" id="switcher-pixel" role="group" aria-label="Pixel environment selector"
+            style="margin-top: 1rem;">
+          <button class="btn-pill is-active" data-src="./static/videos/psd_ant_img.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/psd_cheetah_img.mp4">HalfCheetah</button>
+        </div>
 
-                <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">3. Combination with METRA</h4>
-        <div class="has-text-centered" style="margin-top:1rem;">
-          <video id="video-metra" muted playsinline loop preload="metadata"
-                                style="width:70%; height:auto; max-width:800px; border-radius:12px; object-fit: contain; contain: paint;">
-              </video>
-        </div>
-        <div class="video-switcher" id="switcher-metra" role="group" aria-label="METRA environment selector"
-            style="margin-top: 1rem;">
-          <button class="btn-pill is-active" data-src="./static/videos/psd_ant_metra.mp4">Ant</button>
-          <button class="btn-pill" data-src="./static/videos/psd_walker_metra.mp4">Walker2D</button>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- 3. METRA COMBINATION -->
+        <h4 class="title is-4" style="margin-top: 1.5em; text-align: left;">3. Combination with METRA</h4>
+        <div class="has-text-centered" style="margin-top:1rem;">
+          <video id="video-metra" muted playsinline loop preload="metadata"
+                style="width:70%; height:auto; max-width:800px; border-radius:12px; object-fit: contain; contain: paint;">
+              </video>
+        </div>
+        <div class="video-switcher" id="switcher-metra" role="group" aria-label="METRA environment selector"
+            style="margin-top: 1rem;">
+          <button class="btn-pill is-active" data-src="./static/videos/psd_ant_metra.mp4">Ant</button>
+          <button class="btn-pill" data-src="./static/videos/psd_walker_metra.mp4">Walker2D</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
+<!-- BIBTEX -->
 <section class="section" id="bibtex">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{park2025psd,
-  author    = {Park, Jonghae and Cho, Daesol and Lee, Jusuk and Shim, Dongseok and Jang, Inkyu and Kim, H. Jin},
-  title     = {Periodic Skill Discovery},
-  booktitle = {NeurIPS},
-  year      = {2025}
+  <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{park2025psd,
+  author    = {Park, Jonghae and Cho, Daesol and Lee, Jusuk and Shim, Dongseok and Jang, Inkyu and Kim, H. Jin},
+  title     = {Periodic Skill Discovery},
+  booktitle = {NeurIPS},
+  year      = {2025}
 }</code></pre>
-  </div>
+  </div>
 </section>
 
+<!-- FOOTER (license note kept minimal) -->
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // === 모든 결과 비디오 수집 ===
-  // 'video[id^="video-"]' 쿼리는 'video-state', 'video-pixel', 'video-metra'만 선택합니다.
-  // 'teaser-video'는 HTML의 autoplay 속성을 그대로 사용합니다.
-  const allVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
+  // === 모든 결과 비디오 수집 ===
+  const allVideos = Array.from(document.querySelectorAll('video[id^="video-"]'));
 
-  // 비디오 공통 초기화: 동시재생을 위한 세팅
-  allVideos.forEach(v => {
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    // 💡[수정 1] 'autoplay' 속성 제거: 페이지 로드 시 자동재생 방지
-    // v.setAttribute('autoplay', ''); // 👈 이 줄을 주석 처리 (또는 삭제)
-    v.setAttribute('preload', 'auto'); 
-    v.setAttribute('loop', '');            
-    v.disablePictureInPicture = true;
-  });
+  // 비디오 공통 초기화: 동시재생을 위한 세팅
+  allVideos.forEach(v => {
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('autoplay', '');
+    v.setAttribute('preload', 'matadata');     // 버퍼 충분히
+    v.setAttribute('loop', '');            // 끊김 없이 반복
+    v.disablePictureInPicture = true;
+  });
 
-  // === 그룹(버튼 ↔ 비디오) 매칭 ===
-  const groups = [];
-  allVideos.forEach(vid => {
-    const suffix = vid.id.replace(/^video-/, '');   // ex) 'state'
-    const switcher = document.getElementById(`switcher-${suffix}`);
-    if (switcher) groups.push({ videoEl: vid, switcherEl: switcher });
-  });
+  // === 그룹(버튼 ↔ 비디오) 매칭 ===
+  const groups = [];
+  allVideos.forEach(vid => {
+    const suffix = vid.id.replace(/^video-/, '');   // ex) 'state'
+    const switcher = document.getElementById(`switcher-${suffix}`);
+    if (switcher) groups.push({ videoEl: vid, switcherEl: switcher });
+  });
 
-  // 레거시(단일 쌍) 백업
-  const legacyVideo = document.getElementById('result-video');
-  const legacySwitcher = document.querySelector('#video-switcher');
-  if (!groups.length && legacyVideo && legacySwitcher) {
-    groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
-  }
+  // 레거시(단일 쌍) 백업
+  const legacyVideo = document.getElementById('result-video');
+  const legacySwitcher = document.querySelector('#video-switcher');
+  if (!groups.length && legacyVideo && legacySwitcher) {
+    groups.push({ videoEl: legacyVideo, switcherEl: legacySwitcher });
+  }
 
-  // === 소스 전환: 해당 비디오만 바꾸고, 다른 애들 건드리지 않음
-  // 💡[수정 2] 'playOnLoad' 파라미터 추가 (기본값 false)
-  function switchVideo(video, src, playOnLoad = false) {
-    if (!src) return;
+  // === 소스 전환: 해당 비디오만 바꾸고, 다른 애들 건드리지 않음
+  function switchVideo(video, src) {
+    if (!src) return;
 
-    const abs = new URL(src, window.location.href).href;
-    const same = (video.currentSrc === abs || video.src === abs);
+    const abs = new URL(src, window.location.href).href;
+    const same = (video.currentSrc === abs || video.src === abs);
 
-    if (same) {
-      try { video.currentTime = Math.max(0, video.currentTime - 0.001); } catch(e){}
-      // 💡[수정 3] playOnLoad가 true일 때만 재생
-      if (playOnLoad) play(video);
-      return;
-    }
+    if (same) {
+      // 같은 소스면 살짝 되감고 재생
+      try { video.currentTime = Math.max(0, video.currentTime - 0.001); } catch(e){}
+      play(video);
+      return;
+    }
 
-    // 소스 교체
-    try { video.pause(); } catch(e){}
-    video.removeAttribute('src');
-    while (video.firstChild) video.removeChild(video.firstChild);
+    // 소스 교체
+    try { video.pause(); } catch(e){}
+    video.removeAttribute('src');
+    while (video.firstChild) video.removeChild(video.firstChild);
 
-    const s = document.createElement('source');
-    s.src  = src;
-    s.type = 'video/mp4';
-    video.appendChild(s);
+    const s = document.createElement('source');
+    s.src  = src;
+    s.type = 'video/mp4';
+    video.appendChild(s);
 
-    try { video.load(); } catch(e){}
+    try { video.load(); } catch(e){}
 
-    let started = false;
-    const tryStart = () => {
-      if (started) return; started = true;
-      // 💡[수정 4] playOnLoad가 true일 때만 재생
-      if (playOnLoad) {
-        play(video);
-      }
-    };
-    video.addEventListener('canplaythrough', tryStart, { once: true });
-    video.addEventListener('loadeddata',     tryStart, { once: true });
+    let started = false;
+    const tryStart = () => {
+      if (started) return; started = true;
+      play(video);
+    };
+    video.addEventListener('canplaythrough', tryStart, { once: true });
+    video.addEventListener('loadeddata',     tryStart, { once: true });
 
-    // 네트워크 느릴 때 대비해서 타임아웃으로도 재생 트리거
-    // 💡[수정 5] playOnLoad가 true일 때만 타임아웃 재생 시도
-    if (playOnLoad) setTimeout(tryStart, 800);
-  }
+    // 네트워크 느릴 때 대비해서 타임아웃으로도 재생 트리거
+    setTimeout(tryStart, 800);
+  }
 
-  function play(v) {
-    const p = v.play();
-    if (p && p.catch) p.catch(() => { /* 자동재생 정책 실패 시 이후 제스처 훅으로 커버 */ });
-  }
+  function play(v) {
+    const p = v.play();
+    if (p && p.catch) p.catch(() => { /* 자동재생 정책 실패 시 이후 제스처 훅으로 커버 */ });
+  }
 
-  // === 그룹 초기화: 각 그룹 비디오에 '활성 버튼' 소스로 세팅
-  function initGroup(video, switcher) {
-    const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
-    if (!buttons.length) return;
+  // === 그룹 초기화: 각 그룹 비디오에 '활성 버튼' 소스로 세팅
+  function initGroup(video, switcher) {
+    const buttons = Array.from(switcher.querySelectorAll('.btn-pill'));
+    if (!buttons.length) return;
 
-    function setActive(btn) {
-      buttons.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
-      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
-    }
+    function setActive(btn) {
+      buttons.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-pressed','true');
+    }
 
-    const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
-    if (initial) {
-      setActive(initial);
-      // 💡[수정 6] 초기 로드 시에는 playOnLoad=false (기본값)로 호출 (재생 안 함)
-      switchVideo(video, initial.getAttribute('data-src')); 
-    }
+    const initial = buttons.find(b => b.classList.contains('is-active')) || buttons[0];
+    if (initial) {
+      setActive(initial);
+      switchVideo(video, initial.getAttribute('data-src'));
+    }
 
-    // 버튼 클릭 시 해당 비디오만 소스 전환 (다른 비디오는 계속 재생)
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        setActive(btn);
-        // 💡[수정 7] 클릭 시에는 playOnLoad=true로 호출 (재생 함)
-        switchVideo(video, btn.getAttribute('data-src'), true);
-      });
-    });
-  }
+    // 버튼 클릭 시 해당 비디오만 소스 전환 (다른 비디오는 계속 재생)
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setActive(btn);
+        switchVideo(video, btn.getAttribute('data-src'));
+      });
+    });
+  }
 
-  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
+  groups.forEach(({ videoEl, switcherEl }) => initGroup(videoEl, switcherEl));
 
-  // 💡[수정 8] 모든 결과 비디오를 강제 재생하는 코드 삭제
-  // allVideos.forEach(v => play(v)); // 👈 이 줄을 주석 처리 (또는 삭제)
+  // === 동시 재생 보장: 모든 비디오를 바로 재생 시도
+  allVideos.forEach(v => play(v));
 
-  // === 브라우저 자동재생 정책 대비: 첫 사용자 제스처 시 전부 재생 재시도
-  const kickstart = () => {
-    // 💡[수정 9] 티저 비디오만 자동재생 재시도
-    const teaser = document.getElementById('teaser-video');
-    if (teaser) play(teaser);
+  // === 브라우저 자동재생 정책 대비: 첫 사용자 제스처 시 전부 재생 재시도
+  const kickstart = () => {
+    allVideos.forEach(v => play(v));
+    document.removeEventListener('pointerdown', kickstart);
+    document.removeEventListener('keydown', kickstart);
+  };
+  document.addEventListener('pointerdown', kickstart, { once: true });
+  document.addEventListener('keydown',     kickstart, { once: true });
 
-    document.removeEventListener('pointerdown', kickstart);
-    document.removeEventListener('keydown', kickstart);
-  };
-  document.addEventListener('pointerdown', kickstart, { once: true });
-  document.addEventListener('keydown',     kickstart, { once: true });
-
-  // === 탭 숨김/표시와 무관하게 계속 재생 (visibilitychange 훅 제거)
-  // (아무 것도 하지 않음)
+  // === 탭 숨김/표시와 무관하게 계속 재생 (visibilitychange 훅 제거)
+  // (아무 것도 하지 않음)
 });
 </script>
 
 
 <script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)'], ['$', '$']],
-      displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    svg: { fontCache: 'global' }
-  };
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    svg: { fontCache: 'global' }
+  };
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
