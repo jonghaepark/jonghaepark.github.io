@@ -335,7 +335,7 @@
           </p>
 
           <p>
-            Maximizing \( r_{\text{PSD}} \) makes the policy follow a smooth circular 
+            Maximizing \( r_{\text{PSD}} \) makes the policy follow a circular 
             trajectory in latent space, yielding behaviors that naturally repeat every 
             \( 2L \) steps.
           </p>
@@ -348,21 +348,6 @@
             policy successfully maintains periodicity for the current bounds, the range is 
             expanded, allowing discovery of longer or shorter cycles over training.
           </p>
-
-          <!-- takeaway -->
-          <div style="
-            margin-top: 2em;
-            padding: 1em 1.2em;
-            background: rgba(240,240,240,0.8);
-            border-radius: 10px;
-            text-align: center;
-            font-style: italic;
-            color: #444444;
-          ">
-            By mapping states to a circular latent space and optimizing for temporal 
-            distance, PSD learns <b>multi-timescale periodic skills</b> that are 
-            geometrically interpretable and effective even from pixel-based inputs.
-          </div>
 
         </div>
       </div>
