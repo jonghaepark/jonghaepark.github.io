@@ -257,8 +257,8 @@ body {
 /* 선택 상태 */
 .btn-pill.is-active,
 .btn-pill[aria-pressed="true"] {
-  background: "#3CA4DC";            /* 파란 채움 */
-  border-color: "#3CA4DC";
+  background: #518ddb;           /* 파란 채움 */
+  border-color: #518ddb;
   color: #fff;
   box-shadow: 0 1px 2px rgba(0,0,0,.08);
 }
