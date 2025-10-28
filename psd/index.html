@@ -365,8 +365,8 @@
                   border-radius: 10px;
                 ">
           </div>
-            As shown in the figure above, the feasible period range of each agent expands as training progresses.
-            The idea is to evaluate the performance of the policy
+            As shown in the figure above, the feasible period range of each agent — HalfCheetah and Humanoid — gradually expands as training progresses.
+            The key idea is to evaluate the performance of the policy
             conditioned on the <b>boundary of the current sampling range</b>. 
             When the policy successfully maintains periodicity for the current bounds, the range is 
             expanded. Conversely, if the policy fails to maintain periodicity, the current bound is rejected and the previous value is restored.
