@@ -305,8 +305,8 @@
           \begin{aligned}
           \mathcal{J}_{\text{PSD}}
           = \mathbb{E}\bigl[
-            &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|^2
-            - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|^2
+            &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|
+            - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|
           \bigr] \\[4pt]
           \text{s.t.}\quad &
           \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L, \\[3pt]
@@ -324,8 +324,8 @@
           <!-- 2. Single-Step Intrinsic Reward -->
           <h4 class="title is-4" style="margin-top: 1.5em;">2. Single-step Intrinsic Reward</h4>
           <p>
-            While a circular representation is being learned, the RL agent is jointly trained with an <b>single-step intrinsic reward</b>
-            that encourages periodic behavior. Since the circular latent space is designed to capture periodicity,
+            While a circular representation is being learned, the RL agent is jointly trained with a <b>single-step intrinsic reward</b>
+            that encourages periodic behaviors. Since the circular latent space is designed to capture periodicity,
             rewarding the policy for <b>moving along this circular space</b> naturally promotes the learning of periodic
             behaviors.<br><br>
             Formally, the deviation from the 
