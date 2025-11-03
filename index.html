@@ -176,20 +176,38 @@
         <tr onmouseout="CQM_stop()" onmouseover="CQM_start()">  
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
-              <div class="two" id="CQM_image" style="width:160px; height:160px; overflow:hidden; border-radius:8px;">
-                <!-- ⬇ 이미지 삭제, 비디오만 사용 -->
-                <video id="CQM_video" width="100%" height="100%"
+              <!-- 상대 위치 컨테이너 -->
+              <div class="two" id="CQM_image"
+                  style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px;">
+
+                <!-- 🎬 비디오 (전체 배경) -->
+                <video id="CQM_video"
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
                       muted playsinline loop preload="auto">
                   <source src="cqm/cqm_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+
+                <!-- 🖼 4사분면(오른쪽-아래) 고정 이미지 오버레이 -->
+                <img src="cqm/cqm_figure.PNG" alt="CQM overlay"
+                    style="
+                      position:absolute;
+                      right:0; bottom:0;
+                      width:50%; height:50%;          /* 컨테이너의 1/4 영역 */
+                      object-fit:cover;                /* 잘 채우기 (약간 잘릴 수 있음) */
+                      border-top-left-radius:8px;      /* 둥근 모서리 자연스럽게 */
+                      pointer-events:none;             /* 마우스 이벤트 방해 X */
+                    ">
+                <!-- (선택) 십자 분할선 넣고 싶으면 아래 2줄 추가 -->
+                <div style="position:absolute; left:50%; top:0; width:1px; height:100%; background:rgba(0,0,0,.35); transform:translateX(-0.5px); pointer-events:none;"></div>
+                <div style="position:absolute; left:0; top:50%; width:100%; height:1px; background:rgba(0,0,0,.35); transform:translateY(-0.5px); pointer-events:none;"></div>
               </div>
             </div>
 
             <script type="text/javascript">
               function CQM_stop() {
                 const v = document.getElementById('CQM_video');
-                v.playbackRate = 2.0;   // 배속 설정
+                v.playbackRate = 2.0;   // 배속
                 v.play().catch(()=>{});
               }
               function CQM_start() {
@@ -201,7 +219,7 @@
                 const v = document.getElementById('CQM_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
-                  v.currentTime = 0
+                  v.currentTime = 0;
                 }, { once:true });
               })();
             </script>
@@ -212,19 +230,15 @@
               <span class="papertitle">CQM: Curriculum Reinforcement Learning with a Quantized World Model</span>
             </a>
             <br>
-            Seungjae Lee,
-            Daeseol Cho,
-            <strong>Jonghae Park</strong>,
-            H. Jin Kim
+            Seungjae Lee, Daeseol Cho, <strong>Jonghae Park</strong>, H. Jin Kim
             <br>
-            <span style="color:red;"><em>NeurIPS</em></span> 2023 
-            <br>
-            <p></p>
+            <span style="color:red;"><em>NeurIPS</em></span> 2023
+            <br><br>
             <a href="https://arxiv.org/abs/2310.17330">arXiv</a>
-            <p></p>
           </td>
         </tr>
       </tbody>
+
 
     </table>
 
