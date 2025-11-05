@@ -68,7 +68,7 @@
           <div class="one"> 
             <div class="two" id="psd_image"
                 style="width:160px; overflow:hidden; border-radius:8px;">
-              <!-- 🎬 가로폭에만 맞춤 (세로 자동 비율 유지) -->
+
               <video id="psd_video"
                     style="width:100%; height:auto; display:block; border-radius:8px;"
                     muted playsinline loop preload="auto">
@@ -79,23 +79,23 @@
           </div>
 
             <script type="text/javascript">
-              // hover 시작: 재생
+
               function psd_stop() {
                 const v = document.getElementById('psd_video');
                 v.play().catch(()=>{});
               }
-              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
+
               function psd_start() {
                 const v = document.getElementById('psd_video');
                 v.pause();
                 v.currentTime = 0;
               }
-              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
+
               (function(){
                 const v = document.getElementById('psd_video');
                 v.addEventListener('loadeddata', () => {
                   v.pause();
-                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
+                  v.currentTime = 0;
                 }, { once:true });
               })();
             </script>
@@ -131,7 +131,7 @@
             <div class="one">
               <div class="two" id="eigensafe_image"
                   style="width:160px; overflow:hidden; border-radius:8px;">
-                <!-- 🖼 이미지: 가로폭에 맞추고 세로는 자동 비율 유지 -->
+                  
                 <img src="eigensafe/eigensafe_thumbnail.PNG"
                     alt="Eigensafe Thumbnail"
                     style="
@@ -139,8 +139,8 @@
                       height:100%;
                       display:block;
                       border-radius:8px;
-                      object-fit:contain;  /* 이미지가 잘리지 않게 전체 표시 */
-                      background:#ffffff;     /* 남는 영역이 있을 경우 검정 배경 */
+                      object-fit:contain;  
+                      background:#ffffff;    
                     ">
               </div>
             </div>
@@ -174,19 +174,14 @@
         <tr onmouseout="CQM_stop()" onmouseover="CQM_start()">  
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
-              <!-- 상대 위치 컨테이너 -->
               <div class="two" id="CQM_image"
                   style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px;">
-
-                <!-- 🎬 비디오 (전체 배경) -->
                 <video id="CQM_video"
                       style="width:100%; height:100%; object-fit:cover; display:block;"
                       muted playsinline loop preload="auto">
                   <source src="cqm/cqm_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-
-                <!-- 🖼 4사분면(오른쪽-아래) 고정 이미지 오버레이 -->
                 <img src="cqm/cqm_figure.PNG" alt="CQM overlay"
                     style="
                       position:absolute;
@@ -202,7 +197,7 @@
             <script type="text/javascript">
               function CQM_stop() {
                 const v = document.getElementById('CQM_video');
-                v.playbackRate = 2.25;   // 배속
+                v.playbackRate = 2.25;  
                 v.play().catch(()=>{});
               }
               function CQM_start() {
