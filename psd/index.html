@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+  mjx-container[jax="SVG"] {
+    max-width: 100%;
+    overflow-x: auto;   
+    overflow-y: hidden;
+  }
+  .math-block { margin: 0.8em 0; }
+  </style>
+
 <head>
   <meta charset="utf-8">
   
@@ -310,21 +320,21 @@
             consecutive states:
           </p>
 
-          <p style="margin: 0.8em 0;">
-          \[
-          \begin{aligned}
-          \mathcal{J}_{\text{PSD}}
-          = \mathbb{E}\bigl[
-            &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|
-            - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|
-          \bigr] \\[4pt]
-          \text{s.t.}\quad &
-          \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L, \\[3pt]
-          & \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le
-          L\,\sin\!\left(\tfrac{\pi}{2L}\right).
-          \end{aligned}
-          \]
-          </p>
+          <div class="math-block">
+            \[
+            \begin{aligned}
+            \mathcal{J}_{\text{PSD}}
+            = \mathbb{E}\bigl[
+              &\|\phi_L(s_{t+L}) - \phi_L(s_t)\|
+              - k\,\|\phi_L(s_{t+L}) + \phi_L(s_t)\|
+            \bigr] \\[4pt]
+            \text{s.t.}\quad &
+            \|\phi_L(s_{t+L}) - \phi_L(s_t)\| \le L, \\[3pt]
+            & \|\phi_L(s_{t+1}) - \phi_L(s_t)\| \le
+            L\,\sin\!\left(\tfrac{\pi}{2L}\right).
+            \end{aligned}
+            \]
+          </div>
 
           <p>
             These constraints ensure that the latent representation forms a <b>regular 
@@ -342,7 +352,7 @@
             ideal single-step length \( L \sin(\pi/2L) \) defines the reward:
           </p>
 
-          <p style="margin: 0.8em 0;">
+          <div class="math-block">
             \[
               r_{\text{PSD}}(s_t, s_{t+1}, L)
               = \exp\!\Big(-\kappa \big(
@@ -350,7 +360,7 @@
                 - L \sin\!\tfrac{\pi}{2L}
               \big)^2\Big),
             \]
-          </p>
+          </div>
 
           <p>
             Maximizing \( r_{\text{PSD}} \) makes the policy follow a circular 
@@ -638,10 +648,14 @@ document.addEventListener('DOMContentLoaded', () => {
       processEscapes: true,
       processEnvironments: true
     },
-    svg: { fontCache: 'global' }
+    svg: {
+      fontCache: 'global',
+      linebreaks: { automatic: true, width: 'container' } // ★ 자동 줄바꿈
+    }
   };
 </script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
 
 </body>
 </html>
