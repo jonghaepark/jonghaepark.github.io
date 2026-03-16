@@ -137,40 +137,66 @@
       <div class="one">
       <div class="two" id="eigensafe_image"
       style="
+      position:relative;
       width:160px;
       height:160px;
       border-radius:8px;
+      overflow:hidden;
+      background:#ffffff;
+      ">
+
+      <!-- grid layer -->
+      <div id="eigensafe_grid"
+      style="
+      position:absolute;
+      inset:0;
       display:grid;
       grid-template-columns:1fr 1fr;
       grid-template-rows:1fr 1fr;
       gap:2px;
-      background:#ffffff;
-      overflow:hidden;
       ">
 
-      <!-- 1 -->
       <div class="eigensafe_cell zoom">
-      <video class="eigensafe_video"
-      muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline loop preload="auto">
       <source src="eigensafe/eigensafe_1.mp4" type="video/mp4">
       </video>
       </div>
 
-      <!-- 2 -->
       <div class="eigensafe_cell">
-      <video class="eigensafe_video"
-      muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline loop preload="auto">
       <source src="eigensafe/eigensafe_2.mp4" type="video/mp4">
       </video>
       </div>
 
-      <!-- UR3 (가로 두칸) -->
-      <div class="eigensafe_cell wide">
-      <video class="eigensafe_video"
+      <div class="eigensafe_cell">
+      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <source src="eigensafe/eigensafe_3.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      <div class="eigensafe_cell zoom">
+      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <source src="eigensafe/eigensafe_4.mp4" type="video/mp4">
+      </video>
+      </div>
+
+      </div>
+
+      <!-- UR3 overlay -->
+      <video id="eigensafe_ur3"
+      style="
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s ease;
+      "
       muted playsinline loop preload="auto">
       <source src="eigensafe/eigensafe_ur3.mp4" type="video/mp4">
       </video>
-      </div>
 
       </div>
       </div>
@@ -181,11 +207,6 @@
       width:100%;
       height:100%;
       overflow:hidden;
-      position:relative;
-      }
-
-      .eigensafe_cell.wide{
-      grid-column:1 / span 2;
       }
 
       .eigensafe_video{
@@ -204,20 +225,34 @@
 
       <script>
       function eigensafe_getVideos(){
-      return document.querySelectorAll('#eigensafe_image .eigensafe_video');
+      return document.querySelectorAll('#eigensafe_grid .eigensafe_video');
       }
 
       function eigensafe_stop(){
+
+      // grid 다시 보이기
+      document.getElementById("eigensafe_ur3").style.opacity = 0;
+
       eigensafe_getVideos().forEach(v=>{
       v.playbackRate = 0.67;
       v.play().catch(()=>{});
       });
+
+      const ur3 = document.getElementById("eigensafe_ur3");
+      ur3.pause();
+      ur3.currentTime = 0;
       }
 
       function eigensafe_start(){
+
+      // UR3 나타나기
+      const ur3 = document.getElementById("eigensafe_ur3");
+      ur3.style.opacity = 1;
+      ur3.playbackRate = 0.67;
+      ur3.play().catch(()=>{});
+
       eigensafe_getVideos().forEach(v=>{
       v.pause();
-      v.currentTime = 0;
       });
       }
 
