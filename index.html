@@ -235,7 +235,7 @@
       document.getElementById("eigensafe_ur3").style.opacity = 0;
 
       eigensafe_getVideos().forEach(v=>{
-      v.playbackRate = 0.67;
+      v.playbackRate = 0.8;
       v.play().catch(()=>{});
       });
 
@@ -249,7 +249,7 @@
       // UR3 나타나기
       const ur3 = document.getElementById("eigensafe_ur3");
       ur3.style.opacity = 1;
-      ur3.playbackRate = 0.67;
+      ur3.playbackRate = 1.2;
       ur3.play().catch(()=>{});
 
       eigensafe_getVideos().forEach(v=>{
