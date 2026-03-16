@@ -168,7 +168,7 @@
       </video>
       </div>
 
-      <div class="eigensafe_cell">
+      <div class="eigensafe_cell zoom2">
       <video class="eigensafe_video" muted playsinline loop preload="auto">
       <source src="eigensafe/eigensafe_3.mp4" type="video/mp4">
       </video>
@@ -221,10 +221,14 @@
 
       .eigensafe_cell.zoom .eigensafe_video{
       transform:scale(1.35);
-      transform-origin:50% 30%;
+      transform-origin:50% 25%;
+      }
+
+      .eigensafe_cell.zoom2 .eigensafe_video{
+      transform:scale(1.1);
+      transform-origin:50% 40%;
       }
       </style>
-
 
       <script>
       function eigensafe_getVideos(){
