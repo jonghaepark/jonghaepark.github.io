@@ -132,29 +132,91 @@
       <!------------------------------- EigenSafe ---------------------------------->
 
       <tbody>
-        <tr>  
-          <td style="padding:20px; width:20%; vertical-align:middle;">
+        <tr onmouseout="eigensafe_stop()" onmouseover="eigensafe_start()">  
+          <td style="padding:16px; width:20%; vertical-align:middle;">
             <div class="one">
               <div class="two" id="eigensafe_image"
-                  style="width:160px; overflow:hidden; border-radius:8px;">
-                <!-- 🖼 이미지: 가로폭에 맞추고 세로는 자동 비율 유지 -->
-                <img src="eigensafe/eigensafe_thumbnail.PNG"
-                    alt="Eigensafe Thumbnail"
-                    style="
-                      width:auto;
-                      height:100%;
-                      display:block;
-                      border-radius:8px;
-                      object-fit:contain;  /* 이미지가 잘리지 않게 전체 표시 */
-                      background:#ffffff;     /* 남는 영역이 있을 경우 검정 배경 */
-                    ">
+                  style="
+                    width:160px;
+                    height:160px;
+                    overflow:hidden;
+                    border-radius:8px;
+                    display:grid;
+                    grid-template-columns:1fr 1fr;
+                    grid-template-rows:1fr 1fr;
+                    gap:2px;
+                    background:#ffffff;
+                  ">
+
+                <video class="eigensafe_video"
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      muted playsinline loop preload="auto">
+                  <source src="eigensafe/eigensafe_1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
+                <video class="eigensafe_video"
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      muted playsinline loop preload="auto">
+                  <source src="eigensafe/eigensafe_2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
+                <video class="eigensafe_video"
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      muted playsinline loop preload="auto">
+                  <source src="eigensafe/eigensafe_3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
+                <video class="eigensafe_video"
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      muted playsinline loop preload="auto">
+                  <source src="eigensafe/eigensafe_4.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+
               </div>
             </div>
+
+            <script type="text/javascript">
+              function eigensafe_getVideos() {
+                return document.querySelectorAll('#eigensafe_image .eigensafe_video');
+              }
+
+              // 마우스가 나가면 다시 자동재생
+              function eigensafe_stop() {
+                const videos = eigensafe_getVideos();
+                videos.forEach(v => {
+                  v.play().catch(()=>{});
+                });
+              }
+
+              // 마우스를 올리면 모두 멈추고 처음 프레임으로
+              function eigensafe_start() {
+                const videos = eigensafe_getVideos();
+                videos.forEach(v => {
+                  v.pause();
+                  v.currentTime = 0;
+                });
+              }
+
+              // 초기 로드 시 자동재생 시작
+              (function(){
+                const videos = eigensafe_getVideos();
+                videos.forEach(v => {
+                  v.addEventListener('loadeddata', () => {
+                    v.play().catch(()=>{});
+                  }, { once:true });
+                });
+              })();
+            </script>
           </td>
+
           <td style="padding:8px; width:80%; vertical-align:middle;">
             <a href="https://arxiv.org/abs/2509.17750">
               <span class="papertitle">
-                EigenSafe: A Spectral Framework for Learning-Based Stochastic Safety Filtering
+                EigenSafe: A Spectral Framework for Learning-Based Probabilistic Safety Assessment
               </span>
             </a>
             <br>
