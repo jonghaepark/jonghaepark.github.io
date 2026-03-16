@@ -82,27 +82,25 @@
             </div>
           </div>
 
-            <script type="text/javascript">
-              // hover 시작: 재생
-              function psd_stop() {
-                const v = document.getElementById('psd_video');
+          <script type="text/javascript">
+            function psd_stop() {
+              const v = document.getElementById('psd_video');
+              v.play().catch(()=>{});
+            }
+
+            function psd_start() {
+              const v = document.getElementById('psd_video');
+              v.pause();
+              v.currentTime = 0;
+            }
+
+            (function(){
+              const v = document.getElementById('psd_video');
+              v.addEventListener('loadeddata', () => {
                 v.play().catch(()=>{});
-              }
-              // hover 끝: 일시정지 + 0초로 되감기 (썸네일처럼 유지)
-              function psd_start() {
-                const v = document.getElementById('psd_video');
-                v.pause();
-                v.currentTime = 0;
-              }
-              // 초기 로드 시 첫 프레임 정지 상태로 보이도록
-              (function(){
-                const v = document.getElementById('psd_video');
-                v.addEventListener('loadeddata', () => {
-                  v.pause();
-                  v.currentTime = 0; // 첫 프레임을 썸네일처럼
-                }, { once:true });
-              })();
-            </script>
+              }, { once:true });
+            })();
+          </script>
           </td>
 
           <td style="padding:8px;width:80%;vertical-align:middle">
@@ -330,25 +328,27 @@
               </div>
             </div>
 
-            <script type="text/javascript">
-              function CQM_stop() {
-                const v = document.getElementById('CQM_video');
-                v.playbackRate = 2.25;   // 배속
+          <script type="text/javascript">
+            function CQM_stop() {
+              const v = document.getElementById('CQM_video');
+              v.playbackRate = 2.25;
+              v.play().catch(()=>{});
+            }
+
+            function CQM_start() {
+              const v = document.getElementById('CQM_video');
+              v.pause();
+              v.currentTime = Math.max(0, v.duration - 0.05);
+            }
+
+            (function(){
+              const v = document.getElementById('CQM_video');
+              v.addEventListener('loadeddata', () => {
+                v.playbackRate = 2.25;
                 v.play().catch(()=>{});
-              }
-              function CQM_start() {
-                const v = document.getElementById('CQM_video');
-                v.pause();
-                v.currentTime = Math.max(0, v.duration - 0.05);
-              }
-              (function(){
-                const v = document.getElementById('CQM_video');
-                v.addEventListener('loadeddata', () => {
-                  v.pause();
-                  v.currentTime = 0;
-                }, { once:true });
-              })();
-            </script>
+              }, { once:true });
+            })();
+          </script>
           </td>
 
           <td style="padding:8px;width:80%;vertical-align:middle">
