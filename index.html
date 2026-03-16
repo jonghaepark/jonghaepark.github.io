@@ -130,7 +130,6 @@
       </tbody>
 
       <!------------------------------- EigenSafe ---------------------------------->
-
       <tbody>
       <tr onmouseout="eigensafe_stop()" onmouseover="eigensafe_start()">  
       <td style="padding:16px; width:20%; vertical-align:middle;">
@@ -165,19 +164,11 @@
       </video>
       </div>
 
-      <!-- 3 -->
-      <div class="eigensafe_cell">
+      <!-- UR3 (가로 두칸) -->
+      <div class="eigensafe_cell wide">
       <video class="eigensafe_video"
       muted playsinline loop preload="auto">
-      <source src="eigensafe/eigensafe_3.mp4" type="video/mp4">
-      </video>
-      </div>
-
-      <!-- 4 -->
-      <div class="eigensafe_cell zoom">
-      <video class="eigensafe_video"
-      muted playsinline loop preload="auto">
-      <source src="eigensafe/eigensafe_4.mp4" type="video/mp4">
+      <source src="eigensafe/eigensafe_ur3.mp4" type="video/mp4">
       </video>
       </div>
 
@@ -191,6 +182,10 @@
       height:100%;
       overflow:hidden;
       position:relative;
+      }
+
+      .eigensafe_cell.wide{
+      grid-column:1 / span 2;
       }
 
       .eigensafe_video{
