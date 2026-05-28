@@ -159,8 +159,7 @@ span.highlight {
 .act li:last-child {
   margin-bottom: 0;
 }
-
-/* ===== Education section ===== */
+/* ===== Education section: compact style ===== */
 .education-list {
   margin-top: 12px;
 }
@@ -168,55 +167,66 @@ span.highlight {
 .education-item {
   display: flex;
   align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 34px;
+  gap: 22px;
+  margin-bottom: 28px;
 }
 
 .education-logo {
-  width: 78px;
-  height: 78px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   flex-shrink: 0;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 .education-content {
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
 .education-degree {
   font-weight: 700;
-  font-size: 1.02em;
+  font-size: 0.95em;
   color: #222;
 }
 
 .education-school {
   font-weight: 700;
-  font-size: 1.02em;
+  font-size: 0.95em;
   color: #222;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .education-advisor {
   color: #555;
-  margin-top: 8px;
+  font-size: 0.88em;
+  margin-top: 7px;
 }
 
 .education-meta {
   color: #555;
+  font-size: 0.88em;
   font-style: italic;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .education-item {
     gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .education-logo {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .education-degree,
+  .education-school {
+    font-size: 0.92em;
+  }
+
+  .education-advisor,
+  .education-meta {
+    font-size: 0.84em;
   }
 }
