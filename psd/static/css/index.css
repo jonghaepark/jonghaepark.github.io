@@ -273,3 +273,22 @@ body {
   .btn-pill { padding: 9px 14px; font-size: 16px; }
   .video-switcher { gap: 10px; }
 }
+
+/* ===== Spacing for CV-like list sections ===== */
+.edu,
+.proj,
+.act {
+  line-height: 1.6;
+}
+
+.edu li,
+.proj li,
+.act li {
+  margin-bottom: 8px;
+}
+
+.edu li:last-child,
+.proj li:last-child,
+.act li:last-child {
+  margin-bottom: 0;
+}
