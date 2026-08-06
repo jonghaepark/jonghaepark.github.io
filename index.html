@@ -37,6 +37,66 @@
     h2{margin:28px 0 8px}
     .pub li{margin:10px 0}
     .pub small{color:#666}
+
+    /* Keep unloaded video areas consistent with the page background. */
+    .media-frame,
+    .media-frame video,
+    .eigensafe_cell {
+      background-color:#FAFAF8;
+    }
+
+    .mobile-play-hint{
+      display:none;
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      border-radius:8px;
+      background:rgba(250,250,248,.88);
+      color:#555;
+      font:600 13px/1.2 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index:5;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* Mobile-only layout and playback affordances. Desktop remains unchanged. */
+    @media (max-width:640px){
+      .wrap{margin:24px auto;padding:0 16px;}
+      .grid{grid-template-columns:1fr;gap:14px;}
+      .grid > div:last-child{display:flex;justify-content:center;}
+
+      .publications-table,
+      .publications-table tbody,
+      .publications-table tr,
+      .publications-table td{
+        display:block;
+        width:100% !important;
+        box-sizing:border-box;
+      }
+
+      .publications-table td:first-child{
+        padding:14px 0 4px !important;
+        text-align:center;
+      }
+
+      .publications-table td:last-child{
+        padding:6px 0 20px !important;
+      }
+
+      .publications-table .one,
+      .publications-table .two{
+        margin-left:auto;
+        margin-right:auto;
+      }
+    }
+
+    @media (hover:none), (pointer:coarse){
+      .mobile-play-hint.is-visible{display:flex;}
+    }
   </style>
 </head>
 <body>
@@ -91,7 +151,7 @@
       <span style="font-size:12px;color:#000000;">
         ( * Equal contribution)
       </span>
-    <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;">
+    <table class="publications-table" style="width:100%;border:0;border-spacing:0;border-collapse:separate;">
 
       <!------------------------------- PSD ---------------------------------->
 
@@ -100,12 +160,12 @@
         <tr onmouseout="psd_stop()" onmouseover="psd_start()">  
           <td style="padding:16px;width:20%;vertical-align:middle">
           <div class="one"> 
-            <div class="two" id="psd_image"
-                style="width:160px; overflow:hidden; border-radius:8px;">
+            <div class="two media-frame" id="psd_image"
+                style="position:relative; width:160px; overflow:hidden; border-radius:8px; background:#FAFAF8;">
               <!-- 🎬 가로폭에만 맞춤 (세로 자동 비율 유지) -->
               <video id="psd_video"
                     style="width:100%; height:auto; display:block; border-radius:8px;"
-                    muted playsinline loop preload="auto">
+                    muted playsinline webkit-playsinline autoplay loop preload="auto">
                 <source src="psd/psd_video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
@@ -114,11 +174,13 @@
 
           <script type="text/javascript">
             function psd_stop() {
+              if (window.siteSupportsHover && !window.siteSupportsHover()) return;
               const v = document.getElementById('psd_video');
               v.play().catch(()=>{});
             }
 
             function psd_start() {
+              if (window.siteSupportsHover && !window.siteSupportsHover()) return;
               const v = document.getElementById('psd_video');
               v.pause();
               v.currentTime = 0;
@@ -163,14 +225,14 @@
       <td style="padding:16px; width:20%; vertical-align:middle;">
 
       <div class="one">
-      <div class="two" id="eigensafe_image"
+      <div class="two media-frame" id="eigensafe_image"
       style="
       position:relative;
       width:160px;
       height:160px;
       border-radius:8px;
       overflow:hidden;
-      background:#ffffff;
+      background:#FAFAF8;
       ">
 
       <!-- grid layer -->
@@ -185,25 +247,25 @@
       ">
 
       <div class="eigensafe_cell zoom">
-      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline webkit-playsinline autoplay loop preload="auto">
       <source src="eigensafe/eigensafe_1.mp4" type="video/mp4">
       </video>
       </div>
 
       <div class="eigensafe_cell">
-      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline webkit-playsinline autoplay loop preload="auto">
       <source src="eigensafe/eigensafe_2.mp4" type="video/mp4">
       </video>
       </div>
 
       <div class="eigensafe_cell zoom2">
-      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline webkit-playsinline autoplay loop preload="auto">
       <source src="eigensafe/eigensafe_3.mp4" type="video/mp4">
       </video>
       </div>
 
       <div class="eigensafe_cell zoom">
-      <video class="eigensafe_video" muted playsinline loop preload="auto">
+      <video class="eigensafe_video" muted playsinline webkit-playsinline autoplay loop preload="auto">
       <source src="eigensafe/eigensafe_4.mp4" type="video/mp4">
       </video>
       </div>
@@ -226,7 +288,7 @@
       pointer-events:none;
       transition:opacity .25s ease;
       "
-      muted playsinline loop preload="auto">
+      muted playsinline webkit-playsinline loop preload="auto">
       <source src="eigensafe/eigensafe_ur3.mp4" type="video/mp4">
       </video>
       </div>
@@ -264,6 +326,7 @@
       }
 
       function eigensafe_stop(){
+      if (window.siteSupportsHover && !window.siteSupportsHover()) return;
 
       // grid 다시 보이기
       document.getElementById("eigensafe_ur3").style.opacity = 0;
@@ -279,6 +342,7 @@
       }
 
       function eigensafe_start(){
+      if (window.siteSupportsHover && !window.siteSupportsHover()) return;
 
       // UR3 나타나기
       const ur3 = document.getElementById("eigensafe_ur3");
@@ -337,13 +401,13 @@
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one">
               <!-- 상대 위치 컨테이너 -->
-              <div class="two" id="CQM_image"
-                  style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px;">
+              <div class="two media-frame" id="CQM_image"
+                  style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px; background:#FAFAF8;">
 
                 <!-- 🎬 비디오 (전체 배경) -->
                 <video id="CQM_video"
                       style="width:100%; height:100%; object-fit:cover; display:block;"
-                      muted playsinline loop preload="auto">
+                      muted playsinline webkit-playsinline autoplay loop preload="auto">
                   <source src="cqm/cqm_video.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -363,12 +427,14 @@
 
           <script type="text/javascript">
             function CQM_stop() {
+              if (window.siteSupportsHover && !window.siteSupportsHover()) return;
               const v = document.getElementById('CQM_video');
               v.playbackRate = 2.25;
               v.play().catch(()=>{});
             }
 
             function CQM_start() {
+              if (window.siteSupportsHover && !window.siteSupportsHover()) return;
               const v = document.getElementById('CQM_video');
               v.pause();
               v.currentTime = Math.max(0, v.duration - 0.05);
@@ -397,16 +463,12 @@
           </td>
         </tr>
       </tbody>
-
-
     </table>
-
-     <br>
 
     <h2>Course Notes</h2>
     <ul class="act">
       <li>
-        CS285 (Spring 2023):
+        CS285 (2023 Spring):
         <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link"
           target="_blank"
           rel="noopener noreferrer">
@@ -495,5 +557,153 @@
   </tbody></table>
 
   </main>
+
+  <script>
+  (function(){
+    const PAGE_BG = '#FAFAF8';
+    const BLANK_POSTER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23FAFAF8'/%3E%3C/svg%3E";
+    const hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    window.siteSupportsHover = function(){
+      return hoverQuery.matches;
+    };
+
+    document.querySelectorAll('video').forEach(function(video){
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      if (video.id !== 'eigensafe_ur3') video.setAttribute('autoplay', '');
+      video.style.backgroundColor = PAGE_BG;
+      if (!video.getAttribute('poster')) video.setAttribute('poster', BLANK_POSTER);
+    });
+
+    /* The hidden UR3 overlay must start from frame zero, as in the original desktop behavior. */
+    const ur3Overlay = document.getElementById('eigensafe_ur3');
+    if (ur3Overlay){
+      ur3Overlay.autoplay = false;
+      ur3Overlay.removeAttribute('autoplay');
+      ur3Overlay.pause();
+      try { ur3Overlay.currentTime = 0; } catch (_) {}
+    }
+
+    /* Desktop keeps the original hover interactions exactly as written above. */
+    if (window.siteSupportsHover()) return;
+
+    const groups = [
+      {
+        frame: document.getElementById('psd_image'),
+        videos: [document.getElementById('psd_video')],
+        rates: [1]
+      },
+      {
+        frame: document.getElementById('eigensafe_image'),
+        videos: Array.from(document.querySelectorAll('#eigensafe_grid .eigensafe_video')),
+        rates: [0.65, 0.65, 0.65, 0.65]
+      },
+      {
+        frame: document.getElementById('CQM_image'),
+        videos: [document.getElementById('CQM_video')],
+        rates: [2.25]
+      }
+    ].filter(function(group){
+      group.videos = group.videos.filter(Boolean);
+      return group.frame && group.videos.length;
+    });
+
+    function playGroup(group){
+      const attempts = group.videos.map(function(video, index){
+        video.playbackRate = group.rates[index] || 1;
+        video.muted = true;
+        const result = video.play();
+        return result && typeof result.catch === 'function'
+          ? result.catch(function(){ return false; })
+          : Promise.resolve(true);
+      });
+      return Promise.all(attempts);
+    }
+
+    function pauseGroup(group){
+      group.videos.forEach(function(video){ video.pause(); });
+    }
+
+    function updateHint(group){
+      if (!group.hint) return;
+      const blocked = group.videos.every(function(video){
+        return video.paused || video.readyState < 2;
+      });
+      group.hint.classList.toggle('is-visible', blocked);
+    }
+
+    groups.forEach(function(group){
+      const hint = document.createElement('button');
+      hint.type = 'button';
+      hint.className = 'mobile-play-hint';
+      hint.setAttribute('aria-label', 'Play animation');
+      hint.textContent = 'Tap to play';
+      group.frame.appendChild(hint);
+      group.hint = hint;
+
+      const retry = function(){
+        playGroup(group).finally(function(){
+          window.setTimeout(function(){ updateHint(group); }, 350);
+        });
+      };
+
+      hint.addEventListener('click', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        retry();
+      });
+
+      group.frame.addEventListener('pointerup', function(){
+        if (group.videos.some(function(video){ return video.paused; })) retry();
+      }, { passive:true });
+
+      group.videos.forEach(function(video){
+        ['loadedmetadata', 'loadeddata', 'canplay'].forEach(function(eventName){
+          video.addEventListener(eventName, retry, { once:true });
+        });
+        video.addEventListener('playing', function(){ updateHint(group); });
+        video.addEventListener('pause', function(){
+          window.setTimeout(function(){ updateHint(group); }, 250);
+        });
+      });
+
+      retry();
+      window.setTimeout(function(){ updateHint(group); }, 1200);
+    });
+
+    if ('IntersectionObserver' in window){
+      const observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          const group = groups.find(function(candidate){ return candidate.frame === entry.target; });
+          if (!group) return;
+          if (entry.isIntersecting && entry.intersectionRatio > 0.08) playGroup(group);
+          else pauseGroup(group);
+        });
+      }, { threshold:[0, 0.08, 0.25] });
+
+      groups.forEach(function(group){ observer.observe(group.frame); });
+    }
+
+    function resumeVisibleMedia(){
+      groups.forEach(function(group){
+        const rect = group.frame.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) playGroup(group);
+      });
+    }
+
+    document.addEventListener('pointerdown', resumeVisibleMedia, { passive:true });
+    window.addEventListener('pageshow', resumeVisibleMedia);
+    document.addEventListener('visibilitychange', function(){
+      if (!document.hidden) resumeVisibleMedia();
+    });
+  })();
+  </script>
 </body>
 </html>
