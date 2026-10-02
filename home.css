@@ -151,6 +151,7 @@ figure { margin: 0; }
 .news-emoji { display: inline-block; margin-left: 3px; font-size: 1.2em; vertical-align: -0.08em; }
 .news-emoji-computer { filter: drop-shadow(0 0 3px rgba(56, 189, 248, .25)); }
 .news-emoji-computer svg { display: block; width: 1.35em; height: 1.35em; }
+.news-emoji-brain { font-size: 1.05em; }
 .news-emoji-robot { transform-origin: center bottom; animation: robot-greeting 4s ease-in-out infinite; }
 @keyframes robot-greeting {
   0%, 15%, 45%, 100% { transform: translateY(0) rotate(0); }
