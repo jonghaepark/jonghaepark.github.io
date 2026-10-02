@@ -148,15 +148,20 @@ figure { margin: 0; }
 .news-list li + li { margin-top: 12px; }
 .news-date { padding-top: 1px; color: var(--muted); font-size: 12px; font-weight: 500; }
 .news-content { font-size: 14px; }
-.news-emoji { display: inline-block; margin-left: 3px; font-size: 1.2em; vertical-align: -0.08em; }
-.news-emoji-computer { filter: drop-shadow(0 0 3px rgba(56, 189, 248, .25)); }
-.news-emoji-computer svg { display: block; width: 1.35em; height: 1.35em; }
-.news-emoji-brain { font-size: 1.05em; }
-.news-emoji-robot { transform-origin: center bottom; animation: robot-greeting 4s ease-in-out infinite; }
-@keyframes robot-greeting {
-  0%, 15%, 45%, 100% { transform: translateY(0) rotate(0); }
-  22%, 36% { transform: translateY(-2px) rotate(-8deg); }
-  29% { transform: translateY(-3px) rotate(8deg); }
+.news-emoji { display: inline-flex; align-items: center; justify-content: center; margin-left: 3px; height: 1em; font-size: 1em; line-height: 1; vertical-align: middle; }
+.news-emoji-computer { filter: drop-shadow(0 0 3px rgba(56, 189, 248, .25)); animation: computer-greeting 4s ease-in-out infinite; }
+.news-emoji-computer svg { display: block; width: 1.15em; height: 1.15em; }
+.news-emoji-brain { font-size: 1em; }
+.news-emoji-robot { animation: robot-vibration 4s linear infinite; }
+@keyframes computer-greeting {
+  0%, 15%, 45%, 100% { transform: translateY(0); }
+  22%, 36% { transform: translateY(-0.06em); }
+  29% { transform: translateY(-0.1em); }
+}
+@keyframes robot-vibration {
+  0%, 18%, 34%, 100% { transform: translateX(0); }
+  20%, 24%, 28%, 32% { transform: translateX(-0.06em); }
+  22%, 26%, 30% { transform: translateX(0.06em); }
 }
 
 .publications-section { padding-bottom: 34px; }
@@ -236,7 +241,7 @@ figure { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .news-emoji-robot { animation: none; }
+  .news-emoji-computer, .news-emoji-robot { animation: none; }
 }
 
 /* All background sections use the full page width. */
