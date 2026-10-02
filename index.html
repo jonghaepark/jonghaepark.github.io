@@ -123,7 +123,7 @@
         </p>
       </div>
       <div>
-        <img class="ellipse" src="images/jonghaepark3.jpeg" alt="Jonghae Park" />
+        <img class="ellipse" src="images/jonghae(front).jpeg" alt="Jonghae Park" />
       </div>
     </section>
 
@@ -152,6 +152,94 @@
         ( * Equal contribution)
       </span>
     <table class="publications-table" style="width:100%;border:0;border-spacing:0;border-collapse:separate;">
+
+      <!------------------------------- FLAG ---------------------------------->
+      <tbody>
+        <tr>
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one" style="display:flex;align-items:center;">
+              <div class="media-frame" id="flag_image"
+                   style="position:relative;width:160px;overflow:hidden;border-radius:8px;">
+                <video id="flag_video"
+                       aria-label="FLAG flow policy with latent-augmented guidance"
+                       style="width:100%;height:auto;display:block;border-radius:8px;"
+                       muted playsinline webkit-playsinline autoplay loop preload="auto">
+                  <source src="images/flag.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </td>
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="https://arxiv.org/abs/2605.30749">
+              <span class="papertitle">FLAG: Flow Policy MaxEnt-RL by Latent Augmented Guidance</span>
+            </a>
+            <br>
+            Sungha Kim<sup>*</sup>, Gawon Lee<sup>*</sup>, Jusuk Lee,
+            <strong>Jonghae Park</strong>, H. Jin Kim, Daesol Cho
+            <br>
+            <span style="color:red;"><em>NeurIPS</em></span> 2026
+            <br><br>
+            <a href="https://flag-rl.github.io/">Project page</a> |
+            <a href="https://arxiv.org/abs/2605.30749">arXiv</a> |
+            <a href="https://github.com/lgw1226/flag-official">Code</a>
+          </td>
+        </tr>
+      </tbody>
+
+      <!------------------------------- BooST ---------------------------------->
+      <tbody>
+        <tr>
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one" style="display:flex;align-items:center;">
+              <img src="images/boost.png" alt="BooST unified skill pretraining and downstream adaptation framework" style="width:160px;height:auto;border-radius:8px;" loading="lazy">
+            </div>
+          </td>
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="https://arxiv.org/abs/2608.10600">
+              <span class="papertitle">BooST: Bridging Semantics and Motions for Efficient Skill Transfer</span>
+            </a>
+            <br>
+            Jusuk Lee, Daesol Cho, Jonghun Shin, Seungyeon Yoo,
+            <strong>Jonghae Park</strong>, Taekbeom Lee, H. Jin Kim
+            <br>
+            <span style="color:red;"><em>RA-L</em></span> 2026
+            <br>
+            <span style="color:red;"><em>CoRL Workshop</em></span> 2025
+            <br><br>
+            <a href="https://boost-robots.github.io/">Project page</a> |
+            <a href="https://arxiv.org/abs/2608.10600">arXiv</a> |
+            <a href="https://github.com/boost-robots">Code</a>
+          </td>
+        </tr>
+      </tbody>
+
+      <!------------------------------- TART ---------------------------------->
+      <tbody>
+        <tr>
+          <td style="padding:16px;width:20%;vertical-align:middle">
+            <div class="one" style="display:flex;align-items:center;">
+              <img src="images/tart.png" alt="TART temporal action representation learning framework" style="width:160px;height:auto;display:block;border-radius:8px;" loading="lazy">
+            </div>
+          </td>
+          <td style="padding:8px;width:80%;vertical-align:middle">
+            <a href="https://arxiv.org/abs/2602.18716">
+              <span class="papertitle">Temporal Action Representation Learning for Tactical Resource Control and Subsequent Maneuver Generation</span>
+            </a>
+            <br>
+            Hoseong Jung, Sungil Son, Daesol Cho,
+            <strong>Jonghae Park</strong>, Changhyun Choi, H. Jin Kim
+            <br>
+            <span style="color:red;"><em>ICRA</em></span> 2026
+            <br>
+            <span style="color:red;"><em>RSS Workshop on Leveraging Implicit Methods for Aerial Autonomy</em></span> 2025
+            <br><br>
+            <a href="https://junghoseong.github.io/TART/">Project page</a> |
+            <a href="https://arxiv.org/abs/2602.18716">arXiv</a>
+            <p>We introduce a temporal action contrastive learning approach that facilitates semantic alignment between resource control and tactical maneuvers.</p>
+          </td>
+        </tr>
+      </tbody>
 
       <!------------------------------- PSD ---------------------------------->
 
@@ -595,6 +683,11 @@
     if (window.siteSupportsHover()) return;
 
     const groups = [
+      {
+        frame: document.getElementById('flag_image'),
+        videos: [document.getElementById('flag_video')],
+        rates: [1]
+      },
       {
         frame: document.getElementById('psd_image'),
         videos: [document.getElementById('psd_video')],
