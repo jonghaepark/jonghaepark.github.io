@@ -1,0 +1,99 @@
+/* Homepage typography and single-column CV sections. */
+html {
+  background: #fff;
+  scroll-behavior: smooth;
+}
+
+body, td, th, tr, p, a, strong, h1, h2, h3, .papertitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  color: #28313b;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+p, a, strong, td, th, tr, .papertitle {
+  font-size: inherit;
+}
+
+.wrap {
+  max-width: 950px;
+  margin: 64px auto;
+  padding: 0 32px;
+}
+
+.name { color: #28313b; }
+.tag { color: #7b8594; }
+
+h2 {
+  color: #28313b;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.7px;
+}
+
+.section-heading { margin: 56px 0 24px; scroll-margin-top: 32px; }
+.publications-heading { display: inline-block; margin-right: 8px; }
+.news-list { list-style: none; padding: 0; margin: 0; }
+.publications-table { font-size: 15px; }
+.publications-table td:first-child { padding-left: 0 !important; }
+.publications-table td:last-child { padding-left: 24px !important; }
+
+.resume-section {
+  margin-top: 56px;
+  scroll-margin-top: 32px;
+}
+
+.resume-section h2 { margin: 0 0 32px; }
+.resume-list { list-style: none; padding: 0; margin: 0; }
+.resume-item + .resume-item { margin-top: 32px; }
+
+.resume-item-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+}
+
+.resume-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.resume-date {
+  flex-shrink: 0;
+  color: #7b8594;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-description {
+  color: #7b8594;
+  font-size: 17px;
+  margin: 6px 0 0;
+  line-height: 1.6;
+}
+
+.site-footer { margin-top: 72px; text-align: right; color: #7b8594; }
+.site-footer p { font-size: 13px; margin: 0; }
+
+@media (max-width: 640px) {
+  .wrap { margin: 28px auto; padding: 0 20px; }
+  h2 { font-size: 26px; }
+  .resume-section, .section-heading { margin-top: 40px; }
+  .resume-section h2 { margin-bottom: 24px; }
+  .resume-item-heading { flex-direction: column; gap: 4px; }
+  .resume-item h3 { font-size: 17px; }
+  .resume-description { font-size: 16px; }
+  .resume-item + .resume-item { margin-top: 26px; }
+  .publications-table td:last-child { padding-left: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

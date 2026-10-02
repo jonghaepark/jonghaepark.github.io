@@ -98,6 +98,7 @@
       .mobile-play-hint.is-visible{display:flex;}
     }
   </style>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
   <main class="wrap">
@@ -127,10 +128,8 @@
       </div>
     </section>
 
-    <br><br>
-    
-  <h2 style="display:inline;margin-right:5px;margin-top:50px;">News</h2>
-  <ul style="margin-top:5px; list-style-type:none;">
+    <h2 id="news" class="section-heading">News</h2>
+  <ul class="news-list">
     <li>
       I am currently a visiting PhD student at
       <a href="https://princeton-rl.github.io/" target="_blank"><b>Princeton RL Lab</b></a>,
@@ -138,10 +137,8 @@
       <a href="https://ben-eysenbach.github.io/" target="_blank"><b>Prof. Benjamin Eysenbach</b></a>!
     </li>
   </ul>
-    <br><br>
 
-
-    <h2 style="display:inline;margin-right:5px;margin-top:50px;">Publications</h2>
+    <h2 id="publications" class="section-heading publications-heading">Publications</h2>
       <span style="font-size:12px;color:#000000;">
         ( * Equal contribution)
       </span>
@@ -533,96 +530,130 @@
       </tbody>
     </table>
 
-    <h2>Course Notes</h2>
-    <ul class="act">
-      <li>
-        CS285: Deep Reinforcement Learning, UC Berkeley (Spring 2023) —
-        <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link"
-          target="_blank"
-          rel="noopener noreferrer">
-          <strong>Handwritten Notes and Code</strong>
-        </a>
-      </li>
-    </ul>
-      
-    <h2>Education</h2>
-    <ul class="edu">
-      <li>
-        <strong>Seoul National University</strong>
-        <br/>
-        Ph.D. in Aerospace Engineering (Mar 2023 - <em>Present</em>)
-        <br/>
-        B.S. in Mechanical Engineering (Mar 2016 - Feb 2023)
-        <br/>
-      </li>
-    </ul>
+    <section class="resume-section" id="course-notes" aria-labelledby="course-notes-heading">
+      <h2 id="course-notes-heading">Course Notes</h2>
+      <ul class="resume-list">
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>CS285: Deep Reinforcement Learning</h3>
+            <span class="resume-date">Spring 2023</span>
+          </div>
+          <p class="resume-description">UC Berkeley · <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link" target="_blank" rel="noopener noreferrer">Handwritten Notes and Code</a></p>
+        </li>
+      </ul>
+    </section>
 
-    <h2>Academic Services</h2>
-    <ul class="proj">
-      <li>
-        Conference reviewer for NeurIPS'26
-      </li>
-    </ul>
+    <section class="resume-section" id="education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ul class="resume-list">
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Seoul National University</h3>
+            <span class="resume-date">Mar. 2023 – Present</span>
+          </div>
+          <p class="resume-description">Ph.D. in Aerospace Engineering</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Seoul National University</h3>
+            <span class="resume-date">Mar. 2016 – Feb. 2023</span>
+          </div>
+          <p class="resume-description">B.S. in Mechanical Engineering</p>
+        </li>
+      </ul>
+    </section>
 
-    <h2>Awards and Achievements</h2>
-    <ul class="proj">
-      <li>
-        <strong>[Scholarship]</strong> Next-Generation Scholar Fellowship in Basic Academic Fields,
-        Seoul National University (Mar. 2026 - Feb. 2027)
-      </li>
-      <li>
-        <strong>[Award]</strong> Outstanding B.S. Thesis Presentation Award,
-        Department of Mechanical Engineering, Seoul National University (Dec. 2022)
-      </li>
-      <li>
-        <strong>[Award]</strong> Presidential Award, Undergraduate Research Program,
-        Seoul National University (Feb. 2022)
-      </li>
-      <li>
-        <strong>[Award]</strong> Encouragement Award, Social Contribution Plus Competition,
-        Seoul National University Social Responsibility (Nov. 2020)
-      </li>
-      <li>
-        <strong>[Award]</strong> Grand Prize, Mechanical Product Design Competition,
-        Department of Mechanical Engineering, Seoul National University (Jul. 2020)
-      </li>
-    </ul>
+    <section class="resume-section" id="academic-services" aria-labelledby="academic-services-heading">
+      <h2 id="academic-services-heading">Academic Services</h2>
+      <ul class="resume-list">
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Conference Reviewer</h3>
+            <span class="resume-date">2026</span>
+          </div>
+          <p class="resume-description">NeurIPS</p>
+        </li>
+      </ul>
+    </section>
 
-    <h2>Teaching</h2>
-    <ul class="act">
-      <li>
-        <strong>[TA]</strong> Motion Planning and Decision Making for Autonomous Systems (M3229.003300),
-        Seoul National University (2026 Spring)
-      </li>
-      <li>
-        <strong>[TA]</strong> Principles of Flight Vehicle Control (M2795.002600),
-        Seoul National University (2026 Spring)
-      </li>
-      <li>
-        <strong>[TA]</strong> Hyundai Motor Company AI Boosting Camp,
-        Seoul National University (2025 Summer)
-      </li>
-      <li>
-        <strong>[TA]</strong> Principles of Flight Vehicle Control (M2795.002600),
-        Seoul National University (2023 Spring)
-      </li>
-    </ul>
+    <section class="resume-section" id="awards" aria-labelledby="awards-heading">
+      <h2 id="awards-heading">Honors &amp; Awards</h2>
+      <ul class="resume-list">
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Next-Generation Scholar Fellowship in Basic Academic Fields</h3>
+            <span class="resume-date">Mar. 2026 – Feb. 2027</span>
+          </div>
+          <p class="resume-description">Seoul National University</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Outstanding B.S. Thesis Presentation Award</h3>
+            <span class="resume-date">Dec. 2022</span>
+          </div>
+          <p class="resume-description">Department of Mechanical Engineering, Seoul National University</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Presidential Award, Undergraduate Research Program</h3>
+            <span class="resume-date">Feb. 2022</span>
+          </div>
+          <p class="resume-description">Seoul National University</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Encouragement Award, Social Contribution Plus Competition</h3>
+            <span class="resume-date">Nov. 2020</span>
+          </div>
+          <p class="resume-description">Seoul National University Social Responsibility</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Grand Prize, Mechanical Product Design Competition</h3>
+            <span class="resume-date">Jul. 2020</span>
+          </div>
+          <p class="resume-description">Department of Mechanical Engineering, Seoul National University</p>
+        </li>
+      </ul>
+    </section>
 
+    <section class="resume-section" id="teaching" aria-labelledby="teaching-heading">
+      <h2 id="teaching-heading">Teaching</h2>
+      <ul class="resume-list">
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Motion Planning and Decision Making for Autonomous Systems</h3>
+            <span class="resume-date">Spring 2026</span>
+          </div>
+          <p class="resume-description">Teaching Assistant · Seoul National University · M3229.003300</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Principles of Flight Vehicle Control</h3>
+            <span class="resume-date">Spring 2026</span>
+          </div>
+          <p class="resume-description">Teaching Assistant · Seoul National University · M2795.002600</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Hyundai Motor Company AI Boosting Camp</h3>
+            <span class="resume-date">Summer 2025</span>
+          </div>
+          <p class="resume-description">Teaching Assistant · Seoul National University</p>
+        </li>
+        <li class="resume-item">
+          <div class="resume-item-heading">
+            <h3>Principles of Flight Vehicle Control</h3>
+            <span class="resume-date">Spring 2023</span>
+          </div>
+          <p class="resume-description">Teaching Assistant · Seoul National University · M2795.002600</p>
+        </li>
+      </ul>
+    </section>
 
-
-  <br><br><br><br>
-
-  </tbody></table>
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr>
-      <td style="padding:0px">
-        <br>
-        <p style="text-align:right;font-size:small;">
-          Based on <a href="https://github.com/jonbarron/jonbarron_website">this</a> template
-        </p>
-      </td>
-    </tr>
-  </tbody></table>
+    <footer class="site-footer">
+      <p>Based on <a href="https://github.com/jonbarron/jonbarron_website">this</a> template</p>
+    </footer>
 
   </main>
 
