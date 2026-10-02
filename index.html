@@ -132,16 +132,10 @@
   <h2 style="display:inline;margin-right:5px;margin-top:50px;">News</h2>
   <ul style="margin-top:5px; list-style-type:none;">
     <li>
-      - I will be joining 
-      <a href="https://princeton-rl.github.io/" target="_blank"><b>Princeton RL Lab</b></a> 
-      as a Visiting Student Research Collaborator, working with 
-      <a href="https://ben-eysenbach.github.io/" target="_blank"><b>Prof. Benjamin Eysenbach</b></a>! 
-    </li>
-    <li>
-      - Our paper 
-      <a href="https://eigen-safe.github.io/" target="_blank"><b>EigenSafe</b></a> 
-      has been accepted at 
-      <a href="https://roboticsconference.org/" target="_blank"><b>RSS 2026</b></a>! ✈️🦘 
+      I am currently a visiting PhD student at
+      <a href="https://princeton-rl.github.io/" target="_blank"><b>Princeton RL Lab</b></a>,
+      working with
+      <a href="https://ben-eysenbach.github.io/" target="_blank"><b>Prof. Benjamin Eysenbach</b></a>.
     </li>
   </ul>
     <br><br>
@@ -158,16 +152,7 @@
         <tr>
           <td style="padding:16px;width:20%;vertical-align:middle">
             <div class="one" style="display:flex;align-items:center;">
-              <div class="media-frame" id="flag_image"
-                   style="position:relative;width:160px;overflow:hidden;border-radius:8px;">
-                <video id="flag_video"
-                       aria-label="FLAG flow policy with latent-augmented guidance"
-                       style="width:100%;height:auto;display:block;border-radius:8px;"
-                       muted playsinline webkit-playsinline autoplay loop preload="auto">
-                  <source src="images/flag.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              <img src="images/flag.png" alt="FLAG flow policy with latent-augmented guidance" style="width:160px;height:auto;display:block;border-radius:8px;" loading="lazy">
             </div>
           </td>
           <td style="padding:8px;width:80%;vertical-align:middle">
@@ -224,7 +209,7 @@
           </td>
           <td style="padding:8px;width:80%;vertical-align:middle">
             <a href="https://arxiv.org/abs/2602.18716">
-              <span class="papertitle">Temporal Action Representation Learning for Tactical Resource Control and Subsequent Maneuver Generation</span>
+              <span class="papertitle">Temporal Action Representation Learning<br>for Tactical Resource Control and Subsequent Maneuver Generation</span>
             </a>
             <br>
             Hoseong Jung, Sungil Son, Daesol Cho,
@@ -236,7 +221,6 @@
             <br><br>
             <a href="https://junghoseong.github.io/TART/">Project page</a> |
             <a href="https://arxiv.org/abs/2602.18716">arXiv</a>
-            <p>We introduce a temporal action contrastive learning approach that facilitates semantic alignment between resource control and tactical maneuvers.</p>
           </td>
         </tr>
       </tbody>
@@ -683,11 +667,6 @@
     if (window.siteSupportsHover()) return;
 
     const groups = [
-      {
-        frame: document.getElementById('flag_image'),
-        videos: [document.getElementById('flag_video')],
-        rates: [1]
-      },
       {
         frame: document.getElementById('psd_image'),
         videos: [document.getElementById('psd_video')],
