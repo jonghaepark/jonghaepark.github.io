@@ -144,9 +144,9 @@ figure { margin: 0; }
 }
 
 .news-list { margin: 0; padding: 0; list-style: none; }
-.news-list li { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 14px; }
+.news-list li { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 14px; align-items: first baseline; }
 .news-list li + li { margin-top: 12px; }
-.news-date { padding-top: 1px; color: var(--muted); font-size: 12px; font-weight: 500; }
+.news-date { color: var(--muted); font-size: 12px; font-weight: 500; }
 .news-content { font-size: 14px; }
 .news-emoji { display: inline-flex; align-items: center; justify-content: center; margin-left: 3px; height: 1em; font-size: 1em; line-height: 1; vertical-align: middle; }
 .news-emoji-computer { filter: drop-shadow(0 0 3px rgba(56, 189, 248, .25)); animation: computer-greeting 4s ease-in-out infinite; }
