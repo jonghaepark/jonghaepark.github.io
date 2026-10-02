@@ -14,219 +14,117 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jonghae Park</title>
-  <link rel="stylesheet" href="stylesheet.css" />
+  <meta name="description" content="Jonghae Park — Ph.D. student at Seoul National University. Research on reinforcement learning and robot learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="icon" href="images/favicon.png" type="image/png">
 
-  <style>
-    html { background: #FAFAF8; } 
-    body { background: transparent; color: #222; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height:1.6; margin:0;}
-
-    .wrap{
-      max-width:950px;
-      margin:40px auto;
-      padding:0 24px;
-    }
-
-    .name{font-size:34px;font-weight:800;margin:0}
-    .tag{color:#777;margin:4px 0 16px}
-    .grid{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
-    img.round{width:180px;height:180px;border-radius:50%;object-fit:cover}
-    img.ellipse {width: 150px;height:200px;object-fit: cover;border-radius: 50% / 60%;}
-    .links a{margin-right:12px;text-decoration:none}
-    h2{margin:28px 0 8px}
-    .pub li{margin:10px 0}
-    .pub small{color:#666}
-
-    /* Keep unloaded video areas consistent with the page background. */
-    .media-frame,
-    .media-frame video,
-    .eigensafe_cell {
-      background-color:#FAFAF8;
-    }
-
-    .mobile-play-hint{
-      display:none;
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-      border-radius:8px;
-      background:rgba(250,250,248,.88);
-      color:#555;
-      font:600 13px/1.2 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      z-index:5;
-      -webkit-tap-highlight-color:transparent;
-    }
-
-    /* Mobile-only layout and playback affordances. Desktop remains unchanged. */
-    @media (max-width:640px){
-      .wrap{margin:24px auto;padding:0 16px;}
-      .grid{grid-template-columns:1fr;gap:14px;}
-      .grid > div:last-child{display:flex;justify-content:center;}
-
-      .publications-table,
-      .publications-table tbody,
-      .publications-table tr,
-      .publications-table td{
-        display:block;
-        width:100% !important;
-        box-sizing:border-box;
-      }
-
-      .publications-table td:first-child{
-        padding:14px 0 4px !important;
-        text-align:center;
-      }
-
-      .publications-table td:last-child{
-        padding:6px 0 20px !important;
-      }
-
-      .publications-table .one,
-      .publications-table .two{
-        margin-left:auto;
-        margin-right:auto;
-      }
-    }
-
-    @media (hover:none), (pointer:coarse){
-      .mobile-play-hint.is-visible{display:flex;}
-    }
-  </style>
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <main class="wrap">
-    <section class="grid">
-      <div>
-        <div style="text-align:center;">
-          <h1 class="name">Jonghae Park</h1>
-          <p class="tag">Reinforcement Learning, Robot Learning</p>
-        </div>
-        <p>
-          Hi, I'm a Ph.D. student at Seoul National University, advised by <a href="https://larr.snu.ac.kr">H. Jin Kim</a>.
-          My research explores how robots autonomously learn behavioral skills via reinforcement learning.
-          <br>
-          My current interests include unsupervised reinforcement learning and leveraging temporal structure in RL.
-          <br>
-          Outside of research, I enjoy reading, especially works by Milan Kundera and Albert Camus.
-        </p>
-        <p class="links" style="text-align:center;">
-          <a href="mailto:bdfire123@snu.ac.kr">Email</a>
-          <a href="data/jonghae_cv.pdf">CV</a>
-          <a href="https://scholar.google.com/citations?user=KFAtLnMAAAAJ&hl=en">Scholar</a>
-          <a href="https://github.com/jonghaepark">GitHub</a>
-        </p>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner page-shell">
+      <a class="nav-name" href="#about">Jonghae Park</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#honors">Honors</a>
       </div>
-      <div>
-        <img class="ellipse" src="images/jonghae(front).jpeg" alt="Jonghae Park" />
+    </div>
+  </nav>
+  <main class="page-shell" id="main">
+    <section class="profile-section" id="about" aria-labelledby="profile-name">
+      <img class="profile-photo" src="images/jonghae(front).jpeg" alt="Jonghae Park" width="190" height="244" fetchpriority="high" />
+      <div class="profile-bio">
+        <h1 id="profile-name">Jonghae Park</h1>
+        <p class="profile-role">Ph.D. student at SNU · Reinforcement Learning, Robot Learning</p>
+        <p>Hi, I'm a Ph.D. student at Seoul National University, advised by <a href="https://larr.snu.ac.kr">H. Jin Kim</a>.</p>
+        <p>My research explores how robots autonomously learn behavioral skills via reinforcement learning. My current interests include unsupervised reinforcement learning and leveraging temporal structure in RL.</p>
+        <p>Outside of research, I enjoy reading, especially works by Milan Kundera and Albert Camus.</p>
+        <div class="profile-links" aria-label="Contact and profiles">
+          <a href="mailto:bdfire123@snu.ac.kr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+          <a href="data/jonghae_cv.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>CV</a>
+          <a href="https://scholar.google.com/citations?user=KFAtLnMAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5-10-5Zm4 2v6c4 3 8 3 12 0v-6M22 9v7"/></svg>Google Scholar</a>
+          <a href="https://github.com/jonghaepark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2 4 0 7-2 7-6 0-2-1-3-2-4 0-1 0-3-1-3l-4 2a12 12 0 0 0-4 0L6 3C5 3 5 5 5 6c-1 1-2 2-2 4 0 4 3 6 7 6-1 0-1 1-1 2v4"/></svg>GitHub</a>
+        </div>
       </div>
     </section>
 
-    <h2 id="news" class="section-heading">News</h2>
+    <section class="home-section" id="news" aria-labelledby="news-heading">
+      <h2 class="section-heading" id="news-heading">News</h2>
   <ul class="news-list">
     <li>
+      <span class="news-content">
       I am currently a visiting PhD student at
       <a href="https://princeton-rl.github.io/" target="_blank"><b>Princeton RL Lab</b></a>,
       working with
       <a href="https://ben-eysenbach.github.io/" target="_blank"><b>Prof. Benjamin Eysenbach</b></a>!
+      </span>
     </li>
   </ul>
+    </section>
 
-    <h2 id="publications" class="section-heading publications-heading">Publications</h2>
-      <span style="font-size:12px;color:#000000;">
-        ( * Equal contribution)
-      </span>
-    <table class="publications-table" style="width:100%;border:0;border-spacing:0;border-collapse:separate;">
+    <section class="home-section publications-section" id="publications" aria-labelledby="publications-heading">
+      <h2 class="section-heading" id="publications-heading">Publications</h2>
+      <p class="publication-note">* Equal contribution</p>
+      <article class="publication publication-with-media">
+        <figure class="publication-media"><div class="one" style="display:flex;align-items:center;">
+              <img src="images/flag.png" alt="FLAG flow policy with latent-augmented guidance" loading="lazy">
+            </div></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2605.30749">FLAG: Flow Policy MaxEnt-RL by Latent Augmented Guidance</a></h3>
+          <p class="publication-authors">Sungha Kim<sup>*</sup>, Gawon Lee<sup>*</sup>, Jusuk Lee,
+            <strong>Jonghae Park</strong>, H. Jin Kim, Daesol Cho</p>
+          <div class="publication-venues"><span class="publication-venue">NeurIPS 2026</span></div>
+          <div class="publication-links">
+            <a href="https://flag-rl.github.io/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg>Project page</a>
+            <a href="https://arxiv.org/abs/2605.30749"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
+            <a href="https://github.com/lgw1226/flag-official"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2 4 0 7-2 7-6 0-2-1-3-2-4 0-1 0-3-1-3l-4 2a12 12 0 0 0-4 0L6 3C5 3 5 5 5 6c-1 1-2 2-2 4 0 4 3 6 7 6-1 0-1 1-1 2v4"/></svg>Code</a>
+          </div>
+        </div>
+      </article>
 
-      <!------------------------------- FLAG ---------------------------------->
-      <tbody>
-        <tr>
-          <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one" style="display:flex;align-items:center;">
-              <img src="images/flag.png" alt="FLAG flow policy with latent-augmented guidance" style="width:160px;height:auto;display:block;border-radius:8px;" loading="lazy">
-            </div>
-          </td>
-          <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="https://arxiv.org/abs/2605.30749">
-              <span class="papertitle">FLAG: Flow Policy MaxEnt-RL by Latent Augmented Guidance</span>
-            </a>
-            <br>
-            Sungha Kim<sup>*</sup>, Gawon Lee<sup>*</sup>, Jusuk Lee,
-            <strong>Jonghae Park</strong>, H. Jin Kim, Daesol Cho
-            <br>
-            <span style="color:red;"><em>NeurIPS</em></span> 2026
-            <br><br>
-            <a href="https://flag-rl.github.io/">Project page</a> |
-            <a href="https://arxiv.org/abs/2605.30749">arXiv</a> |
-            <a href="https://github.com/lgw1226/flag-official">Code</a>
-          </td>
-        </tr>
-      </tbody>
+      <article class="publication publication-with-media">
+        <figure class="publication-media"><div class="one" style="display:flex;align-items:center;">
+              <img src="images/boost.png" alt="BooST unified skill pretraining and downstream adaptation framework" loading="lazy">
+            </div></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2608.10600">BooST: Bridging Semantics and Motions for Efficient Skill Transfer</a></h3>
+          <p class="publication-authors">Jusuk Lee, Daesol Cho, Jonghun Shin, Seungyeon Yoo,
+            <strong>Jonghae Park</strong>, Taekbeom Lee, H. Jin Kim</p>
+          <div class="publication-venues"><span class="publication-venue">RA-L 2026</span></div>
+          <div class="publication-links">
+            <a href="https://boost-robots.github.io/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg>Project page</a>
+            <a href="https://arxiv.org/abs/2608.10600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
+            <a href="https://github.com/boost-robots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2 4 0 7-2 7-6 0-2-1-3-2-4 0-1 0-3-1-3l-4 2a12 12 0 0 0-4 0L6 3C5 3 5 5 5 6c-1 1-2 2-2 4 0 4 3 6 7 6-1 0-1 1-1 2v4"/></svg>Code</a>
+          </div>
+        </div>
+      </article>
 
-      <!------------------------------- BooST ---------------------------------->
-      <tbody>
-        <tr>
-          <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one" style="display:flex;align-items:center;">
-              <img src="images/boost.png" alt="BooST unified skill pretraining and downstream adaptation framework" style="width:160px;height:auto;border-radius:8px;" loading="lazy">
-            </div>
-          </td>
-          <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="https://arxiv.org/abs/2608.10600">
-              <span class="papertitle">BooST: Bridging Semantics and Motions for Efficient Skill Transfer</span>
-            </a>
-            <br>
-            Jusuk Lee, Daesol Cho, Jonghun Shin, Seungyeon Yoo,
-            <strong>Jonghae Park</strong>, Taekbeom Lee, H. Jin Kim
-            <br>
-            <span style="color:red;"><em>RA-L</em></span> 2026
-            <br><br>
-            <a href="https://boost-robots.github.io/">Project page</a> |
-            <a href="https://arxiv.org/abs/2608.10600">arXiv</a> |
-            <a href="https://github.com/boost-robots">Code</a>
-          </td>
-        </tr>
-      </tbody>
+      <article class="publication publication-with-media">
+        <figure class="publication-media"><div class="one" style="display:flex;align-items:center;">
+              <img src="images/tart.png" alt="TART temporal action representation learning framework" loading="lazy">
+            </div></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2602.18716">Temporal Action Representation Learning<br>for Tactical Resource Control and Subsequent Maneuver Generation</a></h3>
+          <p class="publication-authors">Hoseong Jung, Sungil Son, Daesol Cho,
+            <strong>Jonghae Park</strong>, Changhyun Choi, H. Jin Kim</p>
+          <div class="publication-venues"><span class="publication-venue">ICRA 2026</span></div>
+          <div class="publication-links">
+            <a href="https://junghoseong.github.io/TART/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg>Project page</a>
+            <a href="https://arxiv.org/abs/2602.18716"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
+          </div>
+        </div>
+      </article>
 
-      <!------------------------------- TART ---------------------------------->
-      <tbody>
-        <tr>
-          <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one" style="display:flex;align-items:center;">
-              <img src="images/tart.png" alt="TART temporal action representation learning framework" style="width:160px;height:auto;display:block;border-radius:8px;" loading="lazy">
-            </div>
-          </td>
-          <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="https://arxiv.org/abs/2602.18716">
-              <span class="papertitle">Temporal Action Representation Learning<br>for Tactical Resource Control and Subsequent Maneuver Generation</span>
-            </a>
-            <br>
-            Hoseong Jung, Sungil Son, Daesol Cho,
-            <strong>Jonghae Park</strong>, Changhyun Choi, H. Jin Kim
-            <br>
-            <span style="color:red;"><em>ICRA</em></span> 2026
-            <br><br>
-            <a href="https://junghoseong.github.io/TART/">Project page</a> |
-            <a href="https://arxiv.org/abs/2602.18716">arXiv</a>
-          </td>
-        </tr>
-      </tbody>
-
-      <!------------------------------- PSD ---------------------------------->
-
-      <tbody>
-        <!-- <tr onmouseout="psd_stop()" onmouseover="psd_start()" bgcolor="#ffffd0"> -->
-        <tr onmouseout="psd_stop()" onmouseover="psd_start()">  
-          <td style="padding:16px;width:20%;vertical-align:middle">
-          <div class="one"> 
+      <article class="publication publication-with-media" onmouseout="psd_stop()" onmouseover="psd_start()">
+        <figure class="publication-media"><div class="one">
             <div class="two media-frame" id="psd_image"
-                style="position:relative; width:160px; overflow:hidden; border-radius:8px; background:#FAFAF8;">
+                style="position:relative; width:160px; overflow:hidden; border-radius:8px; background:#f8fafc;">
               <!-- 🎬 가로폭에만 맞춤 (세로 자동 비율 유지) -->
               <video id="psd_video"
                     style="width:100%; height:auto; display:block; border-radius:8px;"
@@ -257,39 +155,28 @@
                 v.play().catch(()=>{});
               }, { once:true });
             })();
-          </script>
-          </td>
-
-          <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="https://arxiv.org/abs/2511.03187">
-              <span class="papertitle">Periodic Skill Discovery</span>
-            </a>
-            <br>
-            <strong>Jonghae Park</strong>,
+          </script></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2511.03187">Periodic Skill Discovery</a></h3>
+          <p class="publication-authors"><strong>Jonghae Park</strong>,
             Daesol Cho,
             Jusuk Lee,
             Dongseok Shim,
             Inkyu Jang,
-            H. Jin Kim
-            <br>
-            <span style="color:red;"><em>NeurIPS</em></span> 2025
-            <br>
-            <p></p>
-            <a href="https://jonghaepark.github.io/psd">Project page</a> |
-            <a href="https://arxiv.org/abs/2511.03187">arXiv</a> |
-            <a href="./psd/static/psd_poster.pdf">Poster</a> |
-            <a href="./psd/static/psd_slide.pdf">Slides</a> |
-            <a href="https://github.com/jonghaepark/psd">Code</a>
-          </td>
-        </tr>
-      </tbody>
+            H. Jin Kim</p>
+          <div class="publication-venues"><span class="publication-venue">NeurIPS 2025</span></div>
+          <div class="publication-links">
+            <a href="https://jonghaepark.github.io/psd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg>Project page</a>
+            <a href="https://arxiv.org/abs/2511.03187"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
+            <a href="./psd/static/psd_poster.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>Poster</a>
+            <a href="./psd/static/psd_slide.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>Slides</a>
+            <a href="https://github.com/jonghaepark/psd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2 4 0 7-2 7-6 0-2-1-3-2-4 0-1 0-3-1-3l-4 2a12 12 0 0 0-4 0L6 3C5 3 5 5 5 6c-1 1-2 2-2 4 0 4 3 6 7 6-1 0-1 1-1 2v4"/></svg>Code</a>
+          </div>
+        </div>
+      </article>
 
-      <!------------------------------- EigenSafe ---------------------------------->
-      <tbody>
-      <tr onmouseout="eigensafe_stop()" onmouseover="eigensafe_start()">  
-      <td style="padding:16px; width:20%; vertical-align:middle;">
-
-      <div class="one">
+      <article class="publication publication-with-media" onmouseout="eigensafe_stop()" onmouseover="eigensafe_start()">
+        <figure class="publication-media"><div class="one">
       <div class="two media-frame" id="eigensafe_image"
       style="
       position:relative;
@@ -297,7 +184,7 @@
       height:160px;
       border-radius:8px;
       overflow:hidden;
-      background:#FAFAF8;
+      background:#f8fafc;
       ">
 
       <!-- grid layer -->
@@ -346,7 +233,7 @@
       height:100%;
       object-fit:contain;
       object-position:center;
-      background:#FAFAF8;
+      background:#f8fafc;
       border-radius:8px;
       display:block;
       opacity:0;
@@ -428,46 +315,29 @@
       },{once:true});
       });
       })();
-      </script>
-
-      </td>
-
-
-      <td style="padding:8px; width:80%; vertical-align:middle;">
-      <a href="https://arxiv.org/abs/2509.17750">
-      <span class="papertitle">
-      EigenSafe: A Spectral Framework for Learning-Based Probabilistic Safety Assessment
-      </span>
-      </a>
-      <br>
-      Inkyu Jang<sup>*</sup>,
+      </script></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2509.17750">EigenSafe: A Spectral Framework for Learning-Based Probabilistic Safety Assessment</a></h3>
+          <p class="publication-authors">Inkyu Jang<sup>*</sup>,
       <strong>Jonghae Park</strong><sup>*</sup>,
       Sihyun Cho,
       Chams E. Mballo,
       Claire J. Tomlin,
-      H. Jin Kim
-      <br>
-      <span style="color:red;"><em>RSS</em></span> 2026
-      <br>
-      <span style="color:red;"><em>CoRL Workshop</em></span> 2025 (Oral)
-      <br><br>
-      <a href="https://eigen-safe.github.io/">Project page</a> |
-      <a href="https://arxiv.org/abs/2509.17750">arXiv</a> |
-      <a href="https://github.com/jonghaepark/eigensafe">Code</a>
-      </td>
+      H. Jin Kim</p>
+          <div class="publication-venues"><span class="publication-venue">RSS 2026</span><span class="publication-venue">CoRL Workshop 2025 (Oral)</span></div>
+          <div class="publication-links">
+            <a href="https://eigen-safe.github.io/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/></svg>Project page</a>
+            <a href="https://arxiv.org/abs/2509.17750"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
+            <a href="https://github.com/jonghaepark/eigensafe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.3-2-1-2 4 0 7-2 7-6 0-2-1-3-2-4 0-1 0-3-1-3l-4 2a12 12 0 0 0-4 0L6 3C5 3 5 5 5 6c-1 1-2 2-2 4 0 4 3 6 7 6-1 0-1 1-1 2v4"/></svg>Code</a>
+          </div>
+        </div>
+      </article>
 
-      </tr>
-      </tbody>
-
-      <!------------------------------- CQM ---------------------------------->
-
-      <tbody>
-        <tr onmouseout="CQM_stop()" onmouseover="CQM_start()">  
-          <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one">
+      <article class="publication publication-with-media" onmouseout="CQM_stop()" onmouseover="CQM_start()">
+        <figure class="publication-media"><div class="one">
               <!-- 상대 위치 컨테이너 -->
               <div class="two media-frame" id="CQM_image"
-                  style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px; background:#FAFAF8;">
+                  style="position:relative; width:160px; height:160px; overflow:hidden; border-radius:8px; background:#f8fafc;">
 
                 <!-- 🎬 비디오 (전체 배경) -->
                 <video id="CQM_video"
@@ -482,10 +352,10 @@
                     style="
                       position:absolute;
                       right:0; bottom:0;
-                      width:38%; height:60%;       
+                      width:38%; height:60%;
                       object-fit:cover;
-                      border-top-left-radius:2.5px;     
-                      pointer-events:none;           
+                      border-top-left-radius:2.5px;
+                      pointer-events:none;
                     ">
               </div>
             </div>
@@ -512,141 +382,135 @@
                 v.play().catch(()=>{});
               }, { once:true });
             })();
-          </script>
-          </td>
-
-          <td style="padding:8px;width:80%;vertical-align:middle">
-            <a href="https://arxiv.org/abs/2310.17330">
-              <span class="papertitle">CQM: Curriculum Reinforcement Learning with a Quantized World Model</span>
-            </a>
-            <br>
-            Seungjae Lee, Daeseol Cho, <strong>Jonghae Park</strong>, H. Jin Kim
-            <br>
-            <span style="color:red;"><em>NeurIPS</em></span> 2023
-            <br><br>
-            <a href="https://arxiv.org/abs/2310.17330">arXiv</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <section class="resume-section" id="course-notes" aria-labelledby="course-notes-heading">
-      <h2 id="course-notes-heading">Course Notes</h2>
-      <ul class="resume-list">
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>CS285: Deep Reinforcement Learning</h3>
-            <span class="resume-date">Spring 2023</span>
+          </script></figure>
+        <div class="publication-content">
+          <h3 class="publication-title"><a href="https://arxiv.org/abs/2310.17330">CQM: Curriculum Reinforcement Learning with a Quantized World Model</a></h3>
+          <p class="publication-authors">Seungjae Lee, Daeseol Cho, <strong>Jonghae Park</strong>, H. Jin Kim</p>
+          <div class="publication-venues"><span class="publication-venue">NeurIPS 2023</span></div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/abs/2310.17330"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>arXiv</a>
           </div>
-          <p class="resume-description">UC Berkeley · <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link" target="_blank" rel="noopener noreferrer">Handwritten Notes and Code</a></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="home-section" id="course-notes" aria-labelledby="course-notes-heading">
+      <h2 class="section-heading" id="course-notes-heading">Course Notes</h2>
+      <ul class="record-list">
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">CS285: Deep Reinforcement Learning</h3>
+            <span class="record-date">Spring 2023</span>
+          </div>
+          <p class="record-detail">UC Berkeley · <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link" target="_blank" rel="noopener noreferrer">Handwritten Notes and Code</a></p>
         </li>
       </ul>
     </section>
 
-    <section class="resume-section" id="education" aria-labelledby="education-heading">
-      <h2 id="education-heading">Education</h2>
-      <ul class="resume-list">
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Seoul National University</h3>
-            <span class="resume-date">Mar. 2023 – Present</span>
+    <section class="home-section" id="education" aria-labelledby="education-heading">
+      <h2 class="section-heading" id="education-heading">Education</h2>
+      <ul class="record-list">
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Seoul National University</h3>
+            <span class="record-date">Mar. 2023 – Present</span>
           </div>
-          <p class="resume-description">Ph.D. in Aerospace Engineering</p>
+          <p class="record-detail">Ph.D. in Aerospace Engineering</p>
         </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Seoul National University</h3>
-            <span class="resume-date">Mar. 2016 – Feb. 2023</span>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Seoul National University</h3>
+            <span class="record-date">Mar. 2016 – Feb. 2023</span>
           </div>
-          <p class="resume-description">B.S. in Mechanical Engineering</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="resume-section" id="academic-services" aria-labelledby="academic-services-heading">
-      <h2 id="academic-services-heading">Academic Services</h2>
-      <ul class="resume-list">
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Conference Reviewer</h3>
-            <span class="resume-date">2026</span>
-          </div>
-          <p class="resume-description">NeurIPS</p>
+          <p class="record-detail">B.S. in Mechanical Engineering</p>
         </li>
       </ul>
     </section>
 
-    <section class="resume-section" id="awards" aria-labelledby="awards-heading">
-      <h2 id="awards-heading">Honors &amp; Awards</h2>
-      <ul class="resume-list">
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Next-Generation Scholar Fellowship in Basic Academic Fields</h3>
-            <span class="resume-date">Mar. 2026 – Feb. 2027</span>
+    <section class="home-section" id="academic-services" aria-labelledby="academic-services-heading">
+      <h2 class="section-heading" id="academic-services-heading">Academic Services</h2>
+      <ul class="record-list">
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Conference Reviewer</h3>
+            <span class="record-date">2026</span>
           </div>
-          <p class="resume-description">Seoul National University</p>
-        </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Outstanding B.S. Thesis Presentation Award</h3>
-            <span class="resume-date">Dec. 2022</span>
-          </div>
-          <p class="resume-description">Department of Mechanical Engineering, Seoul National University</p>
-        </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Presidential Award, Undergraduate Research Program</h3>
-            <span class="resume-date">Feb. 2022</span>
-          </div>
-          <p class="resume-description">Seoul National University</p>
-        </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Encouragement Award, Social Contribution Plus Competition</h3>
-            <span class="resume-date">Nov. 2020</span>
-          </div>
-          <p class="resume-description">Seoul National University Social Responsibility</p>
-        </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Grand Prize, Mechanical Product Design Competition</h3>
-            <span class="resume-date">Jul. 2020</span>
-          </div>
-          <p class="resume-description">Department of Mechanical Engineering, Seoul National University</p>
+          <p class="record-detail">NeurIPS</p>
         </li>
       </ul>
     </section>
 
-    <section class="resume-section" id="teaching" aria-labelledby="teaching-heading">
-      <h2 id="teaching-heading">Teaching</h2>
-      <ul class="resume-list">
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Motion Planning and Decision Making for Autonomous Systems</h3>
-            <span class="resume-date">Spring 2026</span>
+    <section class="home-section" id="honors" aria-labelledby="awards-heading">
+      <h2 class="section-heading" id="awards-heading">Honors &amp; Awards</h2>
+      <ul class="record-list">
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Next-Generation Scholar Fellowship in Basic Academic Fields</h3>
+            <span class="record-date">Mar. 2026 – Feb. 2027</span>
           </div>
-          <p class="resume-description">Teaching Assistant · Seoul National University · M3229.003300</p>
+          <p class="record-detail">Seoul National University</p>
         </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Principles of Flight Vehicle Control</h3>
-            <span class="resume-date">Spring 2026</span>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Outstanding B.S. Thesis Presentation Award</h3>
+            <span class="record-date">Dec. 2022</span>
           </div>
-          <p class="resume-description">Teaching Assistant · Seoul National University · M2795.002600</p>
+          <p class="record-detail">Department of Mechanical Engineering, Seoul National University</p>
         </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Hyundai Motor Company AI Boosting Camp</h3>
-            <span class="resume-date">Summer 2025</span>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Presidential Award, Undergraduate Research Program</h3>
+            <span class="record-date">Feb. 2022</span>
           </div>
-          <p class="resume-description">Teaching Assistant · Seoul National University</p>
+          <p class="record-detail">Seoul National University</p>
         </li>
-        <li class="resume-item">
-          <div class="resume-item-heading">
-            <h3>Principles of Flight Vehicle Control</h3>
-            <span class="resume-date">Spring 2023</span>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Encouragement Award, Social Contribution Plus Competition</h3>
+            <span class="record-date">Nov. 2020</span>
           </div>
-          <p class="resume-description">Teaching Assistant · Seoul National University · M2795.002600</p>
+          <p class="record-detail">Seoul National University Social Responsibility</p>
+        </li>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Grand Prize, Mechanical Product Design Competition</h3>
+            <span class="record-date">Jul. 2020</span>
+          </div>
+          <p class="record-detail">Department of Mechanical Engineering, Seoul National University</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="home-section" id="teaching" aria-labelledby="teaching-heading">
+      <h2 class="section-heading" id="teaching-heading">Teaching</h2>
+      <ul class="record-list">
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Motion Planning and Decision Making for Autonomous Systems</h3>
+            <span class="record-date">Spring 2026</span>
+          </div>
+          <p class="record-detail">Teaching Assistant · Seoul National University · M3229.003300</p>
+        </li>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Principles of Flight Vehicle Control</h3>
+            <span class="record-date">Spring 2026</span>
+          </div>
+          <p class="record-detail">Teaching Assistant · Seoul National University · M2795.002600</p>
+        </li>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Hyundai Motor Company AI Boosting Camp</h3>
+            <span class="record-date">Summer 2025</span>
+          </div>
+          <p class="record-detail">Teaching Assistant · Seoul National University</p>
+        </li>
+        <li class="record">
+          <div class="record-heading">
+            <h3 class="record-title">Principles of Flight Vehicle Control</h3>
+            <span class="record-date">Spring 2023</span>
+          </div>
+          <p class="record-detail">Teaching Assistant · Seoul National University · M2795.002600</p>
         </li>
       </ul>
     </section>
@@ -659,8 +523,8 @@
 
   <script>
   (function(){
-    const PAGE_BG = '#FAFAF8';
-    const BLANK_POSTER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23FAFAF8'/%3E%3C/svg%3E";
+    const PAGE_BG = '#f8fafc';
+    const BLANK_POSTER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='16' height='16' fill='%23f8fafc'/%3E%3C/svg%3E";
     const hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
     window.siteSupportsHover = function(){
