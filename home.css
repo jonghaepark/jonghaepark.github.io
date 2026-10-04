@@ -144,7 +144,7 @@ figure { margin: 0; }
 }
 
 .news-list { margin: 0; padding: 0; list-style: none; }
-.news-list li { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 14px; align-items: first baseline; }
+.news-list li { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 14px; align-items: first baseline; }
 .news-list li + li { margin-top: 12px; }
 .news-date { color: var(--muted); font-size: 12px; font-weight: 500; }
 .news-content { font-size: 14px; }
@@ -191,7 +191,7 @@ figure { margin: 0; }
   font-size: 12px;
   font-weight: 600;
 }
-.publication-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 22px; }
+.publication-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 10px; margin-bottom: 22px; }
 .publication-heading .section-heading { margin: 0; }
 .publication-note { margin: 0; color: var(--muted); font-size: 11.5px; font-weight: 400; }
 .publication-links { display: flex; flex-wrap: wrap; gap: 16px; }
@@ -248,6 +248,10 @@ figure { margin: 0; }
 /* All background sections use the full page width. */
 .record-list { list-style: none; margin: 0; padding: 0; }
 .record-title { font-size: 14px; }
+.course-title { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; }
+.course-notes-link { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.course-notes-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+.course-notes-link:hover { text-decoration: underline; }
 .record-date, .record-detail { font-size: 12px; }
 .publication-authors strong { color: var(--ink); }
 .publication-title a { color: var(--ink); }
@@ -275,3 +279,15 @@ figure { margin: 0; }
   .record-heading { align-items: flex-start; }
   .record-title, .publication-title { overflow-wrap: anywhere; }
 }
+
+/* LaTeX-style word (Computer Modern via KaTeX's font). */
+.latex-word { font-style: italic; font-family: KaTeX_Main, 'Latin Modern Roman', 'CMU Serif', 'Times New Roman', serif; font-size: 1.14em; line-height: 1; }
+
+/* Education entries with a school logo spanning both lines. */
+.record-with-logo { display: flex; align-items: center; gap: 14px; }
+.record-logo { flex: none; width: 40px; height: 40px; object-fit: contain; }
+.record-body { flex: 1; min-width: 0; }
+
+/* Indent section contents slightly under their headings. */
+.news-list, .record-list { padding-left: 7px; }
+@media (max-width: 600px) { .news-list, .record-list { padding-left: 4px; } }

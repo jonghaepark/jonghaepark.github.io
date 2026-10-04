@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="icon" href="images/favicon.png" type="image/png">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
@@ -44,8 +45,8 @@
       <div class="profile-bio">
         <h1 id="profile-name">Jonghae Park</h1>
         <p class="profile-role">Ph.D. student at SNU · Reinforcement Learning, Robot Learning</p>
-        <p>Hi, I'm a Ph.D. student at Seoul National University, advised by <a href="https://larr.snu.ac.kr">H. Jin Kim</a>.</p>
-        <p>My research explores how robots autonomously learn behavioral skills via reinforcement learning. My current interests include unsupervised reinforcement learning and leveraging temporal structure in RL. Outside of research, I enjoy reading, especially works by Milan Kundera and Albert Camus.</p>
+        <p>Hi, I'm a Ph.D. student at Seoul National University, advised by <a href="https://larr.snu.ac.kr"><b>H. Jin Kim</b></a>.</p>
+        <p>My research studies <strong>self-supervised reinforcement learning</strong>, where robots <span class="latex-word">discover</span> useful behaviors without predefined rewards or demonstrations. Currently, I focus on learning representations that capture temporal structure, and on how agents can leverage them for planning or skill discovery. Outside of research, I enjoy reading, especially works by Milan&nbsp;Kundera and Albert&nbsp;Camus.</p>
         <div class="profile-links" aria-label="Contact and profiles">
           <a href="mailto:bdfire123@snu.ac.kr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
           <a href="data/jonghae_cv.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 0v6h6M8 13h8M8 17h8"/></svg>CV</a>
@@ -407,10 +408,10 @@
       <ul class="record-list">
         <li class="record">
           <div class="record-heading">
-            <h3 class="record-title">CS285: Deep Reinforcement Learning</h3>
+            <h3 class="record-title course-title">CS285: Deep Reinforcement Learning <a class="course-notes-link" href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-7M7 10h3M7 15h3m5-9 3 3m-6 3 1-4 6-6a2.1 2.1 0 0 1 3 3l-6 6-4 1Z"/></svg>Handwritten Notes and Code</a></h3>
             <span class="record-date">Spring 2023</span>
           </div>
-          <p class="record-detail">UC Berkeley · <a href="https://perfect-brother-229.notion.site/CS285-bf3e553886ae47aaa249e57c1919893e?source=copy_link" target="_blank" rel="noopener noreferrer"><strong>Handwritten Notes and Code</strong></a></p>
+          <p class="record-detail">UC Berkeley</p>
         </li>
       </ul>
     </section>
@@ -418,19 +419,35 @@
     <section class="home-section" id="education" aria-labelledby="education-heading">
       <h2 class="section-heading" id="education-heading">Education</h2>
       <ul class="record-list">
-        <li class="record">
-          <div class="record-heading">
-            <h3 class="record-title">Seoul National University</h3>
-            <span class="record-date">Mar. 2023 – Present</span>
+        <li class="record record-with-logo">
+          <img class="record-logo" src="images/princeton_logo.svg" alt="Princeton University logo" loading="lazy">
+          <div class="record-body">
+            <div class="record-heading">
+              <h3 class="record-title">Princeton University</h3>
+              <span class="record-date">Oct. 2026 – Present</span>
+            </div>
+            <p class="record-detail">Visiting Ph.D. Student (Advisor: Benjamin Eysenbach)</p>
           </div>
-          <p class="record-detail">Ph.D. in Aerospace Engineering</p>
         </li>
-        <li class="record">
-          <div class="record-heading">
-            <h3 class="record-title">Seoul National University</h3>
-            <span class="record-date">Mar. 2016 – Feb. 2023</span>
+        <li class="record record-with-logo">
+          <img class="record-logo" src="images/snu_logo.png" alt="Seoul National University logo" loading="lazy">
+          <div class="record-body">
+            <div class="record-heading">
+              <h3 class="record-title">Seoul National University</h3>
+              <span class="record-date">Mar. 2023 – Present</span>
+            </div>
+            <p class="record-detail">Ph.D. in Aerospace Engineering (Advisor: H. Jin Kim)</p>
           </div>
-          <p class="record-detail">B.S. in Mechanical Engineering</p>
+        </li>
+        <li class="record record-with-logo">
+          <img class="record-logo" src="images/snu_logo.png" alt="Seoul National University logo" loading="lazy">
+          <div class="record-body">
+            <div class="record-heading">
+              <h3 class="record-title">Seoul National University</h3>
+              <span class="record-date">Mar. 2016 – Feb. 2023</span>
+            </div>
+            <p class="record-detail">B.S. in Mechanical Engineering</p>
+          </div>
         </li>
       </ul>
     </section>
