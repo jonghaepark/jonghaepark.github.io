@@ -366,7 +366,7 @@
         {
           title: 'Select the number of waypoints <span data-tex="K"></span>',
           tex: String.raw`\ell_K(s,g) = \psi(s)^{\top} R^{K+1}\psi(g), \qquad p\big(K \mid \psi(s),\psi(g)\big) = \operatorname{Softmax}_{K \in \{0,\dots,K_{\max}\}}\!\left(\tfrac{\ell_K(s,g)}{\eta}\right)`,
-          text: 'Given the current state <span data-tex="s"></span> and goal <span data-tex="g"></span>, rotating <span data-tex="\\psi(s)"></span> forward <span data-tex="K+1"></span> times predicts where the goal should lie after <span data-tex="K+1"></span> transitions. The better it aligns with <span data-tex="\\psi(g)"></span>, the more likely that number of waypoints. This rule follows from modeling <span data-tex="\\psi(g)"></span> with a von Mises–Fisher likelihood and applying Bayes&rsquo; rule; the <strong>theoretical justification and full derivation</strong> are provided in the paper (Appendix A.4).'
+          text: 'Given the current state <span data-tex="s"></span> and goal <span data-tex="g"></span>, rotating <span data-tex="\\psi(s)"></span> forward <span data-tex="K+1"></span> times predicts where the goal should lie after <span data-tex="K+1"></span> transitions. The better it aligns with <span data-tex="\\psi(g)"></span>, the more likely that number of waypoints. This rule follows from modeling <span data-tex="\\psi(g)"></span> with a von Mises–Fisher likelihood and applying Bayes&rsquo; rule; the theoretical justification and full derivation are provided in the paper (Appendix A.4).'
         },
         {
           title: 'Interpolate via SLERP',
