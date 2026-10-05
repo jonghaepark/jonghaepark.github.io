@@ -160,3 +160,51 @@ footer a:hover { color: var(--accent-light); text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 strong { font-weight: 700; color: #363636; }
 .math-raise { position: relative; top: -0.12em; }
+#tldr p { hyphens: manual; }
+.showcase-results { margin: 22px 0 6px; }
+.method-arrow img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.figure-row { display: flex; gap: 18px; align-items: flex-start; max-width: 706px; margin: 20px auto 0; }
+.figure-row .paper-figure { flex: var(--w) 1 0; min-width: 0; margin: 0; }
+@media (max-width: 600px) { .figure-row { flex-direction: column; } }
+#ablations h3 { margin-top: 56px; }
+#ablations .showcase-results { margin-top: 0; }
+
+/* Card decks: derivation and geometric interpretation share one layout */
+.method-lead { max-width: 780px; margin: 0 0 20px; font-size: 16px; line-height: 1.65; color: #4a4a4a; }
+.method-lead .katex, .deck .katex, .deck-card .katex { font-size: 1em; }
+.deck { margin-top: 22px; }
+.deck-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.deck-tab { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 6px 10px; border: 1px solid #e3e3e3; border-radius: 10px; background: #fff; color: #8a8a8a; font: 600 15px 'Google Sans', sans-serif; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+.deck-tab:hover { color: #363636; border-color: #cfd8ea; }
+.deck-tab.is-active { color: #363636; border-color: var(--accent); background: #f3f7fe; }
+.deck-tab.is-active .method-step-num { background: var(--accent); color: #fff; }
+.deck-tab:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.deck-card { margin-top: 14px; padding: 22px 28px 16px; border-radius: 14px; background: #fff; box-shadow: 0 6px 26px rgba(0, 0, 0, 0.07); }
+.deck-card.method-card { display: block; margin-top: 26px; }
+.deck-panel { display: none; }
+.deck-panel.is-active { display: block; animation: deck-in .3s ease; }
+@keyframes deck-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.deck-title { margin: 0 0 4px; font: 600 18px 'Google Sans', sans-serif; color: #363636; }
+.deck-lead, .deck-note { margin: 0; font-size: 16px; line-height: 1.65; color: #4a4a4a; }
+.deck-note { color: #5f5f5f; font-size: 15px; }
+.deck-eq { margin: 10px 0; padding: 4px 0; overflow-x: auto; overflow-y: hidden; color: #2b2b2b; text-align: center; }
+.deck-eq .katex-display { margin: 0.4em 0; }
+.deck-eq .katex { font-size: 1.05em; }
+.deck-foot { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 12px; }
+.deck-count { min-width: 44px; text-align: center; font-size: 13px; color: #8a8a8a; font-variant-numeric: tabular-nums; }
+.deck-foot .method-nav { width: 34px; height: 34px; }
+.method-section .method-steps { margin-top: 0; padding: 0 6px; }
+@media (max-width: 600px) {
+  .deck-tabs { grid-template-columns: 1fr 1fr; }
+  .deck-tab { font-size: 13px; }
+  .deck-card { padding: 16px 14px 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .deck-panel.is-active { animation: none; } }
+.method-section .paper-figure + .bullets, .figure-pair + .bullets, .figure-row + .bullets { margin-top: 18px; }
+.deck-q { margin: 0 0 8px; font: 600 18px 'Google Sans', sans-serif; color: #2b2b2b; }
+#method .method-lead { margin-top: 6px; }
+.geo-box { margin-top: 18px; padding: 26px 26px 16px; border-radius: 14px; background: #fff; box-shadow: 0 6px 26px rgba(0, 0, 0, 0.07); }
+.geo-box .method-steps { padding: 0; }
+.geo-detail { margin-top: 22px; padding-top: 18px; border-top: 1px solid #ececec; }
+@media (max-width: 600px) { .geo-box { padding: 16px 12px 10px; } }
+.geo-detail.method-card { display: block; margin-top: 22px; padding: 18px 2px 0; border-radius: 0; background: none; box-shadow: none; }
