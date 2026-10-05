@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hyperspherical Contrastive Representations Unlock Planning and Exploration — project page.">
+  <title>Hyperspherical Contrastive Representations Unlock Planning and Exploration</title>
+  <link rel="icon" href="../images/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,600,700|Noto+Sans:400,400i,700,700i|Castoro:400,400i|STIX+Two+Text:400,400i" rel="stylesheet">
+  <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="../" aria-label="Home"><span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span></a>
+    <a href="#teaser">Overview</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+  </nav>
+  <main>
+    <header class="hero">
+      <h1>Hyperspherical Contrastive Representations<br class="desktop-break"> Unlock Planning and Exploration</h1>
+      <div class="authors">
+        <span><a class="author-emphasis" href="../">Jonghae Park</a><sup>1*</sup></span>
+        <span><a href="#">Sungil Son</a><sup>1*</sup></span>
+        <span><a href="https://jhshin00.github.io">Jonghun Shin</a><sup>1</sup></span>
+        <span><a href="https://rllab.snu.ac.kr/people/junseo-lee/junseo-lee">Junseo Lee</a><sup>1</sup></span>
+      </div>
+      <div class="authors">
+        <span><a href="https://larr.snu.ac.kr">H. Jin Kim</a><sup>1</sup></span>
+        <span><a class="author-emphasis" href="https://ben-eysenbach.github.io">Benjamin Eysenbach</a><sup>2</sup></span>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> Seoul National University</span>
+        <span><sup>2</sup> Princeton University</span>
+      </div>
+      <p class="equal">* Equal contribution</p>
+      <p class="badge">Preprint</p>
+      <div class="links" aria-label="Project resources">
+        <a href="/#"><span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span><span>Paper</span></a>
+        <a href="/#"><span class="icon"><i class="ai ai-arxiv" aria-hidden="true"></i></span><span>arXiv</span></a>
+        <a href="/#"><span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span><span>Code</span></a>
+      </div>
+    </header>
+    <section id="teaser" aria-label="Project teaser">
+      <p class="hook"><span class="hook-text"><span class="hook-line1"><span class="quote-mark">&ldquo;</span>Can an RL agent discover how to stack five cubes with a gripper</span><br class="desktop-break"> from scratch, <span class="hook-emph">without prior data, rewards, demonstrations, or pretrained models</span>?<span class="quote-mark">&rdquo;</span></span></p>
+      <div class="showcase">
+        <div class="stage" id="stage">
+          <video class="stage-video is-active" muted playsinline preload="auto" poster="posters/5_tower_gripper.jpg" aria-label="C-Slerp rollout"></video>
+          <video class="stage-video" muted playsinline preload="auto" aria-hidden="true"></video>
+          <div class="stage-caption">
+            <span class="stage-title" id="stage-title">5-tower (gripper)</span>
+            <span class="stage-suite" id="stage-suite">BuilderBench</span>
+          </div>
+          <button class="stage-toggle" id="stage-toggle" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="icon-play" d="M8 5.5v13l11-6.5z"/></svg></button>
+          <div class="stage-progress"><i id="stage-bar"></i></div>
+        </div>
+        <ul class="legend" aria-label="Legend for the representation view">
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#111"/></svg><span class="legend-label">Current state <span class="math"><i>&psi;</i>(<i>s</i>)</span></span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l1.9 4.4 4.8.4-3.6 3.2 1.1 4.7L8 11.4l-4.2 2.5 1.1-4.7L1.3 6l4.8-.4z" fill="#E53935"/></svg><span class="legend-label">Goal <span class="math"><i>&psi;</i>(<i>g</i>)</span></span></li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#5B8DEF"/></svg><span class="legend-label">Inferred waypoints <span class="math math-raise"><i>z</i><sub>1:<i>K</i></sub></span></span></li>
+          <li><svg class="legend-arrow" viewBox="0 0 26 16" aria-hidden="true"><path d="M1 6.4h15V1.5L25 8l-9 6.5V9.6H1z" fill="#E53935"/></svg><span class="legend-label">Selected subgoal</span></li>
+        </ul>
+        <div class="task-groups" id="task-groups"></div>
+      </div>
+    </section>
+    <section id="abstract" class="text-section">
+      <h2>Abstract</h2>
+      <p>We develop a self-supervised reinforcement learning algorithm that learns to build towers of up to eight cubes from scratch, without prior data, rewards, demonstrations, or pretrained models. Our method, <strong class="nowrap">Contrastive Planning via Spherical Linear Interpolation (C-Slerp)</strong>, uses contrastive representations as reusable <em>building blocks</em> and repeatedly composes them to infer a sequence of intermediate waypoints. Under our hyperspherical parameterization, the learned representations allow intermediate waypoints to be inferred in closed form through spherical linear interpolation, without training a separate high-level policy or performing graph search. Importantly, the representation geometry also tells us how to adjust the number of waypoints based on the difficulty of each goal-reaching problem. Experiments show that our method succeeds on long-horizon navigation and robotic manipulation tasks, including settings where strong baselines fail to achieve a single success. Ablations further show that using a fixed number of waypoints substantially degrades performance, highlighting the importance of adapting the plan to task difficulty.</p>
+    </section>
+    <hr class="section-rule">
+    <section id="method" class="method-section" aria-labelledby="method-heading">
+      <h2 id="method-heading">C-Slerp: Contrastive Planning via <em>Spherical Linear Interpolation</em></h2>
+
+      <h3>Setup</h3>
+      <ul class="bullets">
+        <li>We collect data online with a <strong>hierarchical policy</strong>: every <span data-tex="h"></span> steps, a planner proposes a waypoint representation <span data-tex="z"></span>, and the policy <span data-tex="\pi_\theta(a \mid s, z)"></span> pursues it for the next <span data-tex="h"></span> steps.</li>
+        <li>We learn a state encoder <span data-tex="\psi(s),"></span> a state-action encoder <span data-tex="\phi(s,a),"></span> and a rotation matrix <span data-tex="R"></span>, all on the <strong>unit hypersphere</strong>, and score temporal relationships with</li>
+      </ul>
+      <div class="eq" data-tex-display="f_H(s, s^+) = \psi(s)^\top R\, \psi(s^+), \qquad f_L(s, a, s^+) = \phi(s,a)^\top \psi(s^+),"></div>
+      <ul class="bullets">
+        <li>where <span data-tex="f_H"></span> scores how states relate in time, <span data-tex="f_L"></span> trains the policy as in contrastive RL, and <span data-tex="R^\top R = I."></span></li>
+        <li>The rotation lets a single <span data-tex="f_H"></span> capture asymmetric dynamics, so it becomes a <strong>reusable building block</strong> that can be composed across any number of waypoints.</li>
+      </ul>
+
+      <h3>Objective</h3>
+      <ul class="bullets">
+        <li>We treat planning as <strong>inference</strong>: given a state <span data-tex="s"></span> and a goal <span data-tex="g,"></span> we infer <span data-tex="K"></span> intermediate waypoints <span data-tex="w_{1:K},"></span> with consecutive waypoints separated by geometrically distributed time intervals.</li>
+        <li>We approximate their posterior with a tractable distribution <span data-tex="q"></span>:</li>
+      </ul>
+      <div class="eq" data-tex-display="q^\star = \arg\min_q\; D_{\mathrm{KL}}\!\Big(q(\cdot \mid s,g)\;\Big\|\; p^{\gamma,K}_{\hat\pi}(\cdot \mid s,g)\Big),"></div>
+      <ul class="bullets">
+        <li>where <span data-tex="p^{\gamma,K}_{\hat\pi}"></span> is the distribution over <span data-tex="K"></span> waypoints along trajectories of the data-collecting policy <span data-tex="\hat\pi."></span></li>
+      </ul>
+
+      <h3>Tractable reformulation</h3>
+      <ul class="bullets">
+        <li>The policy only needs a waypoint's <em>representation</em> <span data-tex="z_i = \psi(w_i),"></span> so we infer representations instead of raw states.</li>
+        <li>With the Bayes-optimal contrastive critic and uniformly distributed representations, the objective becomes</li>
+      </ul>
+      <div class="eq" data-tex-display="\mathcal{J}(q) = \mathbb{E}_{z_{1:K} \sim q}\Big[\psi(s)^\top R z_1 + \sum_{i=2}^{K} z_{i-1}^\top R z_i + z_K^\top R\, \psi(g)\Big] + \sum_{i=1}^{K} \mathcal{H}\big(q_i(\cdot \mid s,g)\big)."></div>
+      <ul class="bullets">
+        <li>Intuitively, it <strong>links the current state to the goal</strong> by aligning consecutive representations through <span data-tex="R"></span>, while the entropy term keeps the plan stochastic.</li>
+      </ul>
+
+      <h3>Closed-form solution</h3>
+      <ul class="bullets">
+        <li>Modeling each <span data-tex="q_i"></span> as a Gaussian normalized onto the sphere, a small-variance approximation gives the optimum <strong>in closed form</strong>:</li>
+      </ul>
+      <div class="eq" data-tex-display="\mu_i^*(s,g) = (R^\top)^i\, \operatorname{slerp}\!\Big(\psi(s),\, R^{K+1}\psi(g),\, \tfrac{i}{K+1}\Big), \qquad \sigma_i^{*2}(s,g) = \frac{\alpha}{2\cos\!\big(\tfrac{\theta}{K+1}\big)},"></div>
+      <ul class="bullets">
+        <li>where <span data-tex="\theta = \arccos\!\big(\psi(s)^\top R^{K+1}\psi(g)\big)"></span> and slerp is spherical linear interpolation.</li>
+        <li>When <span data-tex="R = I,"></span> the waypoints lie evenly along the geodesic from <span data-tex="\psi(s)"></span> to <span data-tex="\psi(g)."></span> In general, we interpolate toward the <em>rotated</em> goal and map each point back with <span data-tex="(R^\top)^i."></span></li>
+        <li>The high-level planner has <strong>no additional network parameters</strong> and needs no graph search.</li>
+      </ul>
+
+      <h3>Geometric interpretation</h3>
+      <ul class="bullets">
+        <li>At planning time, given the current state <span data-tex="s"></span> and the goal <span data-tex="g,"></span> the learned contrastive representations let us <strong>plan entirely on the hypersphere</strong>, from choosing how many waypoints to use to picking the one to pursue:</li>
+      </ul>
+      <div class="method-steps" role="tablist" aria-label="Planning stages">
+        <button class="method-step is-active" type="button" role="tab" aria-selected="true" data-step="0" style="--w: 650">
+          <img src="figures/step1.png" alt="Selecting the number of waypoints K by aligning rotated state representations with the goal">
+          <span class="method-step-label"><span class="method-step-num">1</span>Select <span data-tex="K"></span></span>
+        </button>
+        <button class="method-step" type="button" role="tab" aria-selected="false" data-step="1" style="--w: 690">
+          <img src="figures/step2.png" alt="Spherical linear interpolation from psi(s) to the rotated goal">
+          <span class="method-step-label"><span class="method-step-num">2</span>Interpolate via SLERP</span>
+        </button>
+        <div class="method-arrow" aria-hidden="true" style="--w: 240">
+          <svg viewBox="0 0 240 550"><text x="120" y="262" text-anchor="middle" class="method-arrow-label">(R<tspan dy="-16" font-size="26">⊤</tspan><tspan dy="16">)</tspan><tspan dy="-16" font-size="26">i</tspan></text><path d="M28 309H200" stroke="#111" stroke-width="4"/><path d="M196 297l20 12-20 12z" fill="#111"/></svg>
+          <span class="method-step-label method-arrow-spacer">&nbsp;</span>
+        </div>
+        <button class="method-step" type="button" role="tab" aria-selected="false" data-step="2" style="--w: 697">
+          <img src="figures/step3.png" alt="Mapping interpolated points back with the inverse rotation to get waypoint means">
+          <span class="method-step-label"><span class="method-step-num">3</span>Map back</span>
+        </button>
+        <button class="method-step" type="button" role="tab" aria-selected="false" data-step="3" style="--w: 680">
+          <img src="figures/step4.png" alt="Selecting the furthest waypoint whose alignment with phi(s,a) passes the threshold">
+          <span class="method-step-label"><span class="method-step-num">4</span>Select <span data-tex="i^*"></span></span>
+        </button>
+      </div>
+      <div class="method-card" role="tabpanel" aria-live="polite">
+        <button class="method-nav" type="button" id="method-prev" aria-label="Previous stage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="method-card-body">
+          <p class="method-card-title" id="method-title"></p>
+          <div class="method-eq" id="method-eq"></div>
+          <p class="method-card-text" id="method-text"></p>
+        </div>
+        <button class="method-nav" type="button" id="method-next" aria-label="Next stage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <hr class="section-rule">
+    <section id="results" class="method-section" aria-labelledby="results-heading">
+      <h2 id="results-heading">How good is C-Slerp?</h2>
+      <ul class="bullets">
+        <li>We evaluate on six manipulation tasks in <strong>BuilderBench</strong> and six locomotion tasks in <strong>JaxGCRL</strong>, without a goal curriculum or dense rewards.</li>
+        <li>C-Slerp achieves the highest success rates on most tasks, and is the <strong>only method to succeed on every cube-stacking task with a gripper</strong>, where most baselines never achieve a single success.</li>
+        <li>The gap widens as the horizon grows: more cubes, a gripper, or a larger maze.</li>
+      </ul>
+      <figure class="paper-figure">
+        <img src="figures/fig3_results.png" alt="Learning curves on six BuilderBench manipulation tasks and six JaxGCRL locomotion tasks, comparing C-Slerp with CRL, RIS, Online HIQL, L3P, and SAC plus HER" loading="lazy">
+      </figure>
+    </section>
+
+    <hr class="section-rule">
+    <section id="ablations" class="method-section" aria-labelledby="ablations-heading">
+      <h2 id="ablations-heading">Results</h2>
+
+      <h3>Is <em>adaptive</em> waypoint planning necessary?</h3>
+      <ul class="bullets">
+        <li>Fixing the number of waypoints <span data-tex="K"></span> or the waypoint the policy pursues <span data-tex="i^*"></span> <strong>substantially degrades performance</strong>, and adding more waypoints alone does not help.</li>
+        <li>Too few waypoints make each subproblem too hard; too many slow progress with unnecessary stages. <strong>The plan should match the difficulty of the problem.</strong></li>
+      </ul>
+      <div class="figure-pair">
+        <figure class="paper-figure"><img src="figures/fig4_k_ablation.png" alt="Ablation on the number of waypoints K on 8-tower and Ant U5 Maze" loading="lazy"><figcaption>Ablation on <span data-tex="K"></span>-selection</figcaption></figure>
+        <figure class="paper-figure"><img src="figures/fig5_i_ablation.png" alt="Ablation on the selected waypoint index on 8-tower and Ant U5 Maze" loading="lazy"><figcaption>Ablation on <span data-tex="i"></span>-selection</figcaption></figure>
+      </div>
+
+      <h3>Exploration with a single goal</h3>
+      <ul class="bullets">
+        <li>With a <em>single</em> fixed goal at the most distant location of each maze, C-Slerp reaches it far more often than all baselines, and all baselines except CRL and L3P achieve zero success.</li>
+        <li>C-Slerp facilitates <strong>directed exploration</strong> toward distant goals.</li>
+      </ul>
+      <figure class="paper-figure fig-narrow"><img src="figures/fig6_single_goal.png" alt="Single-goal Ant Big Maze and Ant U4 Maze environments with learning curves" loading="lazy"></figure>
+    </section>
+  </main>
+  <footer>
+    <a href="../" aria-label="Home"><span class="icon"><i class="fas fa-home" aria-hidden="true"></i></span></a>
+  </footer>
+  <script>
+    (function(){
+      const tasks = [
+        { id: '5_tower_gripper',   title: '5-tower (gripper)',   suite: 'BuilderBench', group: 'Manipulation', rate: 1.5 },
+        { id: '4_tower_gripper',   title: '4-tower (gripper)',   suite: 'BuilderBench', group: 'Manipulation', rate: 1.25 },
+        { id: '4_pyramid_gripper', title: '4-pyramid (gripper)', suite: 'BuilderBench', group: 'Manipulation', rate: 1.25 },
+        { id: '3_tower_gripper',   title: '3-tower (gripper)',   suite: 'BuilderBench', group: 'Manipulation', rate: 1 },
+        { id: '8_tower',           title: '8-tower',             suite: 'BuilderBench', group: 'Manipulation', rate: 1 },
+        { id: 'ant_extreme_maze',  title: 'Ant Extreme Maze',    suite: 'JaxGCRL',      group: 'Locomotion',   rate: 2 },
+        { id: 'ant_u5_maze',       title: 'Ant U5 Maze',         suite: 'JaxGCRL',      group: 'Locomotion',   rate: 2.5 },
+        { id: 'ant_u4_maze',       title: 'Ant U4 Maze',         suite: 'JaxGCRL',      group: 'Locomotion',   rate: 1.75 },
+        { id: 'ant_big_maze',      title: 'Ant Big Maze',        suite: 'JaxGCRL',      group: 'Locomotion',   rate: 1.5 },
+        { id: 'humanoid_u_maze',   title: 'Humanoid U Maze',     suite: 'JaxGCRL',      group: 'Locomotion',   rate: 1 }
+      ];
+      const stage = document.getElementById('stage');
+      const players = Array.from(stage.querySelectorAll('.stage-video'));
+      const titleEl = document.getElementById('stage-title');
+      const suiteEl = document.getElementById('stage-suite');
+      const bar = document.getElementById('stage-bar');
+      const toggle = document.getElementById('stage-toggle');
+      const groupsEl = document.getElementById('task-groups');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+      let active = players[0];
+      let paused = reduceMotion;
+      const thumbs = [];
+
+      ['Manipulation', 'Locomotion'].forEach(function(name){
+        const group = document.createElement('div');
+        group.className = 'task-group';
+        const label = document.createElement('p');
+        label.className = 'task-group-label';
+        label.textContent = name + (name === 'Manipulation' ? ' \u00b7 BuilderBench' : ' \u00b7 JaxGCRL');
+        const row = document.createElement('div');
+        row.className = 'task-row';
+        tasks.forEach(function(task, index){
+          if (task.group !== name) return;
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'task-thumb';
+          button.innerHTML = '<img src="posters/' + task.id + '.jpg" alt="" loading="lazy"><span>' + task.title + '</span><i></i>';
+          button.addEventListener('click', function(){ paused = false; show(index); });
+          row.appendChild(button);
+          thumbs[index] = button;
+        });
+        group.append(label, row);
+        groupsEl.appendChild(group);
+      });
+
+      function src(index){ return 'videos/' + tasks[index].id + '.mp4'; }
+
+      function updateToggle(){
+        stage.classList.toggle('is-paused', paused);
+        toggle.setAttribute('aria-label', paused ? 'Play' : 'Pause');
+      }
+
+      function show(index){
+        current = (index + tasks.length) % tasks.length;
+        const task = tasks[current];
+        const next = players.find(function(player){ return player !== active; });
+        next.src = src(current);
+        next.poster = 'posters/' + task.id + '.jpg';
+        next.currentTime = 0;
+        const reveal = function(){
+          next.playbackRate = task.rate;
+          next.classList.add('is-active');
+          next.removeAttribute('aria-hidden');
+          active.classList.remove('is-active');
+          active.setAttribute('aria-hidden', 'true');
+          active.pause();
+          active = next;
+          if (!paused) active.play().catch(function(){ paused = true; updateToggle(); });
+        };
+        next.addEventListener('loadeddata', reveal, { once: true });
+        next.load();
+        titleEl.textContent = task.title;
+        suiteEl.textContent = task.suite;
+        thumbs.forEach(function(thumb, i){
+          thumb.classList.toggle('is-active', i === current);
+          thumb.setAttribute('aria-pressed', i === current ? 'true' : 'false');
+          thumb.querySelector('i').style.width = '0%';
+        });
+        bar.style.width = '0%';
+        updateToggle();
+      }
+
+      players.forEach(function(player){
+        player.addEventListener('timeupdate', function(){
+          if (player !== active || !player.duration) return;
+          const pct = (player.currentTime / player.duration * 100) + '%';
+          bar.style.width = pct;
+          thumbs[current].querySelector('i').style.width = pct;
+        });
+        player.addEventListener('ended', function(){
+          if (player !== active) return;
+          show(current + 1);
+        });
+      });
+
+      toggle.addEventListener('click', function(){
+        paused = !paused;
+        if (paused) active.pause(); else active.play();
+        updateToggle();
+      });
+
+      show(0);
+    })();
+  </script>
+  <script>
+    (function(){
+      const stages = [
+        {
+          title: 'Select the number of waypoints <span data-tex="K"></span>',
+          tex: String.raw`\ell_K(s,g) = \psi(s)^{\top} R^{K+1}\psi(g), \qquad p\big(K \mid \psi(s),\psi(g)\big) = \operatorname{Softmax}_{K \in \{0,\dots,K_{\max}\}}\!\left(\tfrac{\ell_K(s,g)}{\eta}\right)`,
+          text: 'Rotating <span data-tex="\\psi(s)"></span> forward <span data-tex="K+1"></span> times predicts where the goal should lie after <span data-tex="K+1"></span> transitions. The better it aligns with <span data-tex="\\psi(g)"></span>, the more likely that number of waypoints.'
+        },
+        {
+          title: 'Interpolate via SLERP',
+          tex: String.raw`v_i^{*} = \operatorname{slerp}\!\Big(\psi(s),\, R^{K+1}\psi(g),\, \tfrac{i}{K+1}\Big), \qquad i = 1,\dots,K`,
+          text: 'Place <span data-tex="K"></span> points at equal angles along the geodesic from the current state to the rotated goal.'
+        },
+        {
+          title: 'Map back to waypoint representations',
+          tex: String.raw`\mu_i^{*}(s,g) = (R^{\top})^{i}\, \operatorname{slerp}\!\Big(\psi(s),\, R^{K+1}\psi(g),\, \tfrac{i}{K+1}\Big), \qquad \sigma_i^{*2}(s,g) = \frac{\alpha}{2\cos\!\big(\tfrac{\theta}{K+1}\big)}`,
+          text: 'Undoing <span data-tex="i"></span> rotations gives each waypoint in closed form: no high-level network and no graph search.'
+        },
+        {
+          title: 'Select the waypoint <span data-tex="i^*"></span> to pursue',
+          tex: String.raw`\rho_i = \phi(s,a_i)^{\top} z_i,\;\; a_i \sim \pi_\theta(\cdot \mid s, z_i), \qquad i^{*} = \max\{\, i \in \{1,\dots,K+1\} : \rho_i \ge \epsilon \,\}`,
+          text: 'The policy pursues the furthest waypoint it is estimated to reach, so it never settles for an overly conservative subgoal.'
+        }
+      ];
+      const steps = Array.from(document.querySelectorAll('.method-step'));
+      const titleEl = document.getElementById('method-title');
+      const eqEl = document.getElementById('method-eq');
+      const textEl = document.getElementById('method-text');
+      let current = 0;
+
+      function renderTex(root){
+        if (!window.katex) return;
+        root.querySelectorAll('[data-tex]').forEach(function(el){
+          katex.render(el.getAttribute('data-tex'), el, { throwOnError: false });
+        });
+      }
+
+      function show(index){
+        current = (index + stages.length) % stages.length;
+        const arrow = document.querySelector('.method-arrow');
+        if (arrow) arrow.classList.toggle('is-active', current === 2);
+        steps.forEach(function(step, i){
+          const on = i === current;
+          step.classList.toggle('is-active', on);
+          step.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        const stage = stages[current];
+        titleEl.innerHTML = '<span class="method-card-num">' + (current + 1) + '</span>' + stage.title;
+        textEl.innerHTML = stage.text;
+        if (window.katex) katex.render(stage.tex, eqEl, { displayMode: true, throwOnError: false });
+        else eqEl.textContent = stage.tex;
+        renderTex(titleEl);
+        renderTex(textEl);
+      }
+
+      steps.forEach(function(step, i){ step.addEventListener('click', function(){ show(i); }); });
+      document.getElementById('method-prev').addEventListener('click', function(){ show(current - 1); });
+      document.getElementById('method-next').addEventListener('click', function(){ show(current + 1); });
+      document.querySelector('.method-steps').addEventListener('keydown', function(event){
+        if (event.key === 'ArrowRight') { show(current + 1); steps[current].focus(); }
+        if (event.key === 'ArrowLeft') { show(current - 1); steps[current].focus(); }
+      });
+
+      window.addEventListener('load', function(){
+        renderTex(document);
+        if (window.katex) document.querySelectorAll('[data-tex-display]').forEach(function(el){
+          katex.render(el.getAttribute('data-tex-display'), el, { displayMode: true, throwOnError: false });
+        });
+        show(current);
+      });
+      show(current);
+    })();
+  </script>
+</body>
+</html>
