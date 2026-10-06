@@ -509,7 +509,7 @@
         {
           title: 'Select the waypoint <span data-tex="i^*"></span> to pursue',
           tex: String.raw`\rho_i = \phi(s,a_i)^{\top} z_i,\;\; a_i \sim \pi_\theta(\cdot \mid s, z_i), \qquad i^{*} = \max\{\, i \in \{1,\dots,K+1\} : \rho_i \ge \epsilon \,\}`,
-          text: 'The policy makes progress toward the goal by pursuing the furthest waypoint estimated to be reachable, whose alignment with <span data-tex="\\phi(s,a)"></span> meets the threshold <span data-tex="\\epsilon"></span>, avoiding overly conservative subgoals.'
+          text: 'The policy makes progress toward the goal by pursuing <strong>the furthest waypoint estimated to be reachable</strong>, whose alignment with <span data-tex="\\phi(s,a)"></span> meets the threshold <span data-tex="\\epsilon"></span>, avoiding overly conservative subgoals.'
         }
       ];
       const steps = Array.from(document.querySelectorAll('.method-step'));
