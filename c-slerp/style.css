@@ -64,6 +64,8 @@ footer a:hover { color: var(--accent-light); text-decoration: none; }
 .stage.is-paused .stage-toggle .icon-play { display: inline; }
 .stage-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(0, 0, 0, 0.08); }
 .stage-progress i { display: block; height: 100%; width: 0; background: #FA5543; transition: width 0.25s linear; }
+.legend-note { margin: 12px 0 0; text-align: center; font-size: 13.5px; color: #8a8a8a; }
+.legend-note .katex { font-size: 1em; }
 .legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 24px; margin: 14px 0 34px; padding: 0; list-style: none; font-size: 15.5px; color: #5a5a5a; }
 .legend li { display: inline-flex; align-items: center; gap: 6px; }
 .legend svg { width: 20px; height: 20px; }
@@ -296,3 +298,5 @@ strong { font-weight: 700; color: #363636; }
 .maze-side svg { width: 13px; height: 13px; flex: none; }
 @media (min-width: 761px) { .maze-stage .maze-img:not(.maze-xtall) { width: min(550px, 100%); } .maze-legend { display: none; } }
 @media (max-width: 760px) { .maze-side { display: none; } }
+.legend-note + .legend { margin-top: 6px; }
+@media (max-width: 600px) { .legend-note { font-size: 12px; } }
