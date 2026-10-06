@@ -53,9 +53,9 @@ footer a:hover { color: var(--accent-light); text-decoration: none; }
 .stage { position: relative; aspect-ratio: 2 / 1; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 10px 34px rgba(0, 0, 0, 0.12); }
 .stage-video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
 .stage-video.is-active { opacity: 1; }
-.stage-caption { position: absolute; left: 16px; top: 14px; display: flex; flex-direction: column; gap: 2px; padding: 8px 14px; border-radius: 10px; background: rgba(15, 20, 30, 0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #fff; pointer-events: none; }
-.stage-title { font-family: 'Google Sans', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.2; }
-.stage-suite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.75; }
+.stage-caption { position: absolute; left: 12px; top: 12px; display: flex; flex-direction: column; gap: 1px; padding: 5px 10px; border-radius: 8px; background: rgba(15, 20, 30, 0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #fff; pointer-events: none; }
+.stage-title { font-family: 'Google Sans', sans-serif; font-size: 15px; font-weight: 600; line-height: 1.2; }
+.stage-suite { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.75; }
 .stage-toggle { position: absolute; right: 14px; bottom: 16px; width: 38px; height: 38px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: rgba(15, 20, 30, 0.6); color: #fff; cursor: pointer; transition: background 0.2s; }
 .stage-toggle:hover { background: rgba(15, 20, 30, 0.85); }
 .stage-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
