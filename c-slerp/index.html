@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=17">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -32,6 +32,8 @@
     <a href="#tldr">TL;DR</a>
     <a href="#method">Method</a>
     <a href="#results">Experimental Results</a>
+    <a href="#additional">Additional</a>
+    <a href="#visualizations">Visualizations</a>
   </nav>
   <main>
     <header class="hero">
@@ -200,33 +202,156 @@
         <li>C-Slerp achieves the highest success rates on most tasks, and is the <strong>only method to succeed on every cube-stacking task with a gripper</strong>, where most baselines never achieve a single success.</li>
         <li>The gap widens as the horizon grows: more cubes, a gripper, or a larger maze.</li>
       </ul>
+    </section>
 
-      <h3>Is <em>adaptive</em> waypoint planning necessary?</h3>
-      <div class="figure-pair">
-        <figure class="paper-figure"><img src="figures/web/fig4_k_ablation.svg" alt="Ablation on the number of waypoints K on 8-tower and Ant U5 Maze" loading="lazy"></figure>
-        <figure class="paper-figure"><img src="figures/web/fig5_i_ablation.svg" alt="Ablation on the selected waypoint index on 8-tower and Ant U5 Maze" loading="lazy"></figure>
-      </div>
-      <ul class="bullets">
+    <hr class="section-rule">
+    <section id="additional" class="method-section" aria-labelledby="additional-heading">
+      <h2 id="additional-heading">Additional Experiments</h2>
+      <p class="method-lead">See the paper (Appendix B) for detailed settings and further analysis.</p>
+      <p class="xp-group-label">Analysis</p>
+      <div class="xp-grid">
+        <div class="xp-card" data-kind="std">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig4_k_ablation.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">01</span><span class="xp-title">Is <em>adaptive</em> waypoint planning necessary?</span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig4_k_ablation.svg" alt="Ablation on the number of waypoints K on 8-tower and Ant U5 Maze" loading="lazy"></figure><figure class="paper-figure"><img src="figures/web/fig5_i_ablation.svg" alt="Ablation on the selected waypoint index on 8-tower and Ant U5 Maze" loading="lazy"></figure></div>
+            <ul class="bullets">
         <li>Fixing the number of waypoints <span data-tex="K"></span> or the waypoint the policy pursues <span data-tex="i^*"></span> <strong>substantially degrades performance</strong>, and adding more waypoints alone does not help.</li>
         <li>Too few waypoints make each subproblem too hard; too many slow progress with unnecessary stages. <strong>The plan should match the difficulty of the problem.</strong></li>
       </ul>
-
-      <h3>Exploration in <em>single</em>-goal settings</h3>
-      <div class="figure-row">
-        <figure class="paper-figure" style="--w: 337.3"><img src="figures/web/fig6a_envs.svg" alt="Single-goal Ant Big Maze and Ant U4 Maze environments" loading="lazy"></figure>
-        <figure class="paper-figure" style="--w: 475.6"><img src="figures/web/fig6b_curves.svg" alt="Learning curves on single-goal Ant Big Maze and Ant U4 Maze" loading="lazy"></figure>
-      </div>
-      <ul class="bullets">
+          </div>
+        </div>
+        <div class="xp-card" data-kind="row">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig6a_envs.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">02</span><span class="xp-title">Exploration in <em>single</em>-goal settings</span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure" style="--w: 337.3"><img src="figures/web/fig6a_envs.svg" alt="Single-goal Ant Big Maze and Ant U4 Maze environments" loading="lazy"></figure><figure class="paper-figure" style="--w: 475.6"><img src="figures/web/fig6b_curves.svg" alt="Learning curves on single-goal Ant Big Maze and Ant U4 Maze" loading="lazy"></figure></div>
+            <ul class="bullets">
         <li>With a <em>single</em> fixed goal at the most distant location of each maze, C-Slerp reaches it far more often than all baselines, and all baselines except CRL and L3P achieve zero success.</li>
         <li>C-Slerp facilitates <strong>directed exploration</strong> toward distant goals.</li>
       </ul>
-
-      <h3>Does learning the <em>rotation matrix</em> <span data-tex="R"></span> matter?</h3>
-      <figure class="paper-figure fig-rotation"><img src="figures/web/fig9_rotation.svg" alt="Ablation on learning the rotation matrix R on 3-tower (gripper) and Ant U4 Maze" loading="lazy"></figure>
-      <ul class="bullets">
+          </div>
+        </div>
+        <div class="xp-card" data-kind="std">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig9_rotation.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">03</span><span class="xp-title">Does learning the <em>rotation matrix</em> <span data-tex="R"></span> matter?</span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig9_rotation.svg" alt="Ablation on learning the rotation matrix R on 3-tower (gripper) and Ant U4 Maze" loading="lazy"></figure></div>
+            <ul class="bullets">
         <li>We compare learning <span data-tex="R"></span> with three fixed alternatives: the identity <span data-tex="R = I"></span>, and two random rotations whose Cayley parameters are sampled with <span data-tex="\sigma \in \{0.01, 0.02\}"></span>.</li>
         <li>Setting <span data-tex="R = I"></span> makes <span data-tex="f_H"></span> <em>symmetric</em> and <strong>prevents successful learning</strong> in both tasks. Random fixed rotations introduce asymmetry but yield unstable performance.</li>
         <li>Asymmetry alone is insufficient; <strong>learning <span data-tex="R"></span></strong> is what captures the temporal relationships between states.</li>
+      </ul>
+          </div>
+        </div>
+        <div class="xp-card" data-kind="std">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig12_crl_gamma.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">04</span><span class="xp-title">CRL with larger discount factors <span data-tex="\gamma"></span></span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig12_crl_gamma.svg" alt="CRL with larger discount factors compared with C-Slerp on 3-tower (gripper) and Ant U5 Maze" loading="lazy"></figure></div>
+            <ul class="bullets"><li>A natural way to adapt CRL to long-horizon tasks is to increase <span data-tex="\gamma"></span>, since future states are sampled at offsets drawn from <span data-tex="\mathrm{Geom}(1-\gamma)"></span>.</li><li>Across <span data-tex="\gamma \in \{0.99, 0.995, 0.999\}"></span>, CRL achieves low success rates, and <strong>increasing <span data-tex="\gamma"></span> does not close the gap</strong> with C-Slerp.</li><li>Simply extending the temporal horizon of contrastive learning does not offer the same benefits as planning with an appropriate number of waypoints.</li></ul>
+          </div>
+        </div>
+      </div>
+      <p class="xp-group-label">Ablations</p>
+      <div class="xp-grid">
+        <div class="xp-card" data-kind="std">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig10_depth.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">05</span><span class="xp-title">Ablation on network depth</span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig10_depth.svg" alt="Ablation on network depth on 8-tower and Ant U5 Maze" loading="lazy"></figure></div>
+            <ul class="bullets"><li>Since C-Slerp uses contrastive representations, we examine whether it benefits from increased network depth, as reported for CRL.</li><li><strong>Deeper networks generally achieve higher success rates</strong>. On the 8-tower task, depths of 16 and 32 perform comparably and outperform shallower networks.</li></ul>
+          </div>
+        </div>
+        <div class="xp-card" data-kind="std">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig11_reprdim.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">06</span><span class="xp-title">Ablation on representation dimension <span data-tex="d"></span></span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig11_reprdim.svg" alt="Ablation on representation dimension on 8-tower and Ant U5 Maze" loading="lazy"></figure></div>
+            <ul class="bullets"><li>Performance is <strong>relatively robust once <span data-tex="d"></span> is sufficiently large</strong>, with further increases providing no consistent benefit.</li><li>On the 8-tower task, only <span data-tex="d \ge 256"></span> achieves nonzero success. The encoder <span data-tex="\psi"></span> already provides enough nonlinear expressivity for the linear operator <span data-tex="R"></span>.</li></ul>
+          </div>
+        </div>
+        <div class="xp-card" data-kind="wide">
+          <button class="xp-head" type="button" aria-expanded="false">
+            <span class="xp-thumb"><img src="figures/web/fig8_epsilon.svg" alt="" loading="lazy"></span>
+            <span class="xp-text"><span class="xp-num">07</span><span class="xp-title">Ablation on the threshold <span data-tex="\epsilon"></span></span></span>
+            <svg class="xp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="xp-body">
+            <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig8_epsilon.svg" alt="Ablation on the threshold epsilon on 3-tower (gripper), 8-tower, Ant U4 Maze and Ant U5 Maze" loading="lazy"></figure></div>
+            <ul class="bullets"><li>A larger <span data-tex="\epsilon"></span> favors earlier waypoints, leading to <strong>more conservative</strong> subgoal selection.</li><li>C-Slerp performs well across <span data-tex="\epsilon \in \{0.2, 0.3, 0.4\}"></span> in all evaluated environments except the 8-tower task, which is more sensitive to the threshold.</li><li>We use <span data-tex="\epsilon = 0.4"></span> as the default configuration across all tasks.</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-rule">
+    <section id="visualizations" class="method-section" aria-labelledby="vis-heading">
+      <h2 id="vis-heading">Visualizations</h2>
+      <div class="deck vis-deck">
+        <div class="deck-tabs vis-tabs" role="tablist" aria-label="Visualizations">
+          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span>Evolution of <span data-tex="K"></span> and <span data-tex="i^*"></span> over time</button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span>Waypoint visualizations in mazes</button>
+        </div>
+        <div class="deck-card">
+          <div class="deck-panel is-active" role="tabpanel">
+            <div class="maze-pills" role="tablist" aria-label="Benchmark">
+              <button class="maze-pill is-active" type="button">JaxGCRL</button>
+              <button class="maze-pill" type="button">BuilderBench</button>
+            </div>
+            <div class="maze-view">
+              <img class="maze-img k-img is-active" src="figures/web/fig13_k_jaxgcrl.svg" alt="Evolution of K and i over time in JaxGCRL environments">
+              <img class="maze-img k-img" src="figures/web/fig14_k_builderbench.svg" alt="Evolution of K and i over time in BuilderBench environments">
+            </div>
+            <ul class="bullets"><li>We plot the mean and sampled values of <span data-tex="K+1"></span>, the total number of transition segments to the goal, together with the selected waypoint index <span data-tex="i^*"></span>.</li><li>The mean of <span data-tex="K+1"></span> <strong>decreases as the agent approaches the goal</strong>, suggesting that the learned representation captures the agent&rsquo;s progress toward the goal.</li></ul>
+          </div>
+          <div class="deck-panel" role="tabpanel">
+            <div class="maze-pills" role="tablist" aria-label="Maze">
+              <button class="maze-pill is-active" type="button">Ant Big Maze</button>
+              <button class="maze-pill" type="button">Ant U5 Maze</button>
+              <button class="maze-pill" type="button">Ant Extreme Maze</button>
+            </div>
+            <div class="maze-view">
+              <img class="maze-colorbar" src="figures/web/fig17_colorbar.svg" alt="Score colour scale from 0 to 1">
+              <img class="maze-img is-active" src="figures/web/fig17_bigmaze.svg" alt="Inferred waypoints and score heatmaps in Ant Big Maze">
+              <img class="maze-img" src="figures/web/fig17_u5maze.svg" alt="Inferred waypoints and score heatmaps in Ant U5 Maze">
+              <img class="maze-img maze-xtall" src="figures/web/fig17_extreme.svg" alt="Inferred waypoints and score heatmaps in Ant Extreme Maze">
+            </div>
+            <ul class="bullets"><li>For each inferred waypoint <span data-tex="z_i"></span>, we retrieve its nearest neighbor among encoded maze positions, and display <span data-tex="f_L(s, a, s^\prime) = \phi(s,a)^\top \psi(s^\prime)"></span> over the maze as a heatmap.</li><li>Although the waypoints are generated entirely in the latent space, they <strong>correspond to meaningful intermediate locations</strong> in the environment.</li></ul>
+          </div>
+          <div class="deck-foot">
+            <button class="method-nav deck-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <span class="deck-count"></span>
+            <button class="method-nav deck-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-rule">
+    <section id="final-remarks" class="method-section" aria-labelledby="final-heading">
+      <h2 id="final-heading"><span>Final Remarks</span></h2>
+      <ul class="bullets">
+        <li>Although C-Slerp can be viewed as a hierarchical goal-conditioned RL method, it achieves these benefits <strong class="mark"><em>without</em> a separate high-level policy network or a planning graph</strong>.</li>
+        <li>Instead, planning follows directly from spherical linear interpolation in the learned representation space, showing that <strong class="mark">adaptive planning need not require a complex architecture</strong>.</li>
       </ul>
     </section>
   </main>
@@ -458,6 +583,62 @@
           if (e.key === 'ArrowLeft') { show(current - 1); tabs[current].focus(); }
         });
         show(0);
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      const panel = document.createElement('div');
+      panel.className = 'xp-panel';
+      let openCard = null;
+      function close(){
+        if (!openCard) return;
+        openCard.appendChild(panel.firstChild);
+        openCard.classList.remove('is-open');
+        openCard.querySelector('.xp-head').setAttribute('aria-expanded', 'false');
+        panel.remove();
+        openCard = null;
+      }
+      document.querySelectorAll('.xp-grid').forEach(function(grid){
+        const cards = Array.from(grid.querySelectorAll('.xp-card'));
+        const cols = function(){ return getComputedStyle(grid).gridTemplateColumns.split(' ').length; };
+        cards.forEach(function(card, i){
+          card.querySelector('.xp-head').addEventListener('click', function(){
+            const same = openCard === card;
+            close();
+            if (same) return;
+            const n = cols();
+            const last = cards[Math.min(cards.length - 1, Math.floor(i / n) * n + n - 1)];
+            panel.dataset.kind = card.dataset.kind;
+            panel.appendChild(card.querySelector('.xp-body'));
+            last.after(panel);
+            card.classList.add('is-open');
+            card.querySelector('.xp-head').setAttribute('aria-expanded', 'true');
+            openCard = card;
+            renderTexIn(panel);
+          });
+        });
+      });
+      function renderTexIn(root){
+        if (!window.katex) return;
+        root.querySelectorAll('[data-tex]').forEach(function(el){
+          if (!el.querySelector('.katex')) katex.render(el.getAttribute('data-tex'), el, { throwOnError: false });
+        });
+      }
+      window.addEventListener('resize', function(){ if (openCard) { const c = openCard; close(); c.querySelector('.xp-head').click(); } });
+    })();
+  </script>
+  <script>
+    (function(){
+      document.querySelectorAll('.maze-pills').forEach(function(group){
+        const pills = Array.from(group.querySelectorAll('.maze-pill'));
+        const imgs = Array.from(group.parentElement.querySelectorAll('.maze-img'));
+        pills.forEach(function(p, i){
+          p.addEventListener('click', function(){
+            pills.forEach(function(q, k){ q.classList.toggle('is-active', k === i); });
+            imgs.forEach(function(im, k){ im.classList.toggle('is-active', k === i); });
+          });
+        });
       });
     })();
   </script>
