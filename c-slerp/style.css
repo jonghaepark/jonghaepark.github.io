@@ -258,7 +258,7 @@ strong { font-weight: 700; color: #363636; }
 .maze-img.maze-xtall { width: auto; max-width: 100%; max-height: 640px; }
 .maze-img.is-active { display: block; animation: deck-in .3s ease; }
 .maze-img.k-img { width: min(680px, 100%); }
-#final-heading span { text-decoration-line: underline; text-decoration-color: rgba(224, 49, 49, 0.32); text-decoration-thickness: 0.22em; text-underline-offset: 0.2em; text-decoration-skip-ink: none; }
+#final-heading span { background: linear-gradient(transparent 58%, rgba(224, 49, 49, 0.28) 58%, rgba(224, 49, 49, 0.28) 96%, transparent 96%); padding: 0 3px; }
 .xp-group-label { margin: 22px 0 10px; font: 600 12px 'Google Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #8a8a8a; }
 #additional .method-lead + .xp-group-label { margin-top: 0; }
 #additional .method-lead, #method > .method-lead { text-align: center; }
