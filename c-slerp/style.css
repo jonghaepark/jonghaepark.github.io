@@ -263,5 +263,5 @@ strong { font-weight: 700; color: #363636; }
 #additional .method-lead + .xp-group-label { margin-top: 0; }
 #additional .method-lead, #method > .method-lead { text-align: center; }
 #tldr h2 span { background: linear-gradient(transparent 58%, rgba(0, 0, 0, 0.1) 58%, rgba(0, 0, 0, 0.1) 96%, transparent 96%); padding: 0 3px; }
-#additional h3.xp-group { margin: 28px 0 12px; font-size: 18px; }
+#additional h3.xp-group { margin: 28px 0 12px; }
 #additional .method-lead + h3.xp-group { margin-top: 4px; }
