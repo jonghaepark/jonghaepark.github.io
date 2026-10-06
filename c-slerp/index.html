@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=42">
+  <link rel="stylesheet" href="style.css?v=43">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -326,7 +326,7 @@
                 <img class="maze-img is-active" data-rows="22.3% 71.3%" src="figures/web/fig17_bigmaze.svg" alt="Inferred waypoints and score heatmaps in Ant Big Maze">
                 <img class="maze-img" data-rows="23.7% 70.1%" src="figures/web/fig17_u5maze.svg" alt="Inferred waypoints and score heatmaps in Ant U5 Maze">
                 <img class="maze-img maze-xtall" data-rows="24.6% 73.4%" src="figures/web/fig17_extreme.svg" alt="Inferred waypoints and score heatmaps in Ant Extreme Maze">
-                <ul class="maze-side maze-side-top" aria-label="Legend for the top row"><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#3B82F6"/></svg><span>Candidate waypoint</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#EF3B36"/></svg><span>Selected waypoint</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#7FD8D6" stroke="#3FA9A6" stroke-width="1"/></svg><span>Goal</span></li></ul>
+                <ul class="maze-side maze-side-top" aria-label="Legend for the top row"><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#3B82F6"/></svg><span>Candidate waypoint</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#EF3B36"/></svg><span>Selected waypoint</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5" fill="#7FD8D6" stroke="#3FA9A6" stroke-width="1"/></svg><span>Goal</span></li></ul>
                 <ul class="maze-side maze-side-bottom" aria-label="Legend for the bottom row"><li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#111"/></svg><span>Current state</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l1.9 4.4 4.8.4-3.6 3.2 1.1 4.7L8 11.4l-4.2 2.5 1.1-4.7L1.3 6l4.8-.4z" fill="#E53935"/></svg><span>Goal</span></li></ul>
               </div>
             </div>
@@ -334,7 +334,7 @@
               <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#3B82F6"/></svg><span class="legend-label">Candidate waypoint</span></li>
               <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#EF3B36"/></svg><span class="legend-label">Selected waypoint</span></li>
               <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#111"/></svg><span class="legend-label">Current state</span></li>
-              <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="#7FD8D6" stroke="#3FA9A6" stroke-width="1"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l1.9 4.4 4.8.4-3.6 3.2 1.1 4.7L8 11.4l-4.2 2.5 1.1-4.7L1.3 6l4.8-.4z" fill="#E53935"/></svg><span class="legend-label">Goal</span></li>
+              <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5" fill="#7FD8D6" stroke="#3FA9A6" stroke-width="1"/></svg><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l1.9 4.4 4.8.4-3.6 3.2 1.1 4.7L8 11.4l-4.2 2.5 1.1-4.7L1.3 6l4.8-.4z" fill="#E53935"/></svg><span class="legend-label">Goal</span></li>
             </ul>
             <ul class="bullets"><li>We encode all <span data-tex="(x, y)"></span> positions across the entire maze, including walls, on a grid with 0.2 m spacing. For each inferred waypoint <span data-tex="z_i"></span>, we <strong>retrieve its nearest neighbor among these representations</strong>, and display <span data-tex="f_L(s, a, s^+) = \phi(s,a)^\top \psi(s^+)"></span> at every grid point as a heatmap.</li><li>Although the waypoints are generated entirely in the latent space, they <strong>correspond to meaningful intermediate locations</strong> in the environment.</li></ul>
           </div>
