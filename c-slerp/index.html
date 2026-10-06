@@ -261,7 +261,7 @@
           </button>
           <div class="xp-body">
             <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig12_crl_gamma.svg" alt="CRL with larger discount factors compared with C-Slerp on 3-tower (gripper) and Ant U5 Maze" loading="lazy"></figure></div>
-            <ul class="bullets"><li>A natural way to adapt CRL to long-horizon tasks is to increase <span data-tex="\gamma"></span>, since future states are sampled at offsets drawn from <span data-tex="\mathrm{Geom}(1-\gamma)"></span>.</li><li>Across <span data-tex="\gamma \in \{0.99, 0.995, 0.999\}"></span>, CRL achieves low success rates, and <strong>increasing <span data-tex="\gamma"></span> does not close the gap</strong> with C-Slerp.</li><li>Simply extending the temporal horizon of contrastive learning does not offer the same benefits as planning with an appropriate number of waypoints.</li></ul>
+            <ul class="bullets"><li>A natural way to <strong>adapt CRL to long-horizon tasks is to increase <span data-tex="\gamma"></span></strong>, since future states are sampled at offsets drawn from <span data-tex="\mathrm{Geom}(1-\gamma)"></span>.</li><li>Across <span data-tex="\gamma \in \{0.99, 0.995, 0.999\}"></span>, CRL achieves low success rates, and <strong>increasing <span data-tex="\gamma"></span> does not close the gap</strong> with C-Slerp.</li><li>Simply extending the temporal horizon of contrastive learning does not offer the same benefits as planning with an appropriate number of waypoints.</li></ul>
           </div>
         </div>
       </div>
