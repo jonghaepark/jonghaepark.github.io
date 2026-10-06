@@ -166,20 +166,7 @@
 
     <hr class="section-rule">
     <section id="results" class="method-section" aria-labelledby="results-heading">
-      <h2 id="results-heading">How good is C-Slerp?</h2>
-      <figure class="paper-figure">
-        <img src="figures/web/fig3_results.svg" alt="Learning curves on six BuilderBench manipulation tasks and six JaxGCRL locomotion tasks, comparing C-Slerp with CRL, RIS, Online HIQL, L3P, and SAC plus HER" loading="lazy">
-      </figure>
-      <ul class="bullets">
-        <li>We evaluate on six manipulation tasks in <strong>BuilderBench</strong> and six locomotion tasks in <strong>JaxGCRL</strong>, without a goal curriculum or dense rewards.</li>
-        <li>C-Slerp achieves the highest success rates on most tasks, and is the <strong>only method to succeed on every cube-stacking task with a gripper</strong>, where most baselines never achieve a single success.</li>
-        <li>The gap widens as the horizon grows: more cubes, a gripper, or a larger maze.</li>
-      </ul>
-    </section>
-
-    <hr class="section-rule">
-    <section id="ablations" class="method-section" aria-labelledby="ablations-heading">
-      <h2 id="ablations-heading">Results</h2>
+      <h2 id="results-heading">Results</h2>
       <div class="showcase showcase-results" id="all-tasks-showcase">
         <div class="stage" data-key="all">
           <video class="stage-video is-active" muted playsinline preload="auto" poster="posters/5_tower_gripper.jpg" aria-label="C-Slerp rollout"></video>
@@ -199,6 +186,16 @@
         </ul>
         <div class="task-groups"></div>
       </div>
+
+      <h3>How good is C-Slerp?</h3>
+      <figure class="paper-figure">
+        <img src="figures/web/fig3_results.svg" alt="Learning curves on six BuilderBench manipulation tasks and six JaxGCRL locomotion tasks, comparing C-Slerp with CRL, RIS, Online HIQL, L3P, and SAC plus HER" loading="lazy">
+      </figure>
+      <ul class="bullets">
+        <li>We evaluate on six manipulation tasks in <strong>BuilderBench</strong> and six locomotion tasks in <strong>JaxGCRL</strong>, without a goal curriculum or dense rewards.</li>
+        <li>C-Slerp achieves the highest success rates on most tasks, and is the <strong>only method to succeed on every cube-stacking task with a gripper</strong>, where most baselines never achieve a single success.</li>
+        <li>The gap widens as the horizon grows: more cubes, a gripper, or a larger maze.</li>
+      </ul>
 
       <h3>Is <em>adaptive</em> waypoint planning necessary?</h3>
       <div class="figure-pair">
