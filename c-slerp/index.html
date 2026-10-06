@@ -308,22 +308,11 @@
       <h2 id="vis-heading">Visualizations</h2>
       <div class="deck vis-deck">
         <div class="deck-tabs vis-tabs" role="tablist" aria-label="Visualizations">
-          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span>Evolution of <span data-tex="K"></span> and <span data-tex="i^*"></span> over time</button>
-          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span>Waypoint visualizations in mazes</button>
+          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span>Waypoint visualizations in mazes</button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span>Evolution of <span data-tex="K"></span> and <span data-tex="i^*"></span> over time</button>
         </div>
         <div class="deck-card">
           <div class="deck-panel is-active" role="tabpanel">
-            <div class="maze-pills" role="tablist" aria-label="Benchmark">
-              <button class="maze-pill is-active" type="button">JaxGCRL</button>
-              <button class="maze-pill" type="button">BuilderBench</button>
-            </div>
-            <div class="maze-view">
-              <img class="maze-img k-img is-active" src="figures/web/fig13_k_jaxgcrl.svg" alt="Evolution of K and i over time in JaxGCRL environments">
-              <img class="maze-img k-img" src="figures/web/fig14_k_builderbench.svg" alt="Evolution of K and i over time in BuilderBench environments">
-            </div>
-            <ul class="bullets"><li>We plot the mean and sampled values of <span data-tex="K+1"></span>, the total number of transition segments to the goal, together with the selected waypoint index <span data-tex="i^*"></span>.</li><li>The mean of <span data-tex="K+1"></span> <strong>decreases as the agent approaches the goal</strong>, suggesting that the learned representation captures the agent&rsquo;s progress toward the goal.</li></ul>
-          </div>
-          <div class="deck-panel" role="tabpanel">
             <div class="maze-pills" role="tablist" aria-label="Maze">
               <button class="maze-pill is-active" type="button">Ant Big Maze</button>
               <button class="maze-pill" type="button">Ant U5 Maze</button>
@@ -336,6 +325,17 @@
               <img class="maze-img maze-xtall" src="figures/web/fig17_extreme.svg" alt="Inferred waypoints and score heatmaps in Ant Extreme Maze">
             </div>
             <ul class="bullets"><li>For each inferred waypoint <span data-tex="z_i"></span>, we retrieve its nearest neighbor among encoded maze positions, and display <span data-tex="f_L(s, a, s^\prime) = \phi(s,a)^\top \psi(s^\prime)"></span> over the maze as a heatmap.</li><li>Although the waypoints are generated entirely in the latent space, they <strong>correspond to meaningful intermediate locations</strong> in the environment.</li></ul>
+          </div>
+          <div class="deck-panel" role="tabpanel">
+            <div class="maze-pills" role="tablist" aria-label="Benchmark">
+              <button class="maze-pill is-active" type="button">JaxGCRL</button>
+              <button class="maze-pill" type="button">BuilderBench</button>
+            </div>
+            <div class="maze-view">
+              <img class="maze-img k-img is-active" src="figures/web/fig13_k_jaxgcrl.svg" alt="Evolution of K and i over time in JaxGCRL environments">
+              <img class="maze-img k-img" src="figures/web/fig14_k_builderbench.svg" alt="Evolution of K and i over time in BuilderBench environments">
+            </div>
+            <ul class="bullets"><li>We plot the mean and sampled values of <span data-tex="K+1"></span>, the total number of transition segments to the goal, together with the selected waypoint index <span data-tex="i^*"></span>.</li><li>The mean of <span data-tex="K+1"></span> <strong>decreases as the agent approaches the goal</strong>, suggesting that the learned representation captures the agent&rsquo;s progress toward the goal.</li></ul>
           </div>
           <div class="deck-foot">
             <button class="method-nav deck-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
