@@ -247,7 +247,7 @@
           <div class="xp-body">
             <div class="xp-figs"><figure class="paper-figure"><img src="figures/web/fig9_rotation.svg" alt="Ablation on learning the rotation matrix R on 3-tower (gripper) and Ant U4 Maze" loading="lazy"></figure></div>
             <ul class="bullets">
-        <li>We compare learning <span data-tex="R"></span> with three fixed alternatives: the identity <span data-tex="R = I"></span>, and two random rotations whose Cayley parameters are sampled with <span data-tex="\sigma \in \{0.01, 0.02\}"></span>.</li>
+        <li>We compare learning <span data-tex="R"></span> with <strong>three fixed alternatives</strong>: the identity <span data-tex="R = I"></span>, and two random rotations whose Cayley parameters are sampled with <span data-tex="\sigma \in \{0.01, 0.02\}"></span>.</li>
         <li>Setting <span data-tex="R = I"></span> makes <span data-tex="f_H(s, s^+) = \psi(s)^\top R\, \psi(s^+)"></span> <em>symmetric</em> and <strong>prevents successful learning</strong> in both tasks. Random fixed rotations introduce asymmetry but yield unstable performance.</li>
         <li>Asymmetry alone is insufficient; <strong>learning <span data-tex="R"></span></strong> is what captures the temporal relationships between states.</li>
       </ul>
