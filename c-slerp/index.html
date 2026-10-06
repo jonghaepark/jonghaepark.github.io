@@ -324,7 +324,7 @@
               <img class="maze-img" src="figures/web/fig17_u5maze.svg" alt="Inferred waypoints and score heatmaps in Ant U5 Maze">
               <img class="maze-img maze-xtall" src="figures/web/fig17_extreme.svg" alt="Inferred waypoints and score heatmaps in Ant Extreme Maze">
             </div>
-            <ul class="bullets"><li>We encode all <span data-tex="(x, y)"></span> positions on a grid with 0.2 m spacing. For each inferred waypoint <span data-tex="z_i"></span>, we <strong>retrieve its nearest neighbor among these representations</strong>, and display <span data-tex="f_L(s, a, s^+) = \phi(s,a)^\top \psi(s^+)"></span> at every grid point as a heatmap.</li><li>Although the waypoints are generated entirely in the latent space, they <strong>correspond to meaningful intermediate locations</strong> in the environment.</li></ul>
+            <ul class="bullets"><li>We encode all <span data-tex="(x, y)"></span> positions across the entire maze, including walls, on a grid with 0.2 m spacing. For each inferred waypoint <span data-tex="z_i"></span>, we <strong>retrieve its nearest neighbor among these representations</strong>, and display <span data-tex="f_L(s, a, s^+) = \phi(s,a)^\top \psi(s^+)"></span> at every grid point as a heatmap.</li><li>Although the waypoints are generated entirely in the latent space, they <strong>correspond to meaningful intermediate locations</strong> in the environment.</li></ul>
           </div>
           <div class="deck-panel" role="tabpanel">
             <div class="maze-pills" role="tablist" aria-label="Benchmark">
