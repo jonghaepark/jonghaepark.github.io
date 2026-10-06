@@ -294,5 +294,5 @@ strong { font-weight: 700; color: #363636; }
 .maze-side-bottom { top: var(--r2); }
 .maze-side li { display: flex; align-items: center; gap: 6px; }
 .maze-side svg { width: 14px; height: 14px; flex: none; }
-@media (min-width: 761px) { .maze-stage { transform: translateX(-62px); } .maze-legend { display: none; } }
+@media (min-width: 761px) { .maze-stage .maze-img:not(.maze-xtall) { width: min(520px, 100%); } .maze-legend { display: none; } }
 @media (max-width: 760px) { .maze-side { display: none; } }
