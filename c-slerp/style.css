@@ -281,3 +281,6 @@ strong { font-weight: 700; color: #363636; }
   .method-section h2 { font-size: 22px; }
   .method-section h3 { font-size: 18px; }
 }
+@media (min-width: 601px) {
+  .method-step[data-step="0"] .method-step-label, .method-step[data-step="2"] .method-step-label { transform: translateX(-10px); }
+}
