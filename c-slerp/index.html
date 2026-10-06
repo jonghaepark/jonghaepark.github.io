@@ -138,7 +138,7 @@
             <img src="figures/web/step1.svg" alt="Selecting the number of waypoints K by aligning rotated state representations with the goal">
             <span class="method-step-label"><span class="method-step-num">1</span>Select <span data-tex="K"></span></span>
           </button>
-          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="1" style="--w: 225">
+          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="1" style="--w: 211.5">
             <img src="figures/web/step2.svg" alt="Spherical linear interpolation from psi(s) to the rotated goal">
             <span class="method-step-label"><span class="method-step-num">2</span>Interpolate via SLERP</span>
           </button>
@@ -146,11 +146,11 @@
             <img src="figures/web/step_arrow.svg" alt="">
             <span class="method-step-label method-arrow-spacer">&nbsp;</span>
           </div>
-          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="2" style="--w: 190">
+          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="2" style="--w: 201.7">
             <img src="figures/web/step3.svg" alt="Mapping interpolated points back with the inverse rotation to get waypoint means">
             <span class="method-step-label"><span class="method-step-num">3</span>Map back</span>
           </button>
-          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="3" style="--w: 190.3">
+          <button class="method-step" type="button" role="tab" aria-selected="false" data-step="3" style="--w: 212.8">
             <img src="figures/web/step4.svg" alt="Selecting the furthest waypoint whose alignment with phi(s,a) passes the threshold">
             <span class="method-step-label"><span class="method-step-num">4</span>Select <span data-tex="i^*"></span></span>
           </button>
@@ -221,7 +221,7 @@
         <li>C-Slerp facilitates <strong>directed exploration</strong> toward distant goals.</li>
       </ul>
 
-      <h3>Does learning the rotation matrix <span data-tex="R"></span> matter?</h3>
+      <h3>Does learning the <em>rotation matrix</em> <span data-tex="R"></span> matter?</h3>
       <figure class="paper-figure fig-rotation"><img src="figures/web/fig9_rotation.svg" alt="Ablation on learning the rotation matrix R on 3-tower (gripper) and Ant U4 Maze" loading="lazy"></figure>
       <ul class="bullets">
         <li>We compare learning <span data-tex="R"></span> with three fixed alternatives: the identity <span data-tex="R = I"></span>, and two random rotations whose Cayley parameters are sampled with <span data-tex="\sigma \in \{0.01, 0.02\}"></span>.</li>
