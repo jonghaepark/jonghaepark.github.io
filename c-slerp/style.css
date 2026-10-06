@@ -166,7 +166,7 @@ strong { font-weight: 700; color: #363636; }
 .figure-row { display: flex; gap: 18px; align-items: flex-start; max-width: 706px; margin: 20px auto 0; }
 .figure-row .paper-figure { flex: var(--w) 1 0; min-width: 0; margin: 0; }
 @media (max-width: 600px) { .figure-row { flex-direction: column; } }
-#results h3 { margin-top: 56px; }
+#results h3 { margin-top: 72px; }
 #results .showcase-results { margin-top: 0; }
 
 /* Card decks: derivation and geometric interpretation share one layout */
