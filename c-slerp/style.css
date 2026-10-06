@@ -32,7 +32,7 @@ h2 { text-align: center; color: #363636; font-size: 30px; font-weight: 600; line
 p.hook { max-width: 1040px; margin: 71px auto 115px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 25px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
 .hook-text { display: block; text-box: trim-both cap alphabetic; }
 .hook-line1 { font-size: 1.17em; }
-.hook-emph { font-style: normal; color: #111; padding: 0 0.05em 0.18em; background: linear-gradient(transparent 71%, rgba(89, 139, 231, 0.32) 71%, rgba(89, 139, 231, 0.32) 100%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hook-emph { font-style: normal; color: #111; padding: 0 0.05em; text-decoration-line: underline; text-decoration-color: rgba(89, 139, 231, 0.38); text-decoration-thickness: 0.24em; text-underline-offset: 0.26em; text-decoration-skip-ink: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .nowrap { white-space: nowrap; }
 .quote-mark { font-size: 1.6em; line-height: 0; position: relative; top: 0.22em; color: #9a9a9a; margin: 0 0.06em; }
 footer { display: flex; align-items: center; justify-content: center; background: #F1F1F1; padding: 12px 20px; font-size: 19px; }
@@ -212,7 +212,7 @@ strong { font-weight: 700; color: #363636; }
 #results-heading { margin-bottom: 16px; }
 #final-remarks { margin-bottom: 80px; }
 #final-remarks h2 { margin-bottom: 16px; }
-.mark { background: linear-gradient(transparent 71%, rgba(89, 139, 231, 0.32) 71%, rgba(89, 139, 231, 0.32) 100%); padding: 0 0.05em 0.18em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.mark { text-decoration-line: underline; text-decoration-color: rgba(89, 139, 231, 0.38); text-decoration-thickness: 0.24em; text-underline-offset: 0.26em; text-decoration-skip-ink: none; }
 /* Additional experiments: accordion cards */
 #additional .method-lead { margin: 0 0 22px; }
 .xp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
@@ -258,7 +258,7 @@ strong { font-weight: 700; color: #363636; }
 .maze-img.maze-xtall { width: auto; max-width: 100%; max-height: 640px; }
 .maze-img.is-active { display: block; animation: deck-in .3s ease; }
 .maze-img.k-img { width: min(680px, 100%); }
-#final-heading span { background: linear-gradient(transparent 64%, rgba(224, 49, 49, 0.28) 64%, rgba(224, 49, 49, 0.28) 94%, transparent 94%); padding: 0 2px; }
+#final-heading span { text-decoration-line: underline; text-decoration-color: rgba(224, 49, 49, 0.32); text-decoration-thickness: 0.22em; text-underline-offset: 0.2em; text-decoration-skip-ink: none; }
 .xp-group-label { margin: 22px 0 10px; font: 600 12px 'Google Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #8a8a8a; }
 #additional .method-lead + .xp-group-label { margin-top: 0; }
 #additional .method-lead, #method > .method-lead { text-align: center; }
