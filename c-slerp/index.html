@@ -504,7 +504,7 @@
         {
           title: 'Map back to waypoint representations',
           tex: String.raw`\mu_i^{*}(s,g) = (R^{\top})^{i}\, \operatorname{slerp}\!\Big(\psi(s),\, R^{K+1}\psi(g),\, \tfrac{i}{K+1}\Big), \qquad \sigma_i^{*2}(s,g) = \frac{\alpha}{2\cos\!\big(\tfrac{\theta}{K+1}\big)}`,
-          text: 'Undoing <span data-tex="i"></span> rotations gives each waypoint in closed form: no high-level network and no graph search.'
+          text: 'Rotating each interpolated point back by <span data-tex="(R^{\\top})^{i}"></span> recovers its waypoint representation in closed form: no high-level network and no graph search.'
         },
         {
           title: 'Select the waypoint <span data-tex="i^*"></span> to pursue',
