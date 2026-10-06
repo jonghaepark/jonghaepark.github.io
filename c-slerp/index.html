@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=28">
+  <link rel="stylesheet" href="style.css?v=29">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -91,10 +91,10 @@
 
       <div class="deck" id="derivation">
         <div class="deck-tabs" role="tablist" aria-label="Derivation">
-          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span>Setup</button>
-          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span>Objective</button>
-          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">3</span>Tractable reformulation</button>
-          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">4</span>Closed-form solution</button>
+          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span><span class="tab-label">Setup</span></button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span><span class="tab-label">Objective</span></button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">3</span><span class="tab-label">Tractable reformulation</span></button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">4</span><span class="tab-label">Closed-form solution</span></button>
         </div>
         <div class="deck-card">
           <div class="deck-panel is-active" role="tabpanel">
@@ -308,8 +308,8 @@
       <h2 id="vis-heading">Visualizations</h2>
       <div class="deck vis-deck">
         <div class="deck-tabs vis-tabs" role="tablist" aria-label="Visualizations">
-          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span>Waypoint visualizations in mazes</button>
-          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span>Evolution of <span data-tex="K"></span> and <span data-tex="i^*"></span> over time</button>
+          <button class="deck-tab is-active" type="button" role="tab" aria-selected="true"><span class="method-step-num">1</span><span class="tab-label">Waypoint visualizations in mazes</span></button>
+          <button class="deck-tab" type="button" role="tab" aria-selected="false"><span class="method-step-num">2</span><span class="tab-label">Evolution of <span data-tex="K"></span> and <span data-tex="i^*"></span> over time</span></button>
         </div>
         <div class="deck-card">
           <div class="deck-panel is-active" role="tabpanel">
@@ -538,7 +538,7 @@
         titleEl.innerHTML = stage.title;
         document.getElementById('method-count').textContent = (current + 1) + ' / ' + stages.length;
         textEl.innerHTML = stage.text;
-        if (window.katex) katex.render(stage.tex, eqEl, { displayMode: true, throwOnError: false });
+        if (window.katex) katex.render(stage.tex, eqEl, { displayMode: !window.matchMedia('(max-width: 600px)').matches, throwOnError: false });
         else eqEl.textContent = stage.tex;
         renderTex(titleEl);
         renderTex(textEl);
@@ -555,7 +555,7 @@
       window.addEventListener('load', function(){
         renderTex(document);
         if (window.katex) document.querySelectorAll('[data-tex-display]').forEach(function(el){
-          katex.render(el.getAttribute('data-tex-display'), el, { displayMode: true, throwOnError: false });
+          katex.render(el.getAttribute('data-tex-display'), el, { displayMode: !window.matchMedia('(max-width: 600px)').matches, throwOnError: false });
         });
         show(current);
       });

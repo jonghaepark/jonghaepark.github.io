@@ -265,3 +265,18 @@ strong { font-weight: 700; color: #363636; }
 #tldr h2 span { background: linear-gradient(transparent 58%, rgba(0, 0, 0, 0.1) 58%, rgba(0, 0, 0, 0.1) 96%, transparent 96%); padding: 0 3px; }
 #additional h3.xp-group { margin: 28px 0 12px; }
 #additional .method-lead + h3.xp-group { margin-top: 4px; }
+@media (max-width: 600px) {
+  .deck-eq, .eq, .method-eq { overflow-x: visible; text-align: center; line-height: 2; padding: 6px 0; }
+  .deck-eq .katex, .eq .katex, .method-eq .katex { font-size: 1em; white-space: normal; }
+  .deck-tab { justify-content: flex-start; text-align: left; font-size: 13px; padding: 8px 10px; }
+  .deck-tab .tab-label { line-height: 1.35; }
+  .vis-tabs { grid-template-columns: 1fr; }
+  .hook-emph { padding-bottom: 0.12em; }
+  .xp-head { gap: 10px; padding: 10px 12px 10px 10px; min-height: 0; }
+  .xp-title { font-size: 15px; }
+  .maze-pill { font-size: 13px; padding: 5px 11px; }
+  .stage-caption { left: 6px; top: 6px; padding: 3px 7px; border-radius: 6px; }
+  .stage-title { font-size: 12px; }
+  .method-section h2 { font-size: 22px; }
+  .method-section h3 { font-size: 18px; }
+}
