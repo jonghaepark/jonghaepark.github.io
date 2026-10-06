@@ -83,31 +83,10 @@
       <article class="publication publication-with-media">
         <figure class="publication-media">
           <div id="cslerp_image" class="media-frame" style="width:160px; overflow:hidden; border-radius:8px;">
-            <video id="cslerp_video" class="cslerp-thumb" data-rate="0.95" style="width:100%; height:auto; aspect-ratio:2 / 1; display:block;" muted playsinline webkit-playsinline autoplay loop preload="metadata" aria-label="C-Slerp stacking four cubes with a gripper">
-              <source src="c-slerp/videos/thumb_4_tower_gripper.mp4?v=3" type="video/mp4">
-            </video>
-            <video id="cslerp_video_2" class="cslerp-thumb" data-rate="2.49" style="width:100%; height:auto; aspect-ratio:2 / 1; display:block;" muted playsinline webkit-playsinline autoplay loop preload="metadata" aria-label="C-Slerp navigating Ant Big Maze">
-              <source src="c-slerp/videos/thumb_ant_big_maze.mp4?v=3" type="video/mp4">
+            <video id="cslerp_video" style="width:100%; height:auto; aspect-ratio:1 / 1; display:block;" muted playsinline webkit-playsinline autoplay loop preload="auto" aria-label="C-Slerp stacking four cubes with a gripper and navigating Ant Big Maze">
+              <source src="c-slerp/videos/thumb_cslerp.mp4" type="video/mp4">
             </video>
           </div>
-          <script>
-            (function(){
-              document.querySelectorAll('#cslerp_image .cslerp-thumb').forEach(function(video){
-                const rate = parseFloat(video.dataset.rate) || 1;
-                video.defaultPlaybackRate = rate;
-                video.playbackRate = rate;
-                video.addEventListener('loadedmetadata', function(){ video.playbackRate = rate; });
-              });
-              // Restart the maze clip whenever the gripper clip loops so both stay in step.
-              const lead = document.getElementById('cslerp_video');
-              const follow = document.getElementById('cslerp_video_2');
-              let last = 0;
-              lead.addEventListener('timeupdate', function(){
-                if (lead.currentTime < last) follow.currentTime = 0;
-                last = lead.currentTime;
-              });
-            })();
-          </script>
         </figure>
         <div class="publication-content">
           <h3 class="publication-title">Hyperspherical Contrastive Representations Unlock Planning and Exploration</h3>
@@ -634,8 +613,8 @@
     const groups = [
       {
         frame: document.getElementById('cslerp_image'),
-        videos: [document.getElementById('cslerp_video'), document.getElementById('cslerp_video_2')],
-        rates: [0.95, 2.49]
+        videos: [document.getElementById('cslerp_video')],
+        rates: [1]
       },
       {
         frame: document.getElementById('psd_image'),
