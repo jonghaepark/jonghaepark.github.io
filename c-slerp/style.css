@@ -284,14 +284,6 @@ strong { font-weight: 700; color: #363636; }
 @media (min-width: 601px) {
   .method-step[data-step="0"] .method-step-label, .method-step[data-step="2"] .method-step-label { transform: translateX(-10px); }
 }
-.maze-legend { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: fit-content; max-width: 100%; margin: -4px auto 18px; }
-.maze-legend .legend { margin: 0; font-size: 14.5px; justify-content: flex-start; }
-.maze-legend .legend-row { min-width: 54px; font: 600 11px 'Google Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #9a9a9a; }
-.maze-legend .legend svg { width: 16px; height: 16px; }
-.legend-heat { display: inline-block; width: 30px; height: 10px; border-radius: 2px; background: linear-gradient(90deg, #fff, #f5893a); box-shadow: inset 0 0 0 1px #e3e3e3; }
-.maze-legend .katex { font-size: 1em; }
-@media (max-width: 600px) {
-  .maze-legend { align-items: center; }
-  .maze-legend .legend { font-size: 12px; gap: 4px 12px; justify-content: center; }
-  .maze-legend .legend-row { flex-basis: 100%; justify-content: center; min-width: 0; }
-}
+.legend.maze-legend { margin: -4px 0 18px; font-size: 14.5px; }
+.maze-legend svg { width: 16px; height: 16px; }
+.maze-legend li svg + svg { margin-left: -3px; }
