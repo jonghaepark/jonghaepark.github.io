@@ -101,7 +101,7 @@
             <div class="deck-eq" data-tex-display="f_H(s, s^+) = \psi(s)^\top R\, \psi(s^+), \qquad f_L(s, a, s^+) = \phi(s, a)^\top \psi(s^+), \qquad R^\top R = I."></div>
             <p class="deck-note">We collect data online under a hierarchical goal-conditioned policy <span data-tex="\hat\pi"></span>, where every <span data-tex="h"></span> steps a planner provides a waypoint representation <span data-tex="z"></span> for <span data-tex="\pi_\theta(a \mid s, z)"></span> to pursue. From this data, both critics are trained with <strong>contrastive learning</strong> on pairs <span data-tex="(s, s^+)"></span> separated by an interval drawn from <span data-tex="\mathrm{Geom}(1-\gamma)"></span>. Under the symmetric InfoNCE objective, the <strong>Bayes-optimal</strong> <span data-tex="f_H"></span> takes the form</p>
             <div class="deck-eq" data-tex-display="f_H(u, v) = \log \frac{p^{\gamma}_{\pi}(u^+ = v \mid u)}{p^{\gamma}_{\pi}(v)\, C}."></div>
-            <p class="deck-note">Since an inner product alone is symmetric, the rotation <span data-tex="R"></span> captures asymmetries in the dynamics, so a <em>single</em> <span data-tex="f_H"></span> can score an entire waypoint sequence as a <strong>reusable building block</strong>.</p>
+            <p class="deck-note">Since an inner product alone is symmetric, the rotation matrix <span data-tex="R"></span> captures asymmetries in the dynamics, so a <em>single</em> <span data-tex="f_H"></span> can score an entire waypoint sequence as a <strong>reusable building block</strong>.</p>
           </div>
           <div class="deck-panel" role="tabpanel">
             <p class="deck-q">Planning as inference</p>
@@ -221,7 +221,7 @@
         <li>C-Slerp facilitates <strong>directed exploration</strong> toward distant goals.</li>
       </ul>
 
-      <h3>Does learning the rotation <span data-tex="R"></span> matter?</h3>
+      <h3>Does learning the rotation matrix <span data-tex="R"></span> matter?</h3>
       <figure class="paper-figure fig-rotation"><img src="figures/web/fig9_rotation.svg" alt="Ablation on learning the rotation matrix R on 3-tower (gripper) and Ant U4 Maze" loading="lazy"></figure>
       <ul class="bullets">
         <li>We compare learning <span data-tex="R"></span> with three fixed alternatives: the identity <span data-tex="R = I"></span>, and two random rotations whose Cayley parameters are sampled with <span data-tex="\sigma \in \{0.01, 0.02\}"></span>.</li>
