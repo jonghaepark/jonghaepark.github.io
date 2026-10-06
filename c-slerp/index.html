@@ -668,6 +668,9 @@
         });
       }
       window.addEventListener('resize', function(){ if (openCard) { const c = openCard; close(); c.querySelector('.xp-head').click(); } });
+      // Open the adaptive-planning ablation by default: it backs the main claim.
+      const first = document.querySelector('.xp-grid .xp-card .xp-head');
+      if (first) first.click();
     })();
   </script>
   <script>
