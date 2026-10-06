@@ -160,7 +160,8 @@ footer a:hover { color: var(--accent-light); text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 strong { font-weight: 700; color: #363636; }
 .math-raise { position: relative; top: -0.12em; }
-#tldr p { hyphens: manual; text-align: left; text-wrap: pretty; }
+#tldr p { hyphens: manual; text-align: center; text-wrap: balance; }
+@media (min-width: 601px) { #tldr .mark { white-space: nowrap; } }
 .showcase-results { margin: 22px 0 6px; }
 .method-arrow img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
 .figure-row { display: flex; gap: 18px; align-items: flex-start; max-width: 706px; margin: 20px auto 0; }
