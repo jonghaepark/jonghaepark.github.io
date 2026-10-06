@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=29">
+  <link rel="stylesheet" href="style.css?v=30">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -114,9 +114,9 @@
           <div class="deck-panel" role="tabpanel">
             <p class="deck-q">Tractable reformulation</p>
             <p class="deck-lead">We factorize <span data-tex="q(w_{1:K} \mid s, g) = \prod_{i=1}^{K} q_i(w_i \mid s, g)"></span>. Under the Bayes-optimal <span data-tex="f_H"></span> and the Markov assumption, the objective becomes</p>
-            <div class="deck-eq" data-tex-display="\arg\max_q\; \mathbb{E}_{w_{1:K} \sim q}\Big[\sum_{i=0}^{K} f_H(w_i, w_{i+1})\Big] - \sum_{i=1}^{K} D_{\mathrm{KL}}\big(q_i(\cdot \mid s, g)\,\big\|\, p^{\gamma}_{\hat\pi}(\cdot)\big)."></div>
+            <div class="deck-eq" data-tex-mobile="\begin{aligned} &\arg\max_q\; \mathbb{E}_{w_{1:K} \sim q}\Big[\sum_{i=0}^{K} f_H(w_i, w_{i+1})\Big] \\ &\quad - \sum_{i=1}^{K} D_{\mathrm{KL}}\big(q_i(\cdot \mid s, g)\,\big\|\, p^{\gamma}_{\hat\pi}(\cdot)\big). \end{aligned}" data-tex-display="\arg\max_q\; \mathbb{E}_{w_{1:K} \sim q}\Big[\sum_{i=0}^{K} f_H(w_i, w_{i+1})\Big] - \sum_{i=1}^{K} D_{\mathrm{KL}}\big(q_i(\cdot \mid s, g)\,\big\|\, p^{\gamma}_{\hat\pi}(\cdot)\big)."></div>
             <p class="deck-note">It maximizes the expected sum of <span data-tex="f_H"></span> between waypoints while keeping each <span data-tex="q_i"></span> close to the marginal of visited states. Since the policy depends on a waypoint only through its representation <span data-tex="z_i = \psi(w_i)"></span>, we infer <span data-tex="z_i"></span> instead of raw states, and the <strong>uniformity</strong> of the learned representations on <span data-tex="\mathbb{S}^{d-1}"></span> turns the KL into an entropy:</p>
-            <div class="deck-eq" data-tex-display="\mathcal{J}(q) = \mathbb{E}_{z_{1:K} \sim q}\Big[\psi(s)^\top R z_1 + \sum_{i=2}^{K} z_{i-1}^\top R z_i + z_K^\top R\, \psi(g)\Big] + \sum_{i=1}^{K} \mathcal{H}\big(q_i(\cdot \mid s, g)\big)."></div>
+            <div class="deck-eq" data-tex-mobile="\begin{aligned} \mathcal{J}(q) = {} &\mathbb{E}_{z_{1:K} \sim q}\Big[\psi(s)^\top R z_1 + \sum_{i=2}^{K} z_{i-1}^\top R z_i \\ &\quad + z_K^\top R\, \psi(g)\Big] + \sum_{i=1}^{K} \mathcal{H}\big(q_i(\cdot \mid s, g)\big). \end{aligned}" data-tex-display="\mathcal{J}(q) = \mathbb{E}_{z_{1:K} \sim q}\Big[\psi(s)^\top R z_1 + \sum_{i=2}^{K} z_{i-1}^\top R z_i + z_K^\top R\, \psi(g)\Big] + \sum_{i=1}^{K} \mathcal{H}\big(q_i(\cdot \mid s, g)\big)."></div>
             <p class="deck-note">This objective <strong>links the current state <span data-tex="s"></span> to the goal <span data-tex="g"></span></strong> by repeatedly aligning consecutive representations through <span data-tex="R"></span>, while the entropy term encourages stochasticity.</p>
           </div>
           <div class="deck-panel" role="tabpanel">
@@ -518,6 +518,35 @@
       const textEl = document.getElementById('method-text');
       let current = 0;
 
+      const isMobile = window.matchMedia('(max-width: 600px)').matches;
+      // On phones, stack the top-level \qquad-separated parts and shrink to fit.
+      function stackTex(tex){
+        if (!isMobile) return tex;
+        const parts = []; let depth = 0, last = 0;
+        for (let i = 0; i < tex.length; i++){
+          const c = tex[i];
+          if (c === '\\') { if (depth === 0 && tex.startsWith('\\qquad', i)) { parts.push(tex.slice(last, i)); last = i + 6; } i++; continue; }
+          if (c === '{') depth++; else if (c === '}') depth--;
+        }
+        parts.push(tex.slice(last));
+        return parts.length > 1 ? '\\begin{gathered}' + parts.map(function(t){ return t.trim(); }).join(' \\\\[6pt] ') + '\\end{gathered}' : tex;
+      }
+      function fitTex(){
+        if (!isMobile) return;
+        document.querySelectorAll('.deck-eq, .method-eq, .eq').forEach(function(el){
+          const k = el.querySelector('.katex-display > .katex') || el.querySelector('.katex');
+          if (!k || !el.clientWidth) return;
+          k.style.fontSize = '';
+          const ratio = el.clientWidth / k.scrollWidth;
+          if (ratio < 1) k.style.fontSize = Math.max(0.55, ratio * 0.97) + 'em';
+        });
+      }
+      function mathTex(tex, el){
+        katex.render(stackTex(tex), el, { displayMode: true, throwOnError: false });
+      }
+      document.addEventListener('click', function(){ requestAnimationFrame(fitTex); });
+      window.addEventListener('resize', fitTex);
+
       function renderTex(root){
         if (!window.katex) return;
         root.querySelectorAll('[data-tex]').forEach(function(el){
@@ -538,7 +567,7 @@
         titleEl.innerHTML = stage.title;
         document.getElementById('method-count').textContent = (current + 1) + ' / ' + stages.length;
         textEl.innerHTML = stage.text;
-        if (window.katex) katex.render(stage.tex, eqEl, { displayMode: !window.matchMedia('(max-width: 600px)').matches, throwOnError: false });
+        if (window.katex) { mathTex(stage.tex, eqEl); requestAnimationFrame(fitTex); }
         else eqEl.textContent = stage.tex;
         renderTex(titleEl);
         renderTex(textEl);
@@ -555,8 +584,9 @@
       window.addEventListener('load', function(){
         renderTex(document);
         if (window.katex) document.querySelectorAll('[data-tex-display]').forEach(function(el){
-          katex.render(el.getAttribute('data-tex-display'), el, { displayMode: !window.matchMedia('(max-width: 600px)').matches, throwOnError: false });
+          mathTex((isMobile && el.getAttribute('data-tex-mobile')) || el.getAttribute('data-tex-display'), el);
         });
+        fitTex();
         show(current);
       });
       show(current);

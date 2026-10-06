@@ -266,8 +266,9 @@ strong { font-weight: 700; color: #363636; }
 #additional h3.xp-group { margin: 28px 0 12px; }
 #additional .method-lead + h3.xp-group { margin-top: 4px; }
 @media (max-width: 600px) {
-  .deck-eq, .eq, .method-eq { overflow-x: visible; text-align: center; line-height: 2; padding: 6px 0; }
-  .deck-eq .katex, .eq .katex, .method-eq .katex { font-size: 1em; white-space: normal; }
+  .deck-eq, .eq, .method-eq { overflow-x: hidden; text-align: center; padding: 4px 0; }
+  .deck-eq .katex, .eq .katex, .method-eq .katex { font-size: 1em; }
+  .text-section p { text-align: left; hyphens: manual; }
   .deck-tab { justify-content: flex-start; text-align: left; font-size: 13px; padding: 8px 10px; }
   .deck-tab .tab-label { line-height: 1.35; }
   .vis-tabs { grid-template-columns: 1fr; }
@@ -280,3 +281,4 @@ strong { font-weight: 700; color: #363636; }
   .method-section h2 { font-size: 22px; }
   .method-section h3 { font-size: 18px; }
 }
+#method > .method-lead { max-width: 700px; margin: 14px auto 26px; text-wrap: balance; color: #5a5a5a; }
