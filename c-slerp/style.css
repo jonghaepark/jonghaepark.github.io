@@ -89,7 +89,8 @@ footer a:hover { color: var(--accent-light); text-decoration: none; }
   .stage { border-radius: 10px; }
   .stage-caption { left: 8px; top: 8px; padding: 5px 9px; }
   .stage-title { font-size: 13px; }
-  .stage-suite,   .stage-toggle { width: 30px; height: 30px; right: 8px; bottom: 10px; }
+  .stage-suite { font-size: 9.5px; }
+  .stage-toggle { width: 30px; height: 30px; right: 8px; bottom: 10px; }
   .legend { font-size: 12px; gap: 4px 14px; }
   .task-row { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .task-thumb span { font-size: 11px; }
