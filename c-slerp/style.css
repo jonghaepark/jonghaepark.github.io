@@ -308,3 +308,4 @@ strong { font-weight: 700; color: #363636; }
 .bibtex-copy:hover { color: var(--accent); border-color: #cfd8ea; }
 @media (max-width: 600px) { .bibtex-box pre { font-size: 10.5px; padding: 40px 12px 14px; } }
 .hook-line1 .hook-emph { font-style: italic; background: linear-gradient(transparent 75.2%, rgba(89, 139, 231, 0.32) 75.2%, rgba(89, 139, 231, 0.32) 100%); }
+.hook-line1 .hook-emph { padding-right: 0; background-size: calc(100% - 0.1em) 100%; background-repeat: no-repeat; }
