@@ -315,3 +315,5 @@ strong { font-weight: 700; color: #363636; }
 #results .task-groups { gap: 26px; }
 #results .task-group-label { margin-bottom: 12px; }
 @media (max-width: 600px) { #results .legend-note + .legend { margin-bottom: 34px; } }
+#method > .method-lead { text-align: justify; max-width: 740px; margin-left: auto; margin-right: auto; }
+@media (max-width: 600px) { #method > .method-lead { text-align: left; } }
