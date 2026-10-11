@@ -314,5 +314,4 @@ strong { font-weight: 700; color: #363636; }
 #results .legend-note + .legend { margin-top: 8px; margin-bottom: 46px; }
 #results .task-groups { gap: 26px; }
 #results .task-group-label { margin-bottom: 12px; }
-#results .task-row { gap: 14px; }
-@media (max-width: 600px) { #results .task-row { gap: 10px; } #results .legend-note + .legend { margin-bottom: 34px; } }
+@media (max-width: 600px) { #results .legend-note + .legend { margin-bottom: 34px; } }
