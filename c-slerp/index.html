@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=47">
+  <link rel="stylesheet" href="style.css?v=48">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -578,7 +578,7 @@
           step.setAttribute('aria-selected', on ? 'true' : 'false');
         });
         const stage = stages[current];
-        titleEl.innerHTML = stage.title;
+        titleEl.innerHTML = (current + 1) + '. ' + stage.title;
         document.getElementById('method-count').textContent = (current + 1) + ' / ' + stages.length;
         textEl.innerHTML = stage.text;
         if (window.katex) { mathTex(stage.tex, eqEl); requestAnimationFrame(fitTex); }
