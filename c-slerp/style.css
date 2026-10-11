@@ -307,4 +307,4 @@ strong { font-weight: 700; color: #363636; }
 .bibtex-copy { position: absolute; top: 10px; right: 10px; padding: 4px 12px; border: 1px solid #dcdcdc; border-radius: 8px; background: #fff; color: #555; font: 600 12.5px 'Google Sans', sans-serif; cursor: pointer; }
 .bibtex-copy:hover { color: var(--accent); border-color: #cfd8ea; }
 @media (max-width: 600px) { .bibtex-box pre { font-size: 10.5px; padding: 40px 12px 14px; } }
-.hook-line1 .hook-emph { background: linear-gradient(transparent 75.2%, rgba(89, 139, 231, 0.32) 75.2%, rgba(89, 139, 231, 0.32) 100%); }
+.hook-line1 .hook-emph { font-style: italic; background: linear-gradient(transparent 75.2%, rgba(89, 139, 231, 0.32) 75.2%, rgba(89, 139, 231, 0.32) 100%); }
