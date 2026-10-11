@@ -14,22 +14,22 @@ nav a:hover { color: var(--accent-light); text-decoration: none; }
 main { max-width: 1120px; margin: auto; padding: 0 28px; }
 .hero { text-align: center; padding: 57px 0 38px; }
 .badge { margin: 10px 0 22px; color: #FA5543; font-size: 19px; font-weight: 600; }
-h1 { margin: 0 auto 28px; font-family: 'Google Sans', sans-serif; color: #363636; font-size: clamp(24px, 2.9vw, 40px); letter-spacing: normal; line-height: 1.125; font-weight: 600; text-wrap: balance; }
-.authors { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 20px; font-family: 'Google Sans', sans-serif; font-size: 23.75px; }
+h1 { margin: 0 auto 28px; font-family: 'Google Sans', sans-serif; color: #363636; font-size: clamp(25px, 3.05vw, 42px); letter-spacing: normal; line-height: 1.125; font-weight: 600; text-wrap: balance; }
+.authors { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 20px; font-family: 'Google Sans', sans-serif; font-size: 24.9px; }
 .authors span { white-space: nowrap; }
 .authors a.author-emphasis { color: var(--accent); }
 .authors a.author-emphasis:hover { color: var(--accent-light); }
-.affiliations { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 24px; margin-top: 10px; font-family: 'Google Sans', sans-serif; color: #4a4a4a; font-size: 19px; }
+.affiliations { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 24px; margin-top: 10px; font-family: 'Google Sans', sans-serif; color: #4a4a4a; font-size: 20px; }
 sup { font-size: 0.7em; }
-.equal { color: #4a4a4a; font-size: 14px; margin: 6px 0; }
+.equal { color: #4a4a4a; font-size: 14.7px; margin: 6px 0; }
 .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 40px; }
-.links a { color: var(--accent); font-size: 20px; }
+.links a { color: var(--accent); font-size: 21px; }
 .links a:hover { color: var(--accent-light); text-decoration: none; }
 .text-section { max-width: 740px; margin: 42px auto 0; scroll-margin-top: 25px; }
 h2 { text-align: center; color: #363636; font-size: 30px; font-weight: 600; line-height: 1.125; margin-bottom: 20px; }
 .placeholder { text-align: center; color: #7c8792; }
 .text-section p { text-align: justify; hyphens: auto; font-size: 16px; line-height: 1.6; }
-p.hook { max-width: 1040px; margin: 53px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 23.4px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
+p.hook { max-width: 1040px; margin: 53px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 24.6px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
 .hook-text { display: block; text-box: trim-both cap alphabetic; }
 .hook-line1 { font-size: 1.17em; }
 .hook-emph { font-style: normal; color: #111; padding: 0 0.05em 0.18em; background: linear-gradient(transparent 71%, rgba(89, 139, 231, 0.32) 71%, rgba(89, 139, 231, 0.32) 100%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
