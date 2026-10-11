@@ -23,8 +23,8 @@ h1 { margin: 0 auto 28px; font-family: 'Google Sans', sans-serif; color: #363636
 sup { font-size: 0.7em; }
 .equal { color: #4a4a4a; font-size: 14px; margin: 6px 0; }
 .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-.links a { color: white; background: #363636; border-radius: 99px; padding: 7px 22px; font-size: 18px; }
-.links a:hover { background: #292929; text-decoration: none; }
+.links a { color: white; background: var(--accent); border-radius: 99px; padding: 7px 22px; font-size: 18px; }
+.links a:hover { color: white; background: #4677d6; text-decoration: none; }
 .text-section { max-width: 740px; margin: 42px auto 0; scroll-margin-top: 25px; }
 h2 { text-align: center; color: #363636; font-size: 30px; font-weight: 600; line-height: 1.125; margin-bottom: 20px; }
 .placeholder { text-align: center; color: #7c8792; }
