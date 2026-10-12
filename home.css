@@ -156,12 +156,12 @@ figure { margin: 0; }
 .news-emoji-robot { top: -0.14em; animation: robot-vibration 4s linear infinite; }
 .news-emoji-medal { top: -0.1em; transform-origin: 50% 0%; animation: medal-swing 4s ease-in-out infinite; }
 @keyframes medal-swing {
-  0%, 55%, 100% { transform: rotate(0deg); filter: none; }
-  62% { transform: rotate(16deg); }
-  70% { transform: rotate(-12deg); filter: drop-shadow(0 0 4px rgba(250, 204, 21, .75)); }
-  78% { transform: rotate(7deg); }
-  86% { transform: rotate(-3deg); }
-  93% { transform: rotate(1deg); filter: none; }
+  0%, 15%, 45%, 100% { transform: rotate(0deg); filter: none; }
+  20% { transform: rotate(16deg); }
+  26% { transform: rotate(-12deg); filter: drop-shadow(0 0 4px rgba(250, 204, 21, .75)); }
+  32% { transform: rotate(7deg); }
+  38% { transform: rotate(-3deg); }
+  43% { transform: rotate(1deg); filter: none; }
 }
 @keyframes research-greeting {
   0%, 15%, 45%, 100% { transform: translateY(0) rotate(0); }
