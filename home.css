@@ -264,6 +264,7 @@ figure { margin: 0; }
 .record-date, .record-detail { font-size: 12px; }
 .publication-authors strong { color: var(--ink); }
 .publication-title a { color: var(--ink); }
+.record-title > a:not(.course-notes-link) { color: var(--ink); }
 .publication-content { min-width: 0; }
 .site-footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); text-align: right; font-size: 12px; }
 .site-footer p { margin: 0; }
@@ -300,3 +301,5 @@ figure { margin: 0; }
 /* Indent section contents slightly under their headings. */
 .news-list, .record-list { padding-left: 7px; }
 @media (max-width: 600px) { .news-list, .record-list { padding-left: 4px; } }
+.record-title-link { color: inherit; }
+.record-title-link:hover { color: var(--accent); }
