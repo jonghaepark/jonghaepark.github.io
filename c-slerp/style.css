@@ -10,7 +10,7 @@ nav a { color: #4a4a4a; }
 nav a { display: inline-flex; align-items: center; padding: 0 4px; }
 nav a:hover { color: var(--accent-light); text-decoration: none; }
 .icon { display: inline-flex; align-items: center; justify-content: center; width: 1.5em; height: 1.5em; flex-shrink: 0; }
-.links a { display: inline-flex; align-items: center; gap: 0.35em; }
+.links a { display: inline-flex; align-items: center; gap: 0.1em; }
 main { max-width: 1120px; margin: auto; padding: 0 28px; }
 .hero { text-align: center; padding: 57px 0 38px; }
 .badge { margin: 10px 0 22px; color: #FA5543; font-size: 19px; font-weight: 600; }
