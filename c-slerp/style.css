@@ -318,4 +318,4 @@ strong { font-weight: 700; color: #363636; }
 @media (max-width: 600px) { #method > .method-lead { text-align: left; } }
 #tldr { margin-top: 46px; }
 #tldr + .section-rule { margin-top: 42px; }
-#tldr h2 { margin-bottom: 14px; font-size: 33px; }
+#tldr h2 { margin-bottom: 14px; font-size: 36.3px; }
