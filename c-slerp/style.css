@@ -316,4 +316,4 @@ strong { font-weight: 700; color: #363636; }
 @media (max-width: 600px) { #results .legend-note + .legend { margin-bottom: 34px; } }
 #method > .method-lead { text-align: justify; max-width: none; margin-left: 0; margin-right: 0; }
 @media (max-width: 600px) { #method > .method-lead { text-align: left; } }
-#tldr { margin-top: 46px; padding-bottom: 6px; }
+#tldr { margin-top: 46px; }
