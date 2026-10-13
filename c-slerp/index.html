@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../psd/static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <link rel="stylesheet" href="style.css?v=89">
+  <link rel="stylesheet" href="style.css?v=90">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="../psd/static/js/fontawesome.all.min.js"></script>
 </head>
@@ -431,6 +431,32 @@
         let paused = reduceMotion;
         let started = false;
         const thumbs = [];
+        // Ant's-eye view shown picture-in-picture for tasks that have one.
+        const PIP = { ant_extreme_maze: 'videos/ant_extreme_maze_view.mp4' };
+        const pip = document.createElement('div');
+        pip.className = 'stage-pip';
+        pip.setAttribute('aria-hidden', 'true');
+        pip.innerHTML = '<video muted playsinline preload="none"></video><span>Ant view</span>';
+        stage.appendChild(pip);
+        const pipVideo = pip.querySelector('video');
+        let pipOn = false;
+        function setPip(task){
+          pipOn = !!PIP[task.id];
+          pip.classList.toggle('is-on', pipOn);
+          if (!pipOn) { pipVideo.pause(); return; }
+          if (!pipVideo.src.endsWith(PIP[task.id])) pipVideo.src = PIP[task.id];
+          pipVideo.playbackRate = task.rate;
+          pipVideo.currentTime = active.currentTime;
+          if (!active.paused) pipVideo.play().catch(function(){});
+        }
+        (function syncPip(){
+          if (pipOn && pipVideo.readyState >= 2) {
+            if (active.paused && !pipVideo.paused) pipVideo.pause();
+            if (!active.paused && pipVideo.paused) pipVideo.play().catch(function(){});
+            if (Math.abs(pipVideo.currentTime - active.currentTime) > 0.12) pipVideo.currentTime = active.currentTime;
+          }
+          requestAnimationFrame(syncPip);
+        })();
 
         if (withThumbs && groupsEl) {
           ['Manipulation', 'Locomotion'].forEach(function(name){
@@ -465,6 +491,7 @@
           current = (index + tasks.length) % tasks.length;
           const task = tasks[current];
           const next = players.find(function(player){ return player !== active; });
+          pip.classList.remove('is-on'); pipOn = false;
           next.src = 'videos/' + task.id + '.mp4';
           next.poster = 'posters/' + task.id + '.jpg';
           next.currentTime = 0;
@@ -477,6 +504,7 @@
             active.pause();
             active = next;
             if (!paused) active.play().catch(function(){ paused = true; updateToggle(); });
+            setPip(task);
           }, { once: true });
           next.load();
           titleEl.textContent = task.title;
