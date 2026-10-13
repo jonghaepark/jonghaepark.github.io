@@ -327,8 +327,4 @@ strong { font-weight: 700; color: #363636; }
 #final-heading { font-size: 31px; }
 @media (max-width: 600px) { #final-heading { font-size: 22px; } }
 @media (min-width: 601px) { #final-heading span { background: linear-gradient(transparent 68%, rgba(224, 49, 49, 0.28) 68%, rgba(224, 49, 49, 0.28) 90%, transparent 90%); padding: 0 3px; } }
-.bibtex-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 10px 20px; border-bottom: 1px solid #e3e5e8; }
-#bibtex .bibtex-head h3 { margin: 0; font: 600 12.5px 'Google Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #6a6a6a; }
-.bibtex-head .bibtex-copy { position: static; }
-@media (max-width: 600px) { .bibtex-box pre { padding: 14px 12px; } .bibtex-head { padding: 8px 10px 8px 12px; } }
 .hook-line1 .hook-emph { margin-right: 0.12em; }
