@@ -296,8 +296,9 @@ strong { font-weight: 700; color: #363636; }
 .maze-side-bottom { top: var(--r2); }
 .maze-side li { display: flex; align-items: center; gap: 6px; }
 .maze-side svg { width: 12px; height: 12px; flex: none; }
-@media (min-width: 761px) { .maze-stage .maze-imgwrap { width: min(540px, 100%); } .maze-stage .maze-img:not(.maze-xtall) { width: 100%; } .maze-legend { display: none; } }
-@media (max-width: 760px) { .maze-side { display: none; } }
+@media (min-width: 761px) { .maze-stage .maze-imgwrap { width: min(540px, 100%); } .maze-stage .maze-img:not(.maze-xtall) { width: 100%; } }
+@media (min-width: 900px) { .maze-legend { display: none; } }
+@media (max-width: 899px) { .maze-side { display: none; } }
 .legend-note + .legend { margin-top: 6px; }
 @media (max-width: 600px) { .legend-note { font-size: 12px; } }
 .deck-q::before { content: ""; display: inline-block; width: 4px; height: 0.95em; margin-right: 9px; border-radius: 2px; background: #2b2b2b; vertical-align: -0.12em; }
@@ -319,4 +320,4 @@ strong { font-weight: 700; color: #363636; }
 #tldr { margin-top: 46px; }
 #tldr + .section-rule { margin-top: 42px; }
 #tldr h2 { margin-bottom: 14px; font-size: 33px; }
-@media (min-width: 761px) { .maze-stage .maze-imgwrap:has(.maze-xtall.is-active) { width: auto; } }
+@media (min-width: 900px) { .maze-stage .maze-imgwrap:has(.maze-xtall.is-active) { width: auto; } }
