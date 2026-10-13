@@ -331,3 +331,4 @@ strong { font-weight: 700; color: #363636; }
 #bibtex .bibtex-head h3 { margin: 0; font: 600 12.5px 'Google Sans', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #6a6a6a; }
 .bibtex-head .bibtex-copy { position: static; }
 @media (max-width: 600px) { .bibtex-box pre { padding: 14px 12px; } .bibtex-head { padding: 8px 10px 8px 12px; } }
+.hook-line1 .hook-emph { margin-right: 0.12em; }
