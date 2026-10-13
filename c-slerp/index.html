@@ -444,16 +444,23 @@
           pipOn = !!PIP[task.id];
           pip.classList.toggle('is-on', pipOn);
           if (!pipOn) { pipVideo.pause(); return; }
-          if (!pipVideo.src.endsWith(PIP[task.id])) pipVideo.src = PIP[task.id];
+          if (!pipVideo.src.endsWith(PIP[task.id])) { pipVideo.preload = 'auto'; pipVideo.src = PIP[task.id]; }
           pipVideo.playbackRate = task.rate;
-          pipVideo.currentTime = active.currentTime;
-          if (!active.paused) pipVideo.play().catch(function(){});
+          pipVideo.currentTime = 0;
         }
         (function syncPip(){
-          if (pipOn && pipVideo.readyState >= 2) {
-            if (active.paused && !pipVideo.paused) pipVideo.pause();
-            if (!active.paused && pipVideo.paused) pipVideo.play().catch(function(){});
-            if (Math.abs(pipVideo.currentTime - active.currentTime) > 0.12) pipVideo.currentTime = active.currentTime;
+          if (pipOn && pipVideo.readyState >= 2 && active.readyState >= 2) {
+            const rate = active.playbackRate || 1;
+            if (active.paused || active.ended) { if (!pipVideo.paused) pipVideo.pause(); }
+            else if (pipVideo.paused) pipVideo.play().catch(function(){});
+            const drift = pipVideo.currentTime - active.currentTime;
+            if (Math.abs(drift) > 0.35 || active.paused) {
+              if (Math.abs(drift) > 0.05) pipVideo.currentTime = active.currentTime;
+              pipVideo.playbackRate = rate;
+            } else {
+              // Small drift: nudge the speed instead of seeking, so the inset never stutters.
+              pipVideo.playbackRate = rate * (1 - Math.max(-0.15, Math.min(0.15, drift * 0.8)));
+            }
           }
           requestAnimationFrame(syncPip);
         })();
@@ -487,15 +494,23 @@
           toggle.setAttribute('aria-label', paused ? 'Play' : 'Pause');
         }
 
+        let loadSeq = 0;
+        let pendingPlayer = null, pendingHandler = null;
         function show(index){
           current = (index + tasks.length) % tasks.length;
           const task = tasks[current];
+          const seq = ++loadSeq;
+          // Drop any earlier switch that has not finished loading yet.
+          if (pendingPlayer && pendingHandler) pendingPlayer.removeEventListener('loadeddata', pendingHandler);
           const next = players.find(function(player){ return player !== active; });
-          pip.classList.remove('is-on'); pipOn = false;
+          pip.classList.remove('is-on'); pipOn = false; pipVideo.pause();
+          next.pause();
           next.src = 'videos/' + task.id + '.mp4';
           next.poster = 'posters/' + task.id + '.jpg';
-          next.currentTime = 0;
-          next.addEventListener('loadeddata', function(){
+          const onReady = function(){
+            if (seq !== loadSeq) return;
+            pendingPlayer = pendingHandler = null;
+            next.currentTime = 0;
             next.playbackRate = task.rate;
             next.classList.add('is-active');
             next.removeAttribute('aria-hidden');
@@ -503,9 +518,11 @@
             active.setAttribute('aria-hidden', 'true');
             active.pause();
             active = next;
-            if (!paused) active.play().catch(function(){ paused = true; updateToggle(); });
             setPip(task);
-          }, { once: true });
+            if (!paused) active.play().catch(function(){ paused = true; updateToggle(); });
+          };
+          pendingPlayer = next; pendingHandler = onReady;
+          next.addEventListener('loadeddata', onReady, { once: true });
           next.load();
           titleEl.textContent = task.title;
           suiteEl.textContent = task.suite;
