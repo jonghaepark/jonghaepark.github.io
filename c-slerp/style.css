@@ -324,5 +324,5 @@ strong { font-weight: 700; color: #363636; }
 .stage-pip.is-on { opacity: 1; }
 .stage-pip video { display: block; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 600px) { .stage-pip { right: calc(50% + 6px); top: 6px; width: 20%; border-radius: 6px; border-width: 1.5px; } }
-#final-heading { font-size: 39px; }
-@media (max-width: 600px) { #final-heading { font-size: 33px; } }
+#final-heading { font-size: 34.5px; }
+@media (max-width: 600px) { #final-heading { font-size: 22px; } }
