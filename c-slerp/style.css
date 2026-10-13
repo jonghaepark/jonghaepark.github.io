@@ -319,3 +319,4 @@ strong { font-weight: 700; color: #363636; }
 #tldr { margin-top: 46px; }
 #tldr + .section-rule { margin-top: 42px; }
 #tldr h2 { margin-bottom: 10.5px; font-size: 36.3px; }
+#teaser-showcase { max-width: 738px; }
