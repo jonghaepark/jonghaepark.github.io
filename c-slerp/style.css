@@ -327,3 +327,4 @@ strong { font-weight: 700; color: #363636; }
 #final-heading { font-size: 31px; }
 @media (max-width: 600px) { #final-heading { font-size: 22px; } }
 @media (min-width: 601px) { #final-heading span { background: linear-gradient(transparent 68%, rgba(224, 49, 49, 0.28) 68%, rgba(224, 49, 49, 0.28) 90%, transparent 90%); padding: 0 3px; } }
+#bibtex h3 { margin-top: 0; }
