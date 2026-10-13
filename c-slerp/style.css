@@ -29,7 +29,7 @@ sup { font-size: 0.7em; }
 h2 { text-align: center; color: #363636; font-size: 30px; font-weight: 600; line-height: 1.125; margin-bottom: 20px; }
 .placeholder { text-align: center; color: #7c8792; }
 .text-section p { text-align: justify; hyphens: auto; font-size: 16px; line-height: 1.6; }
-p.hook { max-width: 1040px; margin: 53px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 22.9px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
+p.hook { max-width: 1040px; margin: 50px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 22.9px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
 .hook-text { display: block; text-box: trim-both cap alphabetic; }
 .hook-line1 { font-size: 1.17em; }
 .hook-emph { font-style: normal; color: #111; padding: 0 0.05em 0.18em; background: linear-gradient(transparent 71%, rgba(89, 139, 231, 0.32) 71%, rgba(89, 139, 231, 0.32) 100%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
