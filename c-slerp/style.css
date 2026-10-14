@@ -29,9 +29,9 @@ sup { font-size: 0.7em; }
 h2 { text-align: center; color: #363636; font-size: 30px; font-weight: 600; line-height: 1.125; margin-bottom: 20px; }
 .placeholder { text-align: center; color: #7c8792; }
 .text-section p { text-align: justify; hyphens: auto; font-size: 16px; line-height: 1.6; }
-p.hook { max-width: 1040px; margin: 50px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 22.9px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
+p.hook { max-width: 1040px; margin: 50px auto 100px; padding: 0 24px; text-align: center; font-family: 'Castoro', 'Times New Roman', Times, serif; font-size: 23.9px; font-style: italic; font-weight: 400; line-height: 1.78; color: #2b2b2b; text-wrap: balance; }
 .hook-text { display: block; text-box: trim-both cap alphabetic; }
-.hook-line1 { font-size: 1.17em; }
+.hook-line1 { font-size: 1.12em; }
 .hook-emph { font-style: normal; color: #111; padding: 0 0.05em 0.18em; background: linear-gradient(transparent 71%, rgba(89, 139, 231, 0.32) 71%, rgba(89, 139, 231, 0.32) 100%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .nowrap { white-space: nowrap; }
 .quote-mark { font-size: 1.6em; line-height: 0; position: relative; top: 0.22em; color: #9a9a9a; margin: 0 0.06em; }
@@ -39,7 +39,7 @@ footer { display: flex; align-items: center; justify-content: center; background
 footer a { display: inline-flex; align-items: center; padding: 0 4px; color: #4a4a4a; }
 footer a:hover { color: var(--accent-light); text-decoration: none; }
 @media (max-width: 600px) {
-  p.hook { font-size: 17.7px; padding: 0; }
+  p.hook { font-size: 18.5px; padding: 0; }
   .nowrap { white-space: normal; }
   main { padding: 0 18px; }
   .hero { padding-top: 36px; }
@@ -306,7 +306,7 @@ strong { font-weight: 700; color: #363636; }
 .bibtex-copy { position: absolute; top: 10px; right: 10px; padding: 4px 12px; border: 1px solid #dcdcdc; border-radius: 8px; background: #fff; color: #555; font: 600 12.5px 'Google Sans', sans-serif; cursor: pointer; }
 .bibtex-copy:hover { color: var(--accent); border-color: #cfd8ea; }
 @media (max-width: 600px) { .bibtex-box pre { font-size: 10.5px; padding: 40px 12px 14px; } }
-.hook-line1 .hook-emph { font-style: italic; background: linear-gradient(transparent 75.2%, rgba(89, 139, 231, 0.32) 75.2%, rgba(89, 139, 231, 0.32) 100%); }
+.hook-line1 .hook-emph { font-style: italic; background: linear-gradient(transparent 74.1%, rgba(89, 139, 231, 0.32) 74.1%, rgba(89, 139, 231, 0.32) 100%); }
 .hook-line1 .hook-emph { padding-right: 0; background-size: calc(100% - 0.1em) 100%; background-repeat: no-repeat; }
 #results .showcase-results { margin-top: 18px; }
 #results .legend-note { margin-top: 16px; }
