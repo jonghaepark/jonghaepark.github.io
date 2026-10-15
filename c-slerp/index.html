@@ -186,11 +186,11 @@
       <h2 id="results-heading">Experimental Results</h2>
       <div class="showcase showcase-results" id="all-tasks-showcase">
         <div class="stage" data-key="all">
-          <video class="stage-video is-active" muted playsinline preload="auto" poster="posters/5_tower_gripper.jpg" aria-label="C-Slerp rollout"></video>
+          <video class="stage-video is-active" muted playsinline preload="auto" poster="posters/ant_extreme_maze.jpg" aria-label="C-Slerp rollout"></video>
           <video class="stage-video" muted playsinline preload="auto" aria-hidden="true"></video>
           <div class="stage-caption">
-            <span class="stage-title">5-tower (gripper)</span>
-            <span class="stage-suite">BuilderBench</span>
+            <span class="stage-title">Ant Extreme Maze</span>
+            <span class="stage-suite">JaxGCRL</span>
           </div>
           <button class="stage-toggle" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="icon-play" d="M8 5.5v13l11-6.5z"/></svg></button>
           <div class="stage-progress"><i class="stage-bar"></i></div>
@@ -429,7 +429,7 @@
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       // A crossfading player that loops through `tasks`; thumbnails are optional.
-      function showcase(root, tasks, withThumbs){
+      function showcase(root, tasks, withThumbs, firstIndex){
         const stage = root.querySelector('.stage');
         const players = Array.from(stage.querySelectorAll('.stage-video'));
         const titleEl = stage.querySelector('.stage-title');
@@ -565,7 +565,7 @@
         });
 
         // Start (and keep playing) only while the player is on screen.
-        const start = function(){ if (!started) { started = true; show(0); } };
+        const start = function(){ if (!started) { started = true; show(firstIndex || 0); } };
         if ('IntersectionObserver' in window) {
           new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
@@ -581,7 +581,7 @@
       // Teaser: 5-tower (gripper) and Ant Extreme Maze, alternating.
       showcase(document.getElementById('teaser-showcase'), [byId('5_tower_gripper'), byId('ant_extreme_maze')], false);
       // Results: every task, with thumbnails.
-      showcase(document.getElementById('all-tasks-showcase'), ALL, true);
+      showcase(document.getElementById('all-tasks-showcase'), ALL, true, ALL.findIndex(function(t){ return t.id === 'ant_extreme_maze'; }));
     })();
   </script>
   <script>
