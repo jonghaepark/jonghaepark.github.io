@@ -329,3 +329,5 @@ strong { font-weight: 700; color: #363636; }
 @media (min-width: 601px) { #final-heading span { background: linear-gradient(transparent 68%, rgba(224, 49, 49, 0.28) 68%, rgba(224, 49, 49, 0.28) 90%, transparent 90%); padding: 0 3px; } }
 .hook-line1 .hook-emph { margin-right: 0.12em; }
 @media (max-width: 600px) { h1 { font-size: 32.4px; margin-bottom: 22px; } }
+/* Teaser demo is narrower (701px vs 820px); scale its caption chip by the same ratio. */
+@media (min-width: 601px) { #teaser-showcase .stage-caption { left: 10px; top: 10px; transform: scale(0.855); transform-origin: top left; } }
