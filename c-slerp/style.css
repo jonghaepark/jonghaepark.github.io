@@ -320,10 +320,10 @@ strong { font-weight: 700; color: #363636; }
 #tldr + .section-rule { margin-top: 42px; }
 #tldr h2 { margin-bottom: 10.5px; font-size: 34.5px; }
 #teaser-showcase { max-width: 701px; }
-.stage-pip { position: absolute; right: calc(50% + 12px); top: 12px; width: 17%; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; border: 2px solid rgba(255, 255, 255, 0.92); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28); background: #f3e6c8; opacity: 0; transition: opacity 0.45s ease; pointer-events: none; }
+.stage-pip { position: absolute; right: calc(50% + 12px); top: 12px; width: 13%; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden; border: 2px solid rgba(255, 255, 255, 0.92); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28); background: #f3e6c8; opacity: 0; transition: opacity 0.45s ease; pointer-events: none; }
 .stage-pip.is-on { opacity: 1; }
 .stage-pip video { display: block; width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 600px) { .stage-pip { right: calc(50% + 6px); top: 6px; width: 14%; border-radius: 6px; border-width: 1.5px; } }
+@media (max-width: 600px) { .stage-pip { right: calc(50% + 6px); top: 6px; width: 11%; border-radius: 6px; border-width: 1.5px; } }
 #final-heading { font-size: 31px; }
 @media (max-width: 600px) { #final-heading { font-size: 22px; } }
 @media (min-width: 601px) { #final-heading span { background: linear-gradient(transparent 68%, rgba(224, 49, 49, 0.28) 68%, rgba(224, 49, 49, 0.28) 90%, transparent 90%); padding: 0 3px; } }
