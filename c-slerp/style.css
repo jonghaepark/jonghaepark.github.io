@@ -331,3 +331,5 @@ strong { font-weight: 700; color: #363636; }
 @media (max-width: 600px) { h1 { font-size: 32.4px; margin-bottom: 22px; } }
 /* Teaser demo is narrower (701px vs 820px); scale its caption chip by the same ratio. */
 @media (min-width: 601px) { #teaser-showcase .stage-caption { left: 10px; top: 10px; transform: scale(0.855); transform-origin: top left; } }
+/* Mobile: shrink affiliations, equal-contribution note and links by one factor (0.8) so affiliations match author names (16px). */
+@media (max-width: 600px) { .affiliations { font-size: 16px; } .equal { font-size: 11.8px; } .links a { font-size: 16.8px; } }
