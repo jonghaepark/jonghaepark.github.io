@@ -447,7 +447,7 @@
         const pip = document.createElement('div');
         pip.className = 'stage-pip';
         pip.setAttribute('aria-hidden', 'true');
-        pip.innerHTML = '<video muted playsinline preload="none"></video>';
+        pip.innerHTML = '<video muted playsinline webkit-playsinline preload="none"></video>';
         stage.appendChild(pip);
         const pipVideo = pip.querySelector('video');
         let pipOn = false;
@@ -455,15 +455,22 @@
           pipOn = !!PIP[task.id];
           pip.classList.toggle('is-on', pipOn);
           if (!pipOn) { pipVideo.pause(); return; }
-          if (!pipVideo.src.endsWith(PIP[task.id])) { pipVideo.preload = 'auto'; pipVideo.src = PIP[task.id]; }
+          // Mobile Safari only fetches a video once play() is called, so start it explicitly.
+          pipVideo.muted = true; pipVideo.defaultMuted = true; pipVideo.playsInline = true;
+          pipVideo.setAttribute('playsinline', ''); pipVideo.setAttribute('webkit-playsinline', '');
+          if (!pipVideo.src.endsWith(PIP[task.id])) { pipVideo.preload = 'auto'; pipVideo.src = PIP[task.id]; pipVideo.load(); }
           pipVideo.playbackRate = task.rate;
-          pipVideo.currentTime = 0;
+          try { pipVideo.currentTime = 0; } catch (e) {}
+          if (!active.paused) pipVideo.play().catch(function(){});
         }
+        let lastPipPlay = 0;
         (function syncPip(){
+          if (pipOn && !active.paused && !active.ended && pipVideo.paused && performance.now() - lastPipPlay > 500) {
+            lastPipPlay = performance.now(); pipVideo.play().catch(function(){});
+          }
           if (pipOn && pipVideo.readyState >= 2 && active.readyState >= 2) {
             const rate = active.playbackRate || 1;
             if (active.paused || active.ended) { if (!pipVideo.paused) pipVideo.pause(); }
-            else if (pipVideo.paused) pipVideo.play().catch(function(){});
             const drift = pipVideo.currentTime - active.currentTime;
             if (Math.abs(drift) > 0.35 || active.paused) {
               if (Math.abs(drift) > 0.05) pipVideo.currentTime = active.currentTime;
