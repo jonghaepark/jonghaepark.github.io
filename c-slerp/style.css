@@ -15,7 +15,7 @@ main { max-width: 1120px; margin: auto; padding: 0 28px; }
 .hero { text-align: center; padding: 57px 0 38px; }
 .badge { margin: 10px 0 22px; color: #FA5543; font-size: 19px; font-weight: 600; }
 h1 { margin: 0 auto 28px; font-family: 'Google Sans', sans-serif; color: #363636; font-size: clamp(25px, 3.05vw, 42px); letter-spacing: normal; line-height: 1.125; font-weight: 600; text-wrap: balance; }
-.authors { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 20px; font-family: 'Google Sans', sans-serif; font-size: 24.9px; }
+.authors { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 20px; font-family: 'Google Sans', sans-serif; font-size: 23.33px; }
 .authors span { white-space: nowrap; }
 .authors a.author-emphasis { color: var(--accent); }
 .authors a.author-emphasis:hover { color: var(--accent-light); }
